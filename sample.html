@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background: #ccc;
+            color: blueviolet;
+            font-size: 20px;
+            border:10px solid rgba(100, 80, 20, 50);
+            border-top: 10px dashed #000;
+            border-bottom: 10px double #000;
+        }
+        h1{
+            color: rgba(100, 100, 50, 1);
+            font-weight: 400;
+            font-family: "微軟正黑體";
+        }
+        .text{
+            color: rgb(70, 250, 250);
+        }
+        .text+ul{}
+        a:link{
+            text-decoration: none;
+            color:white;
+        }
+        a:visited{
+            color: #ffffff;
+        }
+        a:hover{
+            color:blue
+        }
+        a:active{
+            color:blue;
+        }
+        li{
+            list-style: none;
+            list-style-image:url('images/dot.gif')
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>我是標題</h1>
+        <p class="text print">我是內文</p>
+        <ul >
+            <li id=important><a href="">項目1</a></li>
+            <li><a href="">項目2</a></li>
+            <li><a href="">項目3</a></li>
+        </ul>
+    </div>
+</body>
+</html>
