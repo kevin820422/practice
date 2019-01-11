@@ -1,0 +1,97 @@
+<<<<<<< HEAD
+*{
+    box-sizing: border-box
+}  
+
+header{
+    width: 100%;
+    height: 250px;
+    background-image: url(banner.jpg);
+    background-size: cover;
+    padding: 130px 0 0 5%;
+
+}
+
+h1{
+    width: 500px;
+    padding: 5px 30px;
+    font-size: 32px;
+    color: rgb(170, 170, 170);
+    border-radius: 20px;
+    background: -moz-linear-gradient(-45deg, rgba(206,214,97,0) 0%, rgba(206,214,97,0) 1%, rgba(213,218,99,0.77) 15%, rgba(244,235,107,0.2) 78%, rgba(244,235,107,0) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(206,214,97,0) 0%,rgba(206,214,97,0) 1%,rgba(213,218,99,0.77) 15%,rgba(244,235,107,0.2) 78%,rgba(244,235,107,0) 100%);
+    background: linear-gradient(135deg, rgba(206,214,97,0) 0%,rgba(206,214,97,0) 1%,rgba(213,218,99,0.77) 15%,rgba(244,235,107,0.2) 78%,rgba(244,235,107,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ced661', endColorstr='#00f4eb6b',GradientType=1 );
+    font-family: "AdobeMingStd-Light";
+
+}
+
+nav ul li{
+    display: inline-block
+}
+
+nav{
+    width: 100%;
+    padding: 20px 50px 20px 5%;
+    background-color: rgb(101, 102, 65)
+}   
+
+nav ul li a,nav ul li a:visited{
+    color:rgb(170,170,170);
+    /* border-radius: 20px; */
+    font-size: 20px;
+    padding: 10px 36px 10px 25px;
+    text-decoration: none
+}
+nav ul li a:hover, nav ul li a:active{
+    background: url(images/icon.gif) no-repeat right 50%;
+}
+=======
+*{
+    box-sizing: border-box
+}  
+
+header{
+    width: 100%;
+    height: 250px;
+    background-image: url(banner.jpg);
+    background-size: cover;
+    padding: 130px 0 0 5%;
+
+}
+
+h1{
+    width: 500px;
+    padding: 5px 30px;
+    font-size: 32px;
+    color: rgb(170, 170, 170);
+    border-radius: 20px;
+    background: -moz-linear-gradient(-45deg, rgba(206,214,97,0) 0%, rgba(206,214,97,0) 1%, rgba(213,218,99,0.77) 15%, rgba(244,235,107,0.2) 78%, rgba(244,235,107,0) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(206,214,97,0) 0%,rgba(206,214,97,0) 1%,rgba(213,218,99,0.77) 15%,rgba(244,235,107,0.2) 78%,rgba(244,235,107,0) 100%);
+    background: linear-gradient(135deg, rgba(206,214,97,0) 0%,rgba(206,214,97,0) 1%,rgba(213,218,99,0.77) 15%,rgba(244,235,107,0.2) 78%,rgba(244,235,107,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ced661', endColorstr='#00f4eb6b',GradientType=1 );
+    font-family: "AdobeMingStd-Light";
+
+}
+
+nav ul li{
+    display: inline-block
+}
+
+nav{
+    width: 100%;
+    padding: 20px 50px 20px 5%;
+    background-color: rgb(101, 102, 65)
+}   
+
+nav ul li a,nav ul li a:visited{
+    color:rgb(170,170,170);
+    /* border-radius: 20px; */
+    font-size: 20px;
+    padding: 10px 36px 10px 25px;
+    text-decoration: none
+}
+nav ul li a:hover, nav ul li a:active{
+    background: url(images/icon.gif) no-repeat right 50%;
+}
+>>>>>>> 0ec1744de7859d1f3b534e62c84139df97229024
