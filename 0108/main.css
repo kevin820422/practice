@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box
+}
+header{
+    height: 360px;
+    padding: 50px;
+    background-image: url(images/wallpaper-1792513.jpg)
+}
+header h1{
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif,"微軟正黑體"
+    /* 中文字要寫在後面 */
+}
+nav{
+    padding: 20px 50px 20px 50px;
+    background-color: rgb(147, 180, 211)
+}
+nav ul li{
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 15px
+}
+nav ul li a,nav ul li a:visited{
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 10px 25px;
+    background-color: #4acee6;
+    text-decoration: none
+}
+nav ul li a:hover, nav ul li a:active{
+    background-color: rgb(47, 46, 92)
+}
+section{
+    width: 75%;
+    padding: 20px;
+    float: left;
+}
+section h2{
+    font-size: 18px;
+    line-height: 26px;
+    background: url(images/dot.gif) no-repeat left 50%;
+    padding-left: 20px;
+}
+section article{
+
+    column-count: 3;
+    column-rule: 1px solid black;
+    column-gap: 2em;
+    font-size: 1em;
+    line-height: 2em;
+    text-align: justify 
+}
+aside{
+    width: 25%;
+    padding: 50px;
+    background: rgb(160, 160, 160);
+    float: right;
+}
+footer{
+    color: honeydew;
+    background: #363e3f;
+    padding:50px;
+    text-align: center;
+    font-size: 20px;
+    clear: both
+}
+h2{
+    color: blue;
+    font-size: 26px;
+    line-height: 52px;
+}

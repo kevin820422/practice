@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+}
+.wrap{
+    min-width: 1366px; 
+    margin-top:15px; 
+    background:  url(images/main_bg.png) no-repeat 0 0, url(images/main_bg.jpg) no-repeat 0 0;
+    background-size: contain, contain;
+    background-attachment: fixed;
+ 
+}
+nav{
+    width: 100%;
+    height: 74px;
+    background: #000000;
+    padding: 17px 74px;
+    display:inline-block;
+    position: fixed;
+    top: 0px;
+}
+
+nav div img{
+    max-height: 40px;
+}
+nav div ul {
+    float: right;
+}
+nav li{
+    margin:10.4px;    
+    float: left;
+}
+nav div ul li a, nav ul li a:visited{    
+    color:#fff;
+    font-family: "微軟正黑體";
+    font-weight: 700;
+    text-decoration: none;
+}
+nav div ul li a:active, nav ul li a:hover{
+    color: rgb(165, 165, 165)
+
+}
+nav div ul li a.button, nav ul li a.button:visited{
+    padding: 10px 26px;
+    border-radius: 25px;
+    color: #000000;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    background: #faa818;
+}
+section{
+    text-align: center;
+    position: relative;
+}
+.area1{
+    height: 780px;
+}
+.slogon {
+    position: relative;
+    top: 250px;
+    font-family: "微軟正黑體";
+    margin-bottom:8px;   
+}
+.slogon h1,.slogon h3,.slogon p{
+    margin-bottom: 8px;
+
+}
+.slogon h3{
+    color:#632f91;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 62.4px;
+}
+.slogon p{
+    font-size: 24px;
+    line-height: 38.4px;
+}
+.gogo{
+    display: inline;
+    font-size: 25.6px;
+    line-height: 38.4px;
+    font-weight: 900;
+    padding: 0 15px
+}
+
+.gogo span{
+
+    padding:2.4px 12.8px;
+    margin-right: 8px;
+    font-size: 20.48px;
+    
+    color: white;
+    background: #632f91;
+    border-radius:20px;
+}
+.ticketarea{
+
+}
+.ticket{
+    width: 100%;
+    height: 126px;
+    background: #3181bfb3;
+    padding: 48.5px 0 0 0;
+    z-index: 3;
+    display: block;
+}
+.ticket a,.ticket a:visited{
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    font-family: "微軟正黑體";
+    text-decoration: none;
+    padding: 21px 42px;
+
+    border-radius: 35px;
+    background: #faa818;
+
+}
+.ticket a:hover, .ticket a:active{
+    color: white;
+    background: #fd7e14; 
+}
+#whitebutt{
+    background: white;
+}
