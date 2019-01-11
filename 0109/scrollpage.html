@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,4 +103,110 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
     <script src="script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/lightbox.js"></script>
+    <link href="css/lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        nav{
+            background: rgb(0, 0, 0, .7);
+            width: 100%;
+            padding: 30px;
+            position: fixed;
+            top:0px;
+        }
+        nav ul{
+            width: 100%; /* 解析小於1480px,以100%顯示 */           
+            max-width: 1480px;  /* 解析大於1480,以1480顯示 */
+            margin: 0 auto;
+        }
+        nav ul li{
+            display: inline;
+            
+        }
+        nav ul li a, nav ul li a:visited{
+            color: white;
+        }
+        .area{
+            padding:50px;
+            width: 100%;
+            max-width: 1480px;
+            height: 1000px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 30px #000;
+        }
+        #area1{
+            background: url(images/puckered.png) no-repeat 0 0;
+            background-size: cover;
+            background-attachment: fixed;  
+        }
+        #area2{
+            background: url(images/slide2.jpg) no-repeat 0 0;
+            background-size: cover;
+            background-attachment: fixed; 
+        }
+        #area3{
+            background: url(images/slide3.jpg) no-repeat 0 0;
+            background-size: cover;
+            background-attachment: fixed;  
+        }
+        #area4{
+            background: url(images/slide4.jpg) no-repeat 0 0;
+            background-size: cover;
+            background-attachment: fixed; 
+        }
+        footer a{
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: rgb(255, 216, 41);
+            font-size: 20px;
+            color: #ff0000;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 50%;
+            text-decoration: none;
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#area1">頁面1</a></li>
+            
+            <li><a href="#area2">頁面2</a></li>
+            
+            <li><a href="#area3">頁面3</a></li>
+            
+            <li><a href="#area4">頁面4</a></li>
+            
+        </ul>
+    </nav>
+    <section class="area" id="area1"></section>
+    <section class="area" id="area2"></section>
+    <section class="area" id="area3">
+        <a href="images/image-1.jpg" rel="lightbox[roadtrip]"><img src="images/thumb-1.jpg" alt=""></a>
+        <a href="images/image-2.jpg" rel="lightbox[roadtrip]"><img src="images/thumb-2.jpg" alt=""></a>
+        <a href="images/image-3.jpg" rel="lightbox[roadtrip]"><img src="images/thumb-3.jpg" alt=""></a>
+    </section>
+    <section class="area" id="area4"></section>
+    <footer><a class="up" href="#area1">Top</a></footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="script.js"></script>
+</body>
+>>>>>>> 0ec1744de7859d1f3b534e62c84139df97229024
 </html>
