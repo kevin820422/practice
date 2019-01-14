@@ -1,3 +1,9 @@
+html body{
+    font-family: "微軟正黑體";
+
+}
+
+
 *{
     box-sizing: border-box;
 }
@@ -17,6 +23,7 @@ nav{
     display:inline-block;
     position: fixed;
     top: 0px;
+    z-index: 1;
 }
 
 nav div img{
@@ -31,7 +38,6 @@ nav li{
 }
 nav div ul li a, nav ul li a:visited{    
     color:#fff;
-    font-family: "微軟正黑體";
     font-weight: 700;
     text-decoration: none;
 }
@@ -58,7 +64,6 @@ section{
 .slogon {
     position: relative;
     top: 250px;
-    font-family: "微軟正黑體";
     margin-bottom:8px;   
 }
 .slogon h1,.slogon h3,.slogon p{
@@ -80,7 +85,7 @@ section{
     font-size: 25.6px;
     line-height: 38.4px;
     font-weight: 900;
-    padding: 0 15px
+    padding: 0 15px;
 }
 
 .gogo span{
@@ -108,7 +113,6 @@ section{
     font-size: 20px;
     font-weight: 700;
     color: #000000;
-    font-family: "微軟正黑體";
     text-decoration: none;
     padding: 21px 42px;
 
@@ -122,4 +126,30 @@ section{
 }
 #whitebutt{
     background: white;
+}
+.timetable{
+    background: #de217ccc;
+}
+.timetable h2{
+    font-size: 48px;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.timetable table{
+    background: #fff;
+    border-radius: 8px;
+}
+.time{
+    font-size: 18px;
+    font-weight: 600;
+}
+.time h2{
+    color: #632f91;
+    font-size: 32px;
+    font-weight: 700;
+}
+.time span{
+    font-size: 22.4px;
+    font-weight: 600;
 }
