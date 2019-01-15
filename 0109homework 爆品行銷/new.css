@@ -17,6 +17,16 @@ body{
 section{
     text-align: center;
 }
+h2{
+    font-size: 36px;
+    color: #632f91;
+    font-weight: bolder;
+}
+h4{
+    font-size: 48px;
+    color: white;
+    font-weight: bolder;
+}
 header{
     width: 100%;
     height: 75px;
@@ -89,10 +99,30 @@ nav ul li a{
 #area2{
     width: 100%;
     height: 124px;
-    background: #3181bfb3
+    background: #3181bfb3;
+}
+#area2 .container{
+    width: 100%;
+    height: 124px;
+    line-height: 124px
 }
 #area2 .container .sign-button{
     display: inline;
-    margin: 0 10px
-        
+    margin: 0 10px   
+}
+#area2 .container .sign-button a{
+    font-size: 20px;
+    padding:21px 42px;
+    border-radius: 50px
+}
+#area3{
+    background:#463895b3
+}
+#area3 .container{
+    width: 100%;
+    padding: 30px
+}
+table{
+    background: white;
+    border-radius: 15px
 }
