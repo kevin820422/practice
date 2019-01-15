@@ -10,8 +10,9 @@ html body{
 .wrap{
     min-width: 1366px; 
     margin-top:15px; 
+    min-height: 933px;
     background:  url(images/main_bg.png) no-repeat 0 0, url(images/main_bg.jpg) no-repeat 0 0;
-    background-size: contain, contain;
+    background-size: cover, cover;
     background-attachment: fixed;
  
 }
@@ -97,8 +98,6 @@ section{
     color: white;
     background: #632f91;
     border-radius:20px;
-}
-.ticketarea{
 
 }
 .ticket{
@@ -139,10 +138,12 @@ section{
 .timetable table{
     background: #fff;
     border-radius: 8px;
+    vertical-align: middle;
 }
 .time{
     font-size: 18px;
     font-weight: 600;
+    text-align: right;
 }
 .time h2{
     color: #632f91;
