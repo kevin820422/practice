@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,70 +8,215 @@
     <title>Document</title>
     <link rel="stylesheet" href="reset.css">
     <style>
-        header{
+        *{
+            box-sizing: border-box
+        }
+        html body{
+            font-family: "微軟正黑體"
+        }
+        header {
             width: 100%;
             background-color: #01277a;
             overflow: auto;
         }
-        nav{
+
+        nav {
             width: 100%;
             max-width: 1100px;
-            margin:0 auto;
+            margin: 0 auto;
         }
-        .brand{
+
+        .brand {
             float: left;
         }
-        .brand img{
+
+        .brand img {
             vertical-align: middle;
         }
-        nav ul{
+
+        nav ul {
             float: right;
         }
-        nav ul li{
+
+        nav ul li {
             float: left;
         }
-        nav ul li a{
-			color: rgba(255,255,255,0.5) ;
-			text-decoration: none ;
-			line-height: 65px;
-			padding:0 5px; 
+
+        nav ul li a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            line-height: 65px;
+            padding: 0 5px;
         }
-        .logo{
+
+        .logo {
             height: 37px;
             width: 10px;
             display: inline-block;
         }
-        .maincover{
+
+        .maincover {
             width: 100%;
             height: 880px;
             background: #ffc800 url(images/lead_02.png) no-repeat 0 bottom;
         }
-        .mainline{
+
+        .mainline {
             height: 23px;
             background: url(images/lead_01.png) repeat 0 0;
         }
-        .maincover .container{
+
+        .maincover .container {
             width: 1100px;
             margin: 0 auto;
             text-align: center
         }
-        .maincover .day{
+
+        .maincover .day {
             text-align: left;
             width: 90%;
             margin: auto;
         }
+
+        .schedule {
+            width: 1100px;
+            margin: auto;
+            margin-top: -100px;
+            overflow: auto; /*由子層撐開邊界*/
+            padding-bottom: 3em;
+        }
+
+        h2 {
+            font-size: 36px;
+            text-align: center;
+            line-height: 2em;
+            /*原本自高的兩倍*/
+
+        }
+
+        .schedule .left, .schedule .right {
+            width: 48%;
+            float: left;
+            margin:0 1%;
+
+        }
+
+        .schedule .time-pop {
+            width: 100px;
+            height: 100px;
+            background: #00437e;
+            color: white;
+            border-radius: 50%;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            display: inline-block;
+            padding: 15px 0;
+            vertical-align: middle
+
+        }
         
+        .schedule .time-day{
+            font-size: 18px
+        }
+        .schedule h3{
+            font-size: 30px;
+            color: #0051bd;
+            font-weight: 700;
+            line-height: 1.35;
+            border-top: 1px solid #cccccc;
+            padding: 15px;
+            margin-top: -50px;
+            text-align: center;
+        }
+        .schedule h4{
+            font-size: 23px;
+            color: #4595db;
+            text-align: center;
+            border: 2px dotted #ccc;
+            padding: 10px 0;
+        }
+        .schedule h6{
+            color: #686868;
+            font-weight: 900;
+            text-align: center;
+            padding: 8px 0
+        }
+        .schedule .text-left{
+            border-bottom: 1px solid #999 ;
+			border-top: 1px solid #999 ;
+			padding: 5px 0 ;
+        }
+        .title_sty01{
+            font-size: 23px;
+            color:#ff8521;
+            padding:10px 0;
+            font-weight: 700
+        }
+        .schedule ul{
+            list-style: disc;
+            list-style-position: inside;
+         
+        }
+        .schedule ul li{
+            font-size: 17px;
+            color: #666666;
+            line-height: 1.8
+        }
+        /* ----------------------------------------------------speaker------ */
+        #speaker{
+            background: #ffc800;
+            padding: 18px 0;
+            overflow: auto;
+            
+        }
+        #speaker .left{
+            width: 50%;
+            float:left;
+            padding: 24px;
+
+        }
+        #speaker .right{
+            width: 50%;
+            float: right;
+        }
+        #speaker .container{
+            width: 1100px;
+            margin: auto;
+                
+        }
+        #speaker h2{
+            text-align: center;
+            font-size: 2em;
+            line-height: 3em;
+        }
+
+        #speaker .img-left{
+            float: left;
+            /* overflow: auto; */
+            margin-right: 10px;
+        }
+
+        .img-left img{
+            width: 160px;
+            height: auto;
+        }
+        .text-right{
+            display: inline-block;
+            width: 260px;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
             <div class="brand">
                 <a href=""><img src="images/mtlogo.svg" alt=""></a>
                 <a href=""><img src="images/mtschool.svg" alt=""></a>
-            
-            <span class="logo"></span>
-        </div>
+
+                <span class="logo"></span>
+            </div>
             <ul>
                 <LI><a href="">ITEM1</a></LI>
                 <LI><a href="">ITEM2</a></LI>
@@ -93,57 +239,89 @@
         </div>
     </div>
     <div class="schedule">
-        <h2></h2>
+        <h2>精彩議程</h2>
         <div class="left">
-                <div class="time-pop">
-                        <span class="time-day">DAY 1</span><br>
-                        4/24
-                    </div>
-                    <h3>教練領導學</h3>
-                    <h4>激發部屬潛能 x 引導自主成長</h4>
-                    <h6>陳煥庭／起初國際台灣分公司執行長</h6>
-                    <p class="text-left">09:30 - 17:00</p>
-                    <p class="title_sty01">教練式領導力</p>
-                    <ul>
-                      <li>激發潛能的教練式領導</li>
-                      <li> 部屬需要教練式領導的時機</li>
-                      <li> 對話的關鍵技巧：讚美與激勵</li>
-                    </ul>
-                    <p class="title_sty01"> 教練式領導四流程</p>
-                    <ul>
-                      <li>了解部屬狀態：融入與抽離的提問技巧</li>
-                      <li> 建立信賴關係：同理心訓練＋自我表露技術</li>
-                      <li> 釐清問題核心：有效溝通的深度探詢</li>
-                      <li> 持續成長動能：引導改變的策略</li>
-                    </ul>
-                    <p class="title_sty01"> 實務個案練習</p>
-
+            <div class="time-pop">
+                <span class="time-day">DAY 1</span><br>
+                4/24
+            </div>
+            <h3>教練領導學</h3>
+            <h4>激發部屬潛能 x 引導自主成長</h4>
+            <h6>陳煥庭／起初國際台灣分公司執行長</h6>
+            <p class="text-left">09:30 - 17:00</p>
+            <p class="title_sty01">教練式領導力</p>
+            <ul>
+                <li>激發潛能的教練式領導</li>
+                <li> 部屬需要教練式領導的時機</li>
+                <li> 對話的關鍵技巧：讚美與激勵</li>
+            </ul>
+            <p class="title_sty01"> 教練式領導四流程</p>
+            <ul>
+                <li>了解部屬狀態：融入與抽離的提問技巧</li>
+                <li> 建立信賴關係：同理心訓練＋自我表露技術</li>
+                <li> 釐清問題核心：有效溝通的深度探詢</li>
+                <li> 持續成長動能：引導改變的策略</li>
+            </ul>
+            <p class="title_sty01"> 實務個案練習</p>
         </div>
         <div class="right">
-                <div class="time-pop">
-                        <span class="time-day">DAY 2</span><br>
-                        4/25
-                    </div>
-                    <h3>教練領導學</h3>
-                    <h4>激發部屬潛能 x 引導自主成長</h4>
-                    <h6>陳煥庭／起初國際台灣分公司執行長</h6>
-                    <p class="text-left">09:30 - 17:00</p>
-                    <p class="title_sty01">教練式領導力</p>
-                    <ul>
-                      <li>激發潛能的教練式領導</li>
-                      <li> 部屬需要教練式領導的時機</li>
-                      <li> 對話的關鍵技巧：讚美與激勵</li>
-                    </ul>
-                    <p class="title_sty01"> 教練式領導四流程</p>
-                    <ul>
-                      <li>了解部屬狀態：融入與抽離的提問技巧</li>
-                      <li> 建立信賴關係：同理心訓練＋自我表露技術</li>
-                      <li> 釐清問題核心：有效溝通的深度探詢</li>
-                      <li> 持續成長動能：引導改變的策略</li>
-                    </ul>
-                    <p class="title_sty01"> 實務個案練習</p>
+            <div class="time-pop">
+                <span class="time-day">DAY 2</span><br>
+                4/25
+            </div>
+            <h3>教練領導學</h3>
+            <h4>激發部屬潛能 x 引導自主成長</h4>
+            <h6>陳煥庭／起初國際台灣分公司執行長</h6>
+            <p class="text-left">09:30 - 17:00</p>
+            <p class="title_sty01">教練式領導力</p>
+            <ul>
+                <li>激發潛能的教練式領導</li>
+                <li> 部屬需要教練式領導的時機</li>
+                <li> 對話的關鍵技巧：讚美與激勵</li>
+            </ul>
+            <p class="title_sty01"> 教練式領導四流程</p>
+            <ul>
+                <li>了解部屬狀態：融入與抽離的提問技巧</li>
+                <li> 建立信賴關係：同理心訓練＋自我表露技術</li>
+                <li> 釐清問題核心：有效溝通的深度探詢</li>
+                <li> 持續成長動能：引導改變的策略</li>
+            </ul>
+            <p class="title_sty01"> 實務個案練習</p>
 
         </div>
     </div>
+    <div id="speaker">
+            <h2>講 師 介 紹</h2>
+            <div class="container">
+                <div class="left">
+                    <div class="img-left">
+                        <img src="images/speaker_01.png" width="300" height="225" alt=""/>
+                    </div>
+                    <div class="text-right">
+                      <h4>陳煥庭</h4>
+                      <h6>起初國際台灣分公司執行長</h6>
+                      <p> 國內深層溝通的權威講師，擅長教練式領導與團隊激勵，知識理論和實用技巧同時掌握。一萬場以上授課經歷，合作企業如台積電、星巴克與中國信託等。</p>
+                    </div>
+              </div>
+                <div class="right">
+                    <div class="img-left">
+                        <img src="images/speaker_02.png" width="300" height="225" alt=""/>
+                    </div>
+                    <div class="text-right">
+                      <h4>林聖修</h4>
+                      <h6>丞鑫企業管理顧問有限公司創辦人</h6>
+                      <p> 擅長微行為洞察、教練式引導與情商力管理。以教練思維為核心，行為洞察為動力，協助企業改善組織運作，優化團隊能量。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="map">
+            <h2></h2>
+            <div class="container">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+        </div>
 </body>
+
 </html>
