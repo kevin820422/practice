@@ -1,0 +1,21 @@
+.carousel-inner img{
+    width: 100%;
+    height: 100%;
+}
+.bglight{
+    background: #fafafa;
+}
+.title-icon{
+    background:#ffcdcd;
+    width: 100px;
+    height: 100px;
+}
+.bottom-line::after{
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: #ffcdcd;
+    left: 0
+
+}
