@@ -46,22 +46,58 @@ html body{
     font-size: 32px;
     line-height: 24px;
     padding: 20px 0;
-    display: inline-block
+    display: inline-block;
 
 }
 .time-day{
     font-size: 18px;
 
 }
-.schedule h3{
-    border-top: 1px solid #cccccc;
-    padding: 15px;
+.schedule table{
+    border-top: 1px solid #c5d4e8;
+    margin-top:-40px;
+    
+}
+.schedule h2{
+    padding: 30px;
+    font-weight: 400;
+    font-size: 32px;
+    letter-spacing: 10px;
+}
+.schedule h3{
     font-size: 30px;
     font-weight: 700;
     color: #0051bd;
-    display: inline-block;
+}
+.schedule h4{
+    border: 2px dotted #999;
+    padding: 10px 20px;
+    color: #4595db;
+    font-size: 23px;
+    font-weight: 600;
+}
+.schedule h6{
+    color: #686868;
+    padding-bottom: 8px;
 
+}
+.schedule ul, .schedule p{
+    text-align: left;
+}
+.schedule .time{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.title_sty01{
+    color: #ff8521;
+    font-size: 23px;
+    margin:10px 0 0 0; 
 
+}
+.list-light{
+    color: #666;
+    font-size: 17px;
+    line-height: 30.6px
 }
 @media (max-width: 1200px) {
     .maincover{
