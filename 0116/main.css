@@ -19,3 +19,62 @@
     left: 0
 
 }
+.counter{
+    color: white;
+    padding: 6em 0;
+
+}
+.counter strong{
+    font-size: 40px;
+    font-weight: 700;
+}
+.counter h2{
+    font-size: 40px;
+    font-weight: 700;
+}
+.counter .some{
+    font-size: 20px;
+}
+.counter strong{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.counter .bg{
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+}
+.project{
+    color: white;
+    padding: 6em 0;
+}
+.project h2, .project p{
+    color: black;
+}
+.project .text h3{
+    color: white;
+    font-size:1.75em; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-transform: uppercase;
+    padding: 2em;
+}
+.blog-entry .bg{
+    display: block;
+    height:275px;
+    background-size: cover;
+}
+.meta{
+    display: block;
+    width: 260px;
+    font-size: 12px;
+}
+.meta>div a{
+    color: #aaaaaa;
+}
+.meta h3 a{
+    font-size: 20px;
+    color: black;
+
+}
