@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shadow</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: rgba(219, 219, 219, 0.876);
+            margin: 50px auto;
+            transition: 0.5s;
+        }
+        .shadow{
+            box-shadow: 5px -5px 2px rgb(219, 127, 192);
+        }
+        .shadow:hover{
+            box-shadow: 30px -30px 20px rgb(219, 127, 192);
+        }
+        .shadow1{
+            box-shadow: 5px 5px 5px  rgb(103, 60, 245);
+        }
+        .shadow1:hover{
+            box-shadow: 10px 10px 2px 10px rgb(28, 0, 105);
+        }
+
+        .shadow2{
+            box-shadow: 5px 5px 10px rgb(103, 60, 245) inset;
+        }
+        .shadow2:hover{
+            box-shadow: 10px 10px 15px rgb(28, 0, 105) inset;
+        }
+        .shadow3{
+            box-shadow: 0 0 0 rgb(255, 29, 29) ,
+            0 0 0 rgb(255, 150, 14) ,
+            0 0 0 rgb(251, 255, 1),
+            0 0 0 rgb(10, 255, 42),
+            0 0 0 rgb(0, 247, 255);
+        }
+        .shadow3:hover{
+            box-shadow: 30px 0 0 rgb(255, 29, 29) ,
+            60px 0 0 rgb(255, 150, 14) ,
+            90px 0 0 rgb(251, 255, 1),
+            120px 0 0 rgb(10, 255, 42),
+            150px 0 0 rgb(0, 247, 255),
+            180px 0 0 rgb(17, 0, 255),
+            210px 0 0 rgb(110, 0, 253)
+            ;
+        }
+        h1{
+            color: aquamarine;
+            font-weight: bolder
+        }
+       .text-shadow{
+           text-shadow: 3px 3px 2px orangered
+       }
+    
+    </style>
+</head>
+<body>
+    <div class="box shadow"></div>
+    <div class="box shadow1"></div>
+    <div class="box shadow2"></div>
+    <div class="box shadow3"></div>
+    <h1 class="text-shadow">Delicious</h1>
+</body>
+</html>

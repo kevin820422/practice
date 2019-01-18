@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Border radius</title>
+    <style>
+        /* 順序 左上->左下 */
+        .box {
+            width: 200px;
+            height: 200px;
+            background: orange;
+            margin: 20px;
+        }
+
+        .radius1 {
+            border-radius: 30px;
+
+        }
+
+        .radius2 {
+            border-radius: 30px 60px;
+
+        }
+
+        .radius3 {
+            border-radius: 30px 60px 90px;
+
+        }
+
+        .radius4 {
+            border-radius: 20px/60px;
+
+        }
+
+        .radius5 {
+            border-radius: 50%;
+
+        }
+
+        .radius6 {
+            border-radius: 100% 0 0 0;
+        }
+
+        .avatar{
+            width: 200px;
+            height: 200px;
+            /* border-radius: 50%; */
+            overflow: hidden;
+        }
+        .avatar img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box radius1"></div>
+    <div class="box radius2"></div>
+    <div class="box radius3"></div>
+    <div class="box radius4"></div>
+    <div class="box radius5"></div>
+    <div class="box radius6"></div>
+    <figure class="avatar radius5">
+        <img src="dr-strange.jpg" alt="">
+    </figure>
+    Hello CSS3
+</body>
+
+</html>
