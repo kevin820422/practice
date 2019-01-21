@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Background clip</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 20px dashed #aaa;
+            padding: 30px;
+            margin: 20px;
+            background: url(images/check.jpg) left top;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .padding{
+            background-clip: padding-box;
+        }
+        .border{
+            background-clip: border-box;
+        }
+        .content{
+            background-clip: content-box;
+        }
+
+        .text{
+            -webkit-background-clip: text;
+            /* -webkit- 前綴 支援chrome safari */
+            color: transparent;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box padding">padding</div>
+    <div class="box border" >border</div>
+    <div class="box content">content</div>
+    <div class="box text">text</div>
+
+</body>
+</html>

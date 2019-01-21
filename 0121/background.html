@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Background</title>
+    <style>
+        .wrapper {
+            max-width: 960px;
+            height: 400px;
+            margin: 0 auto;
+            /* background: gray */
+            background: url(images/4.png) no-repeat left top, url(images/25.png) no-repeat right top, url(images/map.png) no-repeat;
+            transition: 0.5s;
+            background-size: 150px auto, 150px auto, 100% auto;
+        }
+
+        /* .wrapper:hover { */
+            /* background: url(images/4.png) no-repeat right top, url(images/25.png) no-repeat left top, url(images/map.png); */
+
+        }
+
+        .container {
+            max-width: 800px;
+            height: 400px;
+            margin: 20px auto;
+            background: #aaa;
+            background: url(images/map.png) no-repeat center center;
+            border:2px solid #999999
+
+        }
+        .cover{
+            background-size: cover;
+        }
+        .contain{
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper"></div>
+    <div class="container">
+
+    </div>
+    <div class="container cover">
+
+    </div>
+    <div class="container contain">
+
+    </div>
+</body>
+
+</html>

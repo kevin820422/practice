@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Name card example</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            margin: -40px -40px 0 0;
+            z-index: 5;
+        }
+
+        body {
+            background: gray;
+        }
+
+        .container {
+            margin: 25px auto;
+            background: white;
+            width: 300px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 5 black;
+            text-align: center;
+        }
+
+        .banner {
+            width: 300px;
+            height: 150px;
+            background: url(images/earth.jpg) no-repeat center top;
+            background-size: cover;
+
+        }
+
+        .container {
+            width: 300px;
+            position: relative;
+
+        }
+
+        .content {
+            padding:50px 65px 10px; 
+            border: 20px solid transparent;
+            border-image: url(images/border-image2.png) 20 round;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-left: -75px;
+            position: absolute;
+            left: 50%;
+            top: 60px;
+        }
+
+        figure img {
+            width: 100%;
+        }
+
+        h2 {border-bottom: 1px solid #ccc
+        }
+    </style>
+</head>
+
+<body>
+    <img class="loading" src="images/loading.svg" alt="">
+    <div class="container">
+        <div class="banner">
+        </div>
+
+        <figure class="avatar">
+            <img src="images/dr_strange.jpg" alt="">
+        </figure>
+        <div class="content">
+            <h2>Dr.strange</h2>
+            <p>Hello! I'm Dr.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
