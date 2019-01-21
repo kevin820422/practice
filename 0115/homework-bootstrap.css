@@ -150,7 +150,10 @@ html body{
     text-align: left;
     font-size: 14.4px;
 }
-.btn, .btn:visited{
+.btn{
+    width: 48%;
+}
+/* .btn, .btn:visited{
     color: #fff;
     font-size: 20px;
     width: 45%;
@@ -169,7 +172,7 @@ html body{
 }
 .bl:hover, .bl:active{
     background:#003c7d;
-}
+} */
 footer{
     color: white;
     font-size: 12px;
