@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transform</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            transition: 0.5s;
+            
+            display: inline-block;
+        }
+
+        .translate:hover {
+            transform: translate(50px, 0)
+        }
+
+        .rotate:hover {
+            transform: rotate(360deg);
+            background: white;
+        }
+        .wrap{
+            width: 200px;
+            height: 200px;
+        }
+        .wrap:hover .scale {
+            transform: scale(10, 0.01);
+            background: lightblue
+        }
+        .wrap{
+            width: 200px;
+            height: 200px;
+            border: 1px solid gray;
+        }
+        .wrap .trans2{
+            border-radius: 50%;
+            transform: translate(1200px,0) rotate(360deg) ;
+        }
+        .wrap:hover .trans2{
+            transform: translate(0,0) rotate(0deg);
+            border-radius: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box translate"></div>
+    <div class="box rotate"></div>
+    <div class="wrap">
+        <div class="box scale"></div>
+    </div>
+    <div class="wrap">
+        <div class="box trans2"></div>
+    </div>
+</body>
+
+</html>

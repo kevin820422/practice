@@ -8,6 +8,7 @@
     <title>Name card example</title>
     <link rel="stylesheet" href="normalize.css">
     <style>
+
         .loading {
             position: fixed;
             top: 50%;
@@ -47,7 +48,7 @@
         }
 
         .content {
-            padding:50px 65px 10px; 
+            padding:50px 30px 10px; 
             border: 20px solid transparent;
             border-image: url(images/border-image2.png) 20 round;
         }
@@ -65,9 +66,24 @@
 
         figure img {
             width: 100%;
+            transition: 0.5s;
+        }
+        .avatar:hover img{
+            transform: scale(1.1);
         }
 
         h2 {border-bottom: 1px solid #ccc
+        }
+        .bt{
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            border-radius: 10px;
+            display: block;
+            color: #ffffff;
+            padding:10px;
+            text-shadow: 0 0 3px black;
+            box-shadow: 0 0 5px white inset;
+            background: -webkit-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 49%, rgba(46,160,194,1) 53%, rgba(90,194,232,1) 100%);
         }
     </style>
 </head>
@@ -84,6 +100,7 @@
         <div class="content">
             <h2>Dr.strange</h2>
             <p>Hello! I'm Dr.</p>
+            <a href="" class="bt">Follow me</a>
         </div>
     </div>
 

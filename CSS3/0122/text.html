@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Text</title>
+    <style>
+        .wrapper {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .text {
+            float: left;
+            width: 31.2%;
+            margin: 0 1%;
+            background: beige;
+            overflow: hidden;
+        }
+
+        h2 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .text p {
+            -webkit-line-clamp: 4;/* 限制行數 */
+            
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="text">
+            <h2 title="這裡是標題這裡是標題這裡">這裡是標題這裡是標題這裡是標題這裡是標題</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione ad aliquid commodi quam voluptate!
+                Nihil ex culpa ab sint repellendus voluptates tempore a eaque numquam amet, possimus consequatur,
+                corrupti sit!</p>
+        </div>
+        <div class="text">
+            <h2>這裡是標題</h2>
+        </div>
+        <div class="text">
+            <h2>這裡是標題</h2>
+        
+        </div>
+    </div>
+
+
+</body>
+
+</html>

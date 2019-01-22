@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Font</title>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Noto+Serif+TC" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: BALLOONS;
+            src: url(font/BALLOONS.TTF)
+        }
+
+        h1 {
+            font-size: 30px
+        }
+
+        .colored {
+            font-family: BALLOONS;
+            color: transparent;
+            background: linear-gradient(to left, rgb(206, 51, 226), deeppink, rgb(59, 11, 216));
+            -webkit-background-clip: text;
+
+        }
+
+        .en {
+            font-family: 'Monoton', cursive;
+
+        }
+
+        .tw {
+            font-family: 'Noto Serif TC', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="colored">Hello, font!</h1>
+    <h1 class="en">Google</h1>
+    <h1 class="tw">襯線體</h1>
+</body>
+
+</html>

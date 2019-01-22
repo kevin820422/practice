@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object fill</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: #aaaaaa;
+            float: left;
+            margin: 20px
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .contain {
+            object-fit: contain;
+        }
+
+        .cover {
+            /* 最短邊縮放 */
+            object-fit: cover;
+        }
+        .none {
+            /* 不縮放 */
+            object-fit:none ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="light.jpg" alt="">
+    </div>
+    <div class="box ">
+        <img src="light.jpg" class="contain" alt="">
+    </div>
+    <div class="box ">
+        <img src="light.jpg" class="cover" alt="">
+    </div>
+    <div class="box ">
+        <img src="light.jpg" class="none" alt="">
+    </div>
+</body>
+
+</html>

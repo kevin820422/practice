@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calc</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #ccc;
+        }
+
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            min-height: calc(100vh - 78px);
+        }
+
+        .box {
+            background: #fff;
+            float: left;
+            width: calc(25% - 40px);
+            margin: 10px;
+            padding: 10px;
+            /* height: 500px; */
+        }
+
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            background: rgb(61, 61, 61);
+            color: #fff;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="clear"></div>
+    </div>
+    <footer>
+        footer
+
+    </footer>
+
+</body>
+
+</html>

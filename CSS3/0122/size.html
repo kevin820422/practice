@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>size</title>
+    <style>
+        html {
+            font-size: 12px
+        }
+
+        div {
+            font-size: 2em
+        }
+
+        .rem {
+            font-size: 2rem
+        }
+    </style>
+</head>
+
+<body>
+    <!-- em會繼承父層，因此2em會變為4em，8em。 -->
+    <div>
+        <h1>Hi</h1>
+        <div>
+            <h1>Hi</h1>
+            <div>
+                <h1>Hi</h1>
+            </div>
+        </div>
+    </div>
+    <!-- rem不會因為繼承問題讓字體大小變形。 -->
+    <div class="rem">
+        <h1>Hello</h1>
+        <div class="rem">
+            <h1>Hello</h1>
+            <div class="rem">
+                <h1>Hello</h1>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
