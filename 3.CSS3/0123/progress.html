@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Progress</title>
+    <style>
+        .container{
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .wrap{
+            border-radius: 10px;
+            overflow: hidden;
+            background: #cccccc
+        }
+        .progress{
+            background: salmon;
+            height: 10px;
+            width: 0%;
+            transition: ease-in-out 1s;
+        }
+        .wrap:hover .progress{
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <div class="progress"></div>
+        </div>
+    </div>
+</body>
+</html>

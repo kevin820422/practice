@@ -8,7 +8,6 @@
     <title>Name card example</title>
     <link rel="stylesheet" href="normalize.css">
     <style>
-
         .loading {
             position: fixed;
             top: 50%;
@@ -29,8 +28,11 @@
             width: 300px;
             overflow: hidden;
             border-radius: 20px;
-            box-shadow: 0 0 5 black;
+            box-shadow: 0 0 10px black;
             text-align: center;
+            width: 300px;
+            position: relative;
+            transition: 0.5s;
         }
 
         .banner {
@@ -41,14 +43,9 @@
 
         }
 
-        .container {
-            width: 300px;
-            position: relative;
-
-        }
 
         .content {
-            padding:50px 30px 10px; 
+            padding: 50px 30px 10px;
             border: 20px solid transparent;
             border-image: url(images/border-image2.png) 20 round;
         }
@@ -68,23 +65,40 @@
             width: 100%;
             transition: 0.5s;
         }
-        .avatar:hover img{
+
+        .avatar:hover img {
             transform: scale(1.1);
         }
 
-        h2 {border-bottom: 1px solid #ccc
+        h2 {
+            border-bottom: 1px solid #ccc;
+            transition: 0.5s;
         }
-        .bt{
+/* 漸變 */
+        .container:hover {
+            transform: translate(0, -5px);
+            box-shadow: 0 0 15px black;
+        }
+
+        .container:hover h2 {
+            letter-spacing: 5px;
+        }
+
+        .bt {
             font-family: Arial, Helvetica, sans-serif;
             text-decoration: none;
             border-radius: 10px;
             display: block;
             color: #ffffff;
-            padding:10px;
+            padding: 10px;
             text-shadow: 0 0 3px black;
             box-shadow: 0 0 5px white inset;
-            background: -webkit-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 49%, rgba(46,160,194,1) 53%, rgba(90,194,232,1) 100%);
+            background: -webkit-linear-gradient(top, rgba(183, 222, 237, 1) 0%, rgba(113, 206, 239, 1) 49%, rgba(46, 160, 194, 1) 53%, rgba(90, 194, 232, 1) 100%);
         }
+
+        .bt:hover {
+            background:rgb(0, 183, 255);
+            }
     </style>
 </head>
 

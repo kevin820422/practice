@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trasition</title>
+    <style>
+        .box {
+            width: 200px;
+            height:200px;
+            background: lightskyblue;
+            transition: 2s;
+        }
+
+        .linear{
+            transition: linear 0.5s;
+        }
+        .ease-in{
+            transition: ease-in 0.5s;
+        }
+        .cubic-bezier{
+            transition: cubic-bezier(.31,-0.63,.56,1.56)
+        }
+        .all{
+            transition: width
+        }
+        .wrap:hover .box {
+            width: 500px;
+            background: orchid;
+        }
+
+        .box:active {
+            background: mediumvioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+        <div class="box transitioin1"></div>
+        <div class="box ease-in"></div>
+        <div class="box cubic-bezier"></div>
+
+    </div>
+</body>
+
+</html>
