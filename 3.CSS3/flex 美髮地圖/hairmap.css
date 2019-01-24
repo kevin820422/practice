@@ -18,7 +18,8 @@ h2{
 }
 .aln{
     text-align: center;
-    align-items: center
+    align-items: center;
+    justify-content: center
 }
 .cln{
     flex-direction: column;

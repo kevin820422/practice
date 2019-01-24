@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS layout</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        body {
+            background: #e9ebef
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .box {
+            border: 2px solid gainsboro;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #ffffff
+        }
+
+        .list-unstyled {
+            padding: 0
+        }
+
+        .list-unstyled li {
+            list-style: none;
+            text-decoration: none;
+
+        }
+
+        header a,
+        header a:link {
+            color: #3a589e;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        header a:hover {
+            color: #203158
+        }
+
+        header {
+            background: #ffffff;
+            padding: 10px 0;
+        }
+
+        .logo {
+            height: 48px;
+        }
+
+        header .container {
+            justify-content: space-between;
+        }
+
+        nav {
+            background: #3a589e;
+        }
+
+        nav ul {
+            position: relative;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            display: block;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        nav a:hover,
+        nav .active a {
+            background: #203158;
+            color: white
+        }
+        nav li:hover .submenu{
+            max-height: 200px;
+            opacity: 1;
+        }
+        .submenu{
+            max-height: 0;
+            opacity: 0;
+            position: absolute;
+            background: #3a589e;
+            transition: 0.5s;
+            overflow: hidden;  
+        }
+
+        }
+        @media screen and (max-width:768px) {
+            nav li {
+                flex-grow: 1;
+                text-align: center;
+                flex-basis: 0
+                    /* 讓按鈕等寬，不因內容而變形 */
+            }
+
+            nav li a {
+                padding: 10px 0;
+            }
+        }
+
+        aside figure {
+            margin: 0;
+        }
+
+        aside figure img {
+            width: 100%;
+            display: block;
+            margin: 0;
+        }
+
+        aside {
+            flex-shrink: 0;
+            padding: 0;
+            width: 180px;
+            margin: 0;
+        }
+
+        main {
+            margin: 0 10px;
+            padding: 0;
+            flex-grow: 1;
+            min-height: 750px;
+        }
+
+        main article {
+            line-height: 1.5;
+            padding: 20px;
+            background: white;
+        }
+
+        .main-block {
+            margin: 20px auto
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-left: 6px solid transparent;
+        }
+
+        aside ul li a:hover, aside ul .active a {
+            background: #dddfe3;
+            color: black;
+            border-left: 6px solid #3a589e;
+        }
+
+        .r-side {
+            align-items: flex-end
+        }
+
+        @media screen and (max-width:768px) {
+
+            /* 換行的方式 */
+            /* .main-block {
+                flex-wrap: wrap
+            }
+            aside{
+                width: 100%;
+            }
+            main{
+                width: 100%;
+            }
+            
+             */
+            /* 改變flex方向 */
+            .main-block {
+                flex-direction: column
+            }
+
+            aside {
+                width: 100%;
+            }
+
+            main {
+                width: 100%;
+            }
+
+            .l-side figure {
+                margin: 0 auto;
+                width: 250px;
+
+            }
+
+            aside ul {
+                display: flex
+            }
+
+            aside ul li {
+                flex-grow: 1;
+                flex-basis: 0;
+            }
+
+            aside ul li a {
+
+                display: block;
+                padding: 10px;
+                border-left: 0px;
+
+            }
+
+            aside ul li a:hover,
+            aside ul .active a {
+                background: #3a589e;
+                color: #fff;
+                border-left: 0px;
+            }
+
+            .r-side img {
+                display: none
+            }
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container d-flex">
+            <img class="logo" src="images/facebook.png" alt="">
+            <div><a>Log in </a>|<a>Sign up</a></div>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul class=" d-flex list-unstyled">
+                <li class="active"><a href="">Home</a></li>
+                <li><a href="">Product</a>
+                    <ul class="submenu list-unstyled">
+                        <li> <a href="">C</a></li>
+                        <li> <a href="">Shoes</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Story</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="container d-flex main-block">
+        <aside class="l-side ">
+            <figure class="box">
+                <img src="images/logo.jpg" alt="">
+            </figure>
+            <ul class="list-unstyled">
+                <li class="active"><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Album</a></li>
+                <li><a href="">Film</a></li>
+            </ul>
+        </aside>
+        <main>
+            <div class="box">
+                <article>
+                    <h1>css樣式</h1>
+                    <time>2019/01/24</time>
+                    <p> 層疊樣式表（英語：Cascading Style
+                        Sheets，簡寫CSS），又稱串樣式列表、級聯樣式表、串接樣式表、階層式樣式表，一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護。目前最新版本是CSS2.1，為W3C的推薦標準。CSS3現在已被大部分現代瀏覽器支援，而下一版的CSS4仍在開發中。
+                    </p>
+                </article>
+            </div>
+        </main>
+        <aside class="r-side d-flex">
+            <img src="images/jk.png" alt="">
+        </aside>
+    </section>
+    <footer>
+        facebook
+    </footer>
+
+</body>
+
+</html>

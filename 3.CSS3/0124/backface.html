@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>back face</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        img {
+            transition: .5s;
+        }
+        figure{
+            perspective: 500px;
+        }
+
+        figure:hover img {
+            transform: rotateY(180deg)
+        }
+        .hidden{
+            backface-visibility:hidden;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <figure>
+            <img src="dr-strange.jpg" alt="">
+        </figure>
+        <figure >
+            <img class="hidden" src="dr-strange.jpg" alt="">
+        </figure>
+
+    </div>
+
+</body>
+
+</html>
