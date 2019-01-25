@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+        @keyframes changeColor {
+            0% {
+                background: blue;
+            }
+
+            50% {
+                background: paleturquoise;
+                width: 250px
+            }
+
+            100% {
+                background: blue;
+            }
+        }
+
+        @keyframes redd {
+            0% {
+                width: 100px;
+                width: 100px;
+                background: rgb(133, 55, 55)
+            }
+
+            100% {
+                background: rgb(209, 0, 0);
+                transform: scale(5)
+            }
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 0 auto
+        }
+
+        .boxR {
+            width: 100px;
+            height: 100px;
+            background: rgb(133, 55, 55);
+            animation-name: redd;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-fill-mode: both
+        }
+
+        .box {
+            animation-name: changeColor;
+            animation-duration: 2s;
+            width: 200px;
+            height: 200px;
+            background: blue;
+            animation-iteration-count: infinite
+        }
+
+        .delay {
+            animation-delay: 0.2s;
+        }
+@keyframes music{
+    0%{
+        height:5px ;
+    }
+    10%{
+        height:50px ;
+    }
+    20%{
+        height:25px ;
+    }
+    30%{
+        height:100px ;background: rgb(23, 149, 1)
+    }
+    40%{
+        height:280px ;
+        background: rgb(32, 211, 0)
+    }
+    50%{
+        height:250px ;background: rgb(29, 190, 0)
+    }  
+    60%{
+        height:150px ;background: rgb(22, 144, 0)
+    }
+    70%{
+        height:180px ;
+
+    }  
+    80%{
+        height:80px ;
+    }  
+    90%{
+        height:120px ;
+    }  
+    100%{
+        height:30px ;
+    }
+}
+        .wrap2 {
+            display: flex;
+            margin: 0 auto;
+            width: 500px;
+            height: 300px;
+            background: black;
+            align-items: flex-end;
+            justify-content: center
+            
+        }
+        .bar{
+            animation-iteration-count: infinite;            
+            animation-name: music;
+            animation-duration: 3s;
+            margin: 0 5px;
+            width: 20px;
+            height: 5px;
+            background: rgb(16, 105, 0)
+        }
+        .bar:hover,.bar1:hover{
+            animation-play-state: paused
+        }
+        .bar:nth-child(1){
+            animation-delay: 0.5s;
+        }
+        .bar:nth-child(3){
+            animation-delay: 0.1s;
+        }
+        .bar:nth-child(5){
+            animation-delay: 0.25s;
+        }
+        .bar:nth-child(7){
+            animation-delay: -0.5s;
+        }
+        .bar:nth-child(9){
+            animation-delay: 0.5s;
+        }
+
+
+        @keyframes bar2color{
+            0%{
+                
+            }
+            25%{
+                background: yellow
+            }
+            50%{
+                background: yellowgreen
+            }
+            75%{
+                background: lime
+            }
+            100%{
+                background: green
+            }
+        }
+        @keyframes bar2lenth{
+            0%{height: 0;
+                
+            }
+            25%{
+                height: 100px;
+            }
+            50%{
+                height: 250px;
+            }
+            75%{
+                height: 150px;
+            }
+            100%{
+                height: 50px;
+            }
+        }
+        .bar1{
+            animation: bar2color 0.5s linear infinite,bar2lenth 1s linear infinite;
+            margin: 0 15px;
+            width: 20px;
+            height: 5px;
+            background: rgb(16, 105, 0)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+        <div class="box delay"></div>
+        <!-- <div class="boxR"></div> -->
+    </div>
+    <div class="wrap2">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="wrap2">
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+    </div>
+</body>
+
+</html>
