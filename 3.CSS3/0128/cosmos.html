@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes around {
+            0% {
+                transform: rotate(0deg) translate(300px, 0);
+            }
+
+            100% {
+                transform: rotate(360deg) translate(300px, 0);
+            }
+        }
+
+        @keyframes moonAround {
+            0% {
+                transform: rotate(0deg) translate(75px, 0);
+            }
+
+            100% {
+                transform: rotate(360deg) translate(75px, 0);
+            }
+        }
+        @keyframes sunAround{
+            0%{
+                transform: rotate(0deg)
+            }
+            100%{
+                transform: rotate(360deg)
+            }
+        }
+        @keyframes shining{
+            0%{transform: scale(0)}
+            50%{transform: scale(1.5)}
+            100%{transform: scale(0)}
+        }
+        body {
+            background: url(images/space-bg.jpg)
+        }
+
+        .wrap {
+            margin: 100px auto;
+            height: 800px;
+            width: 800px;
+            position: relative;
+        }
+
+        img {
+            left: 50%;
+            top: 50%;
+        }
+
+        .wrap {
+            position: relative;
+            margin: 50px auto;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            border: 2px solid white
+        }
+
+        .sun {
+            position: absolute;
+            margin: -64px 0 0 -64px;
+            animation: sunAround 10s linear  infinite ;
+            
+        }
+        .sunshadow{
+            position: absolute;
+            margin: -30px 0 0 -30px;
+            left: 50%;
+            top: 50%;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            box-shadow:0 0 100px 30px rgb(255, 157, 0);
+            animation: shining 3s linear infinite;
+        }
+        
+
+
+
+        .earth-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -75px 0 0 -75px;
+            animation: around 8s infinite linear;
+        }
+
+        .earth-wrap-in {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            border-radius: 50%;
+            border: 1px solid white;
+            /* border-radius: 50%; */
+        }
+
+        .earth {
+            position: absolute;
+            margin: -36px 0 0 -36px
+        }
+
+        .moon {
+            position: absolute;
+            margin: -24px 0 0 -24px;
+            animation: moonAround 4s linear infinite;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">  
+        <div class="sunshadow sun"></div>     
+        <img class="sun" src="images/sun.png" alt="">
+        <div class="earth-wrap">
+            <div class="earth-wrap-in">
+                <img class="earth" src="images/earth.png" alt="">
+                <img class="moon" src="images/moon.png" alt="">
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

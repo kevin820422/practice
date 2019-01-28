@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Steps</title>
+    <style>
+        @keyframes changeColor{
+            from {
+                background: palegreen;
+            }
+            to {
+                background: darkblue
+            }
+        }
+        .box{
+            background: palegreen;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            animation: changeColor 4s;
+        }
+        .steps{
+            animation-timing-function: steps(4);
+        }
+        .steps2{
+            animation-timing-function: steps(3,start)
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box steps"></div>
+    <div class="box steps2"></div>
+</body>
+</html>

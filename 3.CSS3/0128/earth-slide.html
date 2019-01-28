@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Earth slide</title>
+    <style>
+        @keyframes rotate{
+            from {
+                background-position: left top;
+            }
+            to{
+                background-position: -500px top;
+            }
+        }
+        body{
+            background: black
+        }
+        .circle{
+            width: 281px;
+            height: 281px;
+            background: url(images/earth2.jpg);
+            margin:10px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: rotate 4s infinite linear;
+            box-shadow:0 0 50px black inset, 0 0 30px rgb(150, 217, 255) ;
+        }
+    </style>
+</head>
+<body>
+
+        <div class="circle">
+
+        </div>
+
+</body>
+</html>

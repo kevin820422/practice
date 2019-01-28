@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes swing {
+            0% {
+                transform: rotate(0deg);
+                transform-origin: center top
+            }
+
+            50% {
+
+                transform: rotate(30deg);
+                transform-origin: center top
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+
+        }
+        .wrapper{
+            display: flex;
+            justify-content: center
+        }
+        .wrapper img{
+            transition: 0.5s
+        }
+        .wrapper>div:hover img{
+            transform: rotate(15deg);
+            transform-origin: center top;
+
+        }
+        /* .wrapper>div:hover img{
+            animation-name: swing;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div> <img class="clothes n1" src="images/clothes_v1.png" alt=""></div>
+        <div> <img class="clothes n2" src="images/clothes_v4.png" alt=""></div>
+        <div> <img class="clothes n3" src="images/clothes_v5.png" alt=""></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>filter</title>
+    <style>
+        img{
+            width: 250px;  
+            transition: .5s;
+        }
+        .blur:hover{
+          
+            transition-timing-function: ease-out;
+            filter: blur(10px)
+        }
+        .brightness:hover{
+            filter:brightness(1.5)
+        }
+        .shadow:hover{
+            filter: drop-shadow(3px 3px 10px black)
+        }
+        .boxshadow:hover{
+            box-shadow: 3px 3px 10px black;
+        }
+        .grayscale{
+            filter: grayscale(100%) 
+        }
+        .grayscale:hover{
+            filter: grayscale(1) invert(100%);
+            
+
+        }
+        .hue:hover{
+            filter: hue-rotate(1800deg);
+            transition: 10s;
+        }
+    </style>
+</head>
+<body>
+    <img class="blur" src="images/batman.jpg" alt="">
+    <img class="brightness" src="images/batman.jpg" alt="">
+    <img class="shadow" src="images/clothes_v1.png" alt="">
+    <img class="boxshadow" src="images/clothes_v1.png" alt="">
+    <img class="grayscale" src="images/batman.jpg" alt="">
+    <img class="hue" src="images/batman.jpg" alt="">
+</body>
+</html>

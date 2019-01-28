@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Newspaper Layout</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        body {
+            background: #cccccc
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+            width: calc(25% - 20px);
+        }
+
+        .wrap {
+            margin: 0 auto;
+            width: 960px;
+            display: flex;
+        }
+
+        .d-flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            border-radius: 10px;
+            background: white;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .box.d-flex p{
+            flex-grow: 1
+        }
+        @media screen and(max-width:768px) {}
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="d-flex">
+            <li>
+                <div class="box d-flex">
+                    <figure>
+                        <img src="images/gettyimages-1087928566.jpg" alt="">
+                    </figure>
+
+                    <h2>Victoria Beckham On Why She'll Remain A Spice Girl For Life</h2>
+                    <p>
+                        Time and time again, Victoria Beckham says that she will not take on her former Posh persona
+                        and
+                        join
+                        Baby, Scary, Sporty and Ginger on tour with the Spice Girls. But, time and time again, the
+                        media
+                        can’t
+                        help but ask the popstar-turned-designer whether she has had a change of heart and might
+                        consider
+                        dusting off her little black dresses in the name of girl power.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="box d-flex">
+                    <img src="images/shutterstock_editorial_9943992p_huge.jpg" alt="">
+                    <h2>Everything We Know About Justin Bieber And Hailey Baldwin's Wedding
+                    </h2>
+                    <p>
+                        After the fabulous fanfare of Priyanka Chopra and Nick Jonas’s seemingly endless nuptials in
+                        India,
+                        it’s undeniable: the world can’t resist a celebrity wedding. Next to walk down the aisle are
+                        Justin
+                        Bieber and Hailey Baldwin, or rather Hailey Bieber, as the two young lovers are thought to have
+                        wed
+                        in
+                        a private civil ceremony in New York in the autumn of 2018. Rumours of a larger celebration are
+                        afloat,
+                        with some outlets even whispering that save-the-date cards were sent and then retracted again.
+                        Herewith, is everything we know about the Bieber and Bieber marriage so far.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="box d-flex">
+                    <img src="images/025-duchess-of-sussex-vogue-int-credit-pa-images.jpg" alt="">
+                    <h2>When Is Meghan and Harry's Baby Due?
+                    </h2>
+                    <p>
+                        The news was first announced as the couple arrived in Sydney for their inaugural foreign tour
+                        together
+                        in October. Speculation around another royal baby began when Meghan’s tour schedule specified
+                        that
+                        she
+                        would not climb over the Sydney Harbour Bridge as planned. The rumour mill went into overdrive,
+                        however, when the former Suits star attended the wedding of Princess Eugenie and Jack
+                        Brooksbank
+                        wearing a Givenchy dress coat, which she chose not to remove on the day. It subsequently
+                        reached
+                        fever
+                        pitch after she was photographed leaving Sydney airport carrying two folders in front of her
+                        stomach.
+
+
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

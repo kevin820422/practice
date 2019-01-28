@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clip path</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            clip-path: inset(5px 10px 15px 20px round 5% 10% 15% 20%);
+            transition: .5s;
+        }
+        .box:hover{
+            clip-path: ellipse( 50% 25% at 50% 50%)
+        }
+        .box img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <img src="images/batman.jpg" alt="">
+</div>
+</body>
+
+</html>

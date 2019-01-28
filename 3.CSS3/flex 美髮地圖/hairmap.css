@@ -21,11 +21,12 @@ h3{
 }
 .flx{
     display: flex;
+    flex-wrap: wrap;
 }
 .aln{
     text-align: center;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 .cln{
     flex-direction: column;
@@ -120,10 +121,10 @@ h3{
         font-size: 1rem
     }
     .logo{
-        padding: 10%
+        padding: 1rem
     }
     .logo img{
-        width: 70%;
+        width: 10rem;
     }
     .search-area{
         width: 80%;
@@ -143,13 +144,15 @@ h3{
 }
 
 .booking img{
-    width: 120px; 
+    width: 200px; 
 }
 .bkn-wrap{
     padding: 1.5rem 0;
-    width: 50%;
-    justify-content: space-between
+    width: 100%;
+    justify-content: space-evenly;
+    
 }
+.bkn-itm{}
 /* 主體 */
 main{
     max-width: 960px;
@@ -173,13 +176,13 @@ main h3::after{
 .area-block{
     width: 100%;
     margin: 30px auto;
-    /* justify-content: space-around */
+    justify-content: center;
 }  
 .hot-topic .pic{
     position: relative;
-    margin: 0 0.5%;
-    width: 25vw;
-    height:37vw;
+    margin: 0 1rem;
+    width: 25%;
+    height:250px;
 }
 .hot-topic .pic img{
     width: 100%;
@@ -217,6 +220,7 @@ main h3::after{
     text-decoration: none;
 }
 /* 趨勢話題 */
+
 .trend-box{
     position: relative;
     height: 240px;
@@ -241,3 +245,4 @@ main h3::after{
     object-fit: cover
     
 }
+
