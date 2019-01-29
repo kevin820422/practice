@@ -165,7 +165,7 @@ main{
 }
 /* 熱門主題 */
 section{
-    margin:15px auto 85px;
+    margin:15px auto 60px;
     padding:0 15px;
     position: relative;
 
@@ -180,7 +180,7 @@ h3::after{
 }
 .area-block{
     width: 100%;
-    margin: 30px auto;
+    margin: 30px auto 10px;
     justify-content: center;
 }  
 .hot-topic .pic{
@@ -226,6 +226,9 @@ h3::after{
     text-decoration: none;
 }
 @media screen and (max-width:768px){
+    .area-block{
+        margin: 0 auto 10px;
+    }
     .hot-topic .pic{
         position: relative;
         padding: 0.5rem 0.5%;
