@@ -194,6 +194,7 @@ h3::after{
     height: 100%;
     object-fit: cover;
     transition: 0.2s;
+    
 }
 .pic:hover img{
     filter: brightness(0.7) 
@@ -216,7 +217,7 @@ h3::after{
 
 .btn-more a{
     position: absolute;
-    right: 20px;
+    right: 50px;
     bottom:-40px;
     display: inline-block;
     background: rgb(253, 125, 142);
@@ -239,6 +240,20 @@ h3::after{
         padding: 0.5rem 0;
         width: 100%;
         height:250px;
+        
+    }
+    
+    .btn-more a{
+        position: relative;
+        font-size: 1.5rem;
+        right: 0;
+        bottom: 0;
+        display: block;
+        background: rgb(253, 125, 142);
+        color: white;
+        padding: 10px ;
+        text-decoration: none;
+        
     }
 }
 /* 趨勢話題 */
@@ -247,7 +262,7 @@ h3::after{
     position: relative;
     width: 30%;
 
-    margin:0 10px;
+    margin:0 6px;
     /* flex-grow: 1;
     flex-basis: 0; */
     background: gray;
@@ -270,11 +285,15 @@ h3::after{
 
 @media screen and (max-width:768px){
     .trend-box{
+        margin: 5px 0;
         position: relative;
         width: 100%;
         height: 200px;    
         background: gray;
     
+    }
+    .trend-box h4{
+        font-size: 1.2rem
     }
 
 }
