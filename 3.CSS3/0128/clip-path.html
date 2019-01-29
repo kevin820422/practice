@@ -8,25 +8,79 @@
     <title>Clip path</title>
     <style>
         .box {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             overflow: hidden;
-            clip-path: inset(5px 10px 15px 20px round 5% 10% 15% 20%);
+            /* clip-path: inset(5px 10px 15px 20px round 5% 10% 15% 20%); */
             transition: .5s;
+            
         }
-        .box:hover{
-            clip-path: ellipse( 50% 25% at 50% 50%)
-        }
-        .box img{
+
+
+        /* .box:hover {
+            clip-path: ellipse(50% 25% at 50% 50%)
+        } */
+
+        .box img {
             width: 100%;
+            
+
         }
+
+        .triangle {
+            clip-path: polygon(0 100%, 50% 0%, 100% 100%)
+        }
+
+        .hov-area:hover .triangle {
+            clip-path: polygon(100% 0, 50% 100%, 0 0)
+        }
+
+        .diamond {
+            clip-path: polygon(5% 50%, 50% 5%, 95% 50%, 50% 95%)
+        }
+
+        .diamond:hover {
+            clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%)
+        }
+       
+
+    .wrapper{
+        display: flex;
+        margin: 20px auto;
+        position: relative;
+        width: 500px;
+        
+    }
+    .box2{
+        position: absolute;
+        left:25%;
+        top:50%
+    }
+    .box3{
+        position: absolute;
+        left: 50%;
+    }
     </style>
 </head>
 
 <body>
-<div class="box">
-    <img src="images/batman.jpg" alt="">
-</div>
+    <div class="box">
+        <img src="images/batman.jpg" alt="">
+    </div>
+    <div class="hov-area">
+        <div class="box triangle">
+            <img src="images/batman.jpg" alt="">
+        </div>
+    </div>
+    <div class="box diamond">
+        <img src="images/batman.jpg" alt=""></div>
+    </div>
+
+    <div class="wrapper">
+        <div class="box diamond"><img src="images/batman.jpg" alt=""></div>
+        <div class="box box2 diamond"><img src="images/dr_strange.jpg" alt=""></div>
+        <div class="box box3 diamond"><img src="images/dr_fate.jpg" alt=""></div>
+    </div>
 </body>
 
 </html>

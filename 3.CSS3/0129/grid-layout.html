@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grid Layout</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        .container {
+            width: 960px;
+            /* height: 600px; */
+            margin: 0 auto;
+            background: lightgray;
+        }
+        .d-flex{
+            display: flex;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+
+        }
+        ul{
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: "header header header header"
+            "nav nav nav nav"
+            "main main main aside"
+            "footer footer footer footer";
+        }
+
+        header {
+            /* background: rgb(121, 246, 236); */
+            grid-area: header;
+        }
+        nav{
+            background: rgb(230, 230, 230);
+            grid-area: nav;
+            
+        }
+        nav ul{
+            justify-content: center;
+        }
+        nav ul li{
+            padding: 0 20px
+        }
+        main {
+            background: rgb(255, 245, 246);
+            grid-area: main;
+        }
+
+        aside {
+            align-self:center;
+            text-align: center;
+            background: rgb(255, 255, 255);
+            grid-area: aside;
+        }
+        aside ul li{
+            padding: 3px 0;
+            margin: 3px 50px;
+            background: rgb(223, 173, 173)
+        }
+        footer {text-align: center;
+            background: rgb(190, 54, 54);
+            grid-area: footer;
+        }
+
+        @media screen and (max-width:768px){
+            .container{
+                width: 100%;
+            }
+            .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+            grid-template-areas: "header"
+            "nav" "aside"
+            "main"
+            "footer";
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container grid">
+        <header>
+            <img src="images/japan-tohoku.jpg" alt="">
+        </header>
+        <nav>
+            <ul class="d-flex">
+                <li><a href="">行程預定</a></li>
+                <li><a href="">交通方式</a></li>
+                <li><a href="">重點行程</a></li>
+                <li><a href="">聯繫客服</a></li>
+        </ul></nav>
+        <main>
+            <h1>日本旅遊</h1>
+            <p>
+                沿著銀山川清冽的河水，冒著騰騰熱氣，這樣宛如電影場景的地點，就是位於日本東北山形縣的銀山溫泉，是日本東北旅遊不可錯過的景點之一。成排的木結構建築保留著濃厚的昭和氣息，也為銀山溫泉增添不少奇幻氛圍。除溫泉以外，這裡也是著名日劇《阿信》的取景地，以及據說是《神隱少女》的背景原型，更顯示著銀山溫泉是來到日本東北旅遊的訪客，務必造訪的景點。
+            </p>
+        </main>
+        <aside>
+            <ul>
+                <li><a href="">北海道</a></li>
+                <li><a href="">關東</a></li>
+                <li><a href="">關西</a></li>
+            </ul>
+        </aside>
+        <footer>
+            footer
+        </footer>
+    </div>
+</body>
+
+</html>

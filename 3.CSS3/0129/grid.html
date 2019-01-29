@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grid</title>
+    <style>
+        .wrap {
+            width: 960px;
+            height: 600px;
+            background: lightblue;
+            margin: 0 auto
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-rows: 1fr 200px 1fr;
+            grid-gap: 10px;
+            justify-content: space-between;
+            align-items: center
+        }
+        .grid-item{
+            border: 1px solid royalblue;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap grid">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">444444444444444444444444 <br>ggggggggggg
+        <img src="../0128/images/cat.png" width="100%" alt=""> </div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+
+</html>
