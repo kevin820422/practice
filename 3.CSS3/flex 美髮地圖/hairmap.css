@@ -1,4 +1,4 @@
-*{
+*{  transition: .5s;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
@@ -22,6 +22,9 @@ h3{
 .flx{
     display: flex;
     flex-wrap: wrap;
+}
+.overflow-hidden{
+    overflow: hidden;
 }
 .aln{
     text-align: center;
@@ -125,7 +128,10 @@ h3{
         padding:0.5%;
         border: 2px solid rgb(218, 68, 93);
         margin: 0rem 0 2rem;
-    
+    }
+    .srbt{
+        margin-top:2px;
+        width: 100%;
     }
 
 }
@@ -275,15 +281,20 @@ h3::after{
     width: 100%; /* 繼承了.main的文字置中，須將寬度設100%才能頂到容器邊緣 */
     color: white;
     top: 50%;
+    transform: translateY(-50%);
     position: absolute;
     z-index: 10;
     text-shadow: 0 0 8px black;
+    transition: .5s;
 }
 .trend-box img{
     filter: brightness(0.5);
     width: 100%;
     height: 100%;
-    object-fit: cover  
+    object-fit: cover;
+}
+.trend-box:hover h4{
+    text-shadow: 1px 1px 15px rgb(253, 125, 142)
 }
 
 @media screen and (max-width:768px){
@@ -301,7 +312,7 @@ h3::after{
 
 }
 /* footer */
-footer{
+.footer-wrap{
     background: lightgray;
 }
 
@@ -310,9 +321,84 @@ footer{
 }
 .footer-wrap{
     justify-content: center;
+    
 }
 @media screen and (max-width:768px){
     .appstore a{
         display: block;
+    }
+}
+
+.footer-wrap2{
+    padding: 60px;
+    color:white;
+    position: relative;
+}
+.footer-wrap-in{   
+    height: 800px;   
+}
+.count-item{
+    padding: 0 50px 30px;
+}
+.count::before{
+    position: absolute;
+    content: " ";
+    border-left: 2px dotted rgb(255, 255, 255);
+    width: 0;
+    height: 112px;
+
+}
+.count-item .number{
+    padding: 10px;
+    font-size: 4rem;
+}
+.count::after{
+    content:" ";
+    background:url(images/bg.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(10px) brightness(0.7);
+    position: absolute;
+    height: 500px;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    z-index: -5;
+    transform: scale(1.2)
+}
+.count h3::after{
+    display: block;
+    content: "";
+    height: 0px;
+    border: 1px solid rgb(255, 255, 255);
+    width: 3rem;
+    margin: 10px auto
+}
+.white-btn a{
+    display: inline-block;
+    background:rgb(216, 216, 216);
+    padding: 0.6rem 3rem;
+    margin: 0 1.5rem;
+    color:rgb(63, 63, 63)
+}
+.white-btn a:hover{
+    color: white;
+    background: gray
+}
+.end{
+    text-align: center;
+    background: white;
+    padding: 20px 0;
+}
+@media screen and (max-width:700px){
+    .footer-wrap2{
+        padding: 40px
+    }
+    .count::before{
+        display: none;        
+    }
+    .white-btn a{
+        margin: 0.5rem ;
+       
     }
 }

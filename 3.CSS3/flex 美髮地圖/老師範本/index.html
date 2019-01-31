@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HairMap</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background: #eee;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .container{
+            max-width: 960px;
+            margin:0 auto;
+        }
+        .d-flex{
+            display: flex;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .show_desk{
+
+        }
+        @media screen and (max-width: 768px){
+             .show_desk{
+                 display: none;
+             }   
+        }
+        .transition{
+            transition: .5s;
+        }
+        .list-unstyled{
+            margin:0;
+            padding:0;
+        }
+        .list-unstyled li{
+            list-style: none;
+        }
+        .object-fit{
+            width:100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        nav{
+            background: #fff;
+        }
+        nav .d-flex{
+            justify-content: space-between;
+        }
+        .logo{
+            height: 48px;
+            margin-right: 10px;
+            padding:6px 0;
+        }
+        nav ul{
+            padding:0;
+            margin:0;
+        }
+        nav ul li{
+            list-style: none;
+        }
+        nav ul li a{
+            display: block;
+            text-decoration: none;
+            color:#333;
+            padding: 0px 12px;
+            height: 50px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        nav ul img{
+            height: 44px;
+        }
+        nav ul li a:hover{
+            background: #eee;
+        }
+        .banner{
+            /* height: 70vh; */
+            background: url(images/long-hair.jpg) center center no-repeat;
+            background-size: cover;
+            position: relative;
+            color:#fff;
+        }
+        .banner_mask{
+            position: absolute;
+            background: rgba(0,0,0,.7);
+            left:0;
+            top:0;
+            width:100%;
+            height: 100%;
+        }
+        .main_logo{
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .main_logo img{
+            filter: brightness(200%);
+        }
+        h1{
+            font-size: 48px;
+            margin: 10px 0;
+        }
+        .search_area{
+            position: relative;
+            z-index: 2;
+            width: 640px;
+            border: 1px solid #f3a1b7;
+            padding: 4px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        .search_area .btn{
+            display: block;
+        }
+        .search_area .d-flex{
+            align-items: center;
+        }
+        .select_type{
+            padding: 0 10px;
+        }
+        .select_type img{
+            margin-right: 6px;
+        }
+        .search_input{
+            border-left: 1px solid #f3a1b7;
+            flex-grow: 1;
+        }
+        .search_input input{
+            background: none;
+            border: none;
+            height: 100%;
+            color:#fff;
+            width: 100%;
+            padding: 0 10px;
+        }
+        .btn{
+            padding: 6px 20px;
+            background: #a94f62;
+            color:#fff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover{
+            background: #632633;
+        }
+        @media screen and (max-width: 768px){
+            .search_area{
+                width: 80vw;
+            }
+            .search_area.d-flex{
+                flex-wrap: wrap;
+            }
+            .search_area .btn_wrap{
+                width: 100%;
+                text-align: center;
+            }
+            .select_type{
+                height:36px;
+            }
+            .search_input{
+                margin-bottom: 4px;
+            }
+        }
+        .good{
+            background: #000;
+            padding: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        .good h3{
+            margin-top:10px;
+        }
+        .good>div{
+            margin: 0 24px;
+        }
+        .good img{
+            width: 120px;
+        }
+        @media screen and (max-width: 768px){
+            .good{
+                flex-direction: column;
+            }
+        }
+        .main_title{
+            position: relative;
+            margin-bottom: 50px;
+        }
+        .main_title:after{
+            content:"";
+            position: absolute;
+            height: 4px;
+            background: #333;
+            width: 36px;
+            top: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hot_list{
+            flex-wrap: wrap;
+        }
+        .hot_list li{
+            width: calc(25% - 20px );
+            margin: 0 10px 30px;;
+            position: relative;   
+        }
+        .hot_list li figure{
+            height: 260px;
+            background: #333;
+            margin:0;
+            overflow: hidden;
+        }
+        .hot_list li h4{
+            border: 1px solid #f3a1b7;
+            color:#f3a1b7;
+            padding:6px 0;
+            text-align: center;
+            width: 120px;
+            background: rgba(255,255,255,.8);
+            position: absolute;
+            bottom: 0px;
+            right: -10px;
+        }
+        @media screen and (max-width: 768px){
+            .hot_list li{
+                width: calc(50% - 20px );
+            }
+            .hot_list li figure{
+                height: 60vw;
+            }
+        }
+        .topic_list li{
+            width: calc( 33.33% - 20px );
+            margin: 0 10px 30px;
+            position: relative;
+        }
+        .topic_list li h4{
+            position: absolute;
+            left:0;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            color:#fff;
+            text-shadow: 0 0 5px #000;
+            font-size: 21px;
+        }
+        .topic_list li figure{
+            margin:0;
+            height: 200px;
+            background: #333;
+        }
+        .raise{
+            height: 300px;
+            background: #000;
+            position: relative;
+            color: #fff;
+        }
+        .raise .container{
+            position: relative;
+            z-index: 2;
+        }
+        .raise_bg{
+            position: absolute;
+            left:0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .raise_bg img{
+            transform: scale(1.1);
+            filter: blur(8px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="">
+        <div class="d-flex container">
+            <div class="d-flex">
+                <a><img class="logo" src="images/logo.png" alt="HairMap"></a>
+                <ul class="d-flex show_desk">
+                    <li><a href="">找髮型</a></li>
+                    <li><a href="">找設計師</a></li>
+                    <li><a href="">美髮誌</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="d-flex">
+                    <li><a href="">註冊</a></li>
+                    <li><a href="">登入</a></li>
+                    <li><a href=""><img src="images/setting.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="banner">
+            <div class="banner_mask"></div>
+        <div class="main_logo  text-center">
+            <img src="images/logo_icon_g.svg" alt="">
+            <h1 class="text-center">煩惱髮型嗎</h1>
+            <h2>給你更多靈感及在地優秀設計師</h2>
+        </div>
+        <div class="search_area d-flex">
+            <div class="select_type d-flex">
+                <img src="images/icon_searchbar_location.png" alt=""> 逛地區
+            </div>
+            <div class="search_input">
+                <input type="text" placeholder="搜尋髮型主題">
+            </div>
+            <div class="btn_wrap">
+                <a href="" class="btn d-flex"><img src="images/icon_searchbar_search.png" alt=""> 去逛逛</a>
+            </div>
+        </div>
+        <div class="good d-flex text-center">
+            <div>
+                <img src="images/icon_search.svg" alt="">
+                <h3>在地設計師作品<br>輕鬆找</h3>
+            </div>
+            <div>
+                    <img src="images/icon_fashion.svg" alt="">
+                    <h3>流行髮型<br>一手掌握</h3>
+                </div>
+                <div>
+                        <img src="images/icon_book.svg" alt="">
+                        <h3>即時溝通預約</h3>
+                    </div>
+        </div>
+    </section>
+    <section class="container">
+        <h2 class="text-center main_title">熱門主題</h2>
+        <ul class="list-unstyled d-flex hot_list">
+            <li>
+                <figure>
+                    <img class="object-fit" src="images/3425_14.jpg" alt="">
+                </figure>
+                <h4>油頭</h4>
+            </li>
+            <li>
+                    <figure>
+                        <img class="object-fit" src="images/3425_14.jpg" alt="">
+                    </figure>
+                    <h4>油頭</h4>
+                </li>
+                <li>
+                        <figure>
+                            <img class="object-fit" src="images/3425_14.jpg" alt="">
+                        </figure>
+                        <h4>油頭</h4>
+                    </li>
+                    <li>
+                            <figure>
+                                <img class="object-fit" src="images/3425_14.jpg" alt="">
+                            </figure>
+                            <h4>油頭</h4>
+                        </li>
+        </ul>
+        <h2 class="text-center main_title">趨勢話題</h2>
+        <ul class="list-unstyled d-flex topic_list">
+            <li>
+                <h4 class="text-center">熱門趨勢</h4>
+                <figure>
+                    <img class="object-fit" src="images/141965.jpg" alt="">
+                </figure>
+            </li>
+            <li>
+                    <h4 class="text-center">熱門趨勢</h4>
+                    <figure>
+                        <img class="object-fit" src="images/141965.jpg" alt="">
+                    </figure>
+                </li>
+                <li>
+                        <h4 class="text-center">熱門趨勢</h4>
+                        <figure>
+                            <img class="object-fit" src="images/141965.jpg" alt="">
+                        </figure>
+                    </li>
+        </ul>
+    </section>
+    <section class="raise">
+        <div class="container d-flex">
+            <div class="text-center">
+                已有
+                <div class="big_numer">666</div>
+                位設計師
+            </div>
+        </div>
+        <div class="raise_bg">
+            <img class="object-fit" src="images/blur.jpg" alt="">
+        </div>
+    </section>
+</body>
+</html>
