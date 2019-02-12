@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+
+</head>
+<body>
+<div class="info">
+    <div class="display"></div>
+</div>
+
+<script>
+// let info = document.getElementById('info');
+let info = document.querySelector('.info .display');
+let a, b;
+
+info.innerHTML = '5 && 3: ' + (5 && 3) +'<br>';
+info.innerHTML += '0 && 5: ' + (0 && 5) +'<br>';
+
+info.innerHTML += '5 || 3: ' + (5 || 3) +'<br>';
+info.innerHTML += '0 || 5: ' + (0 || 5) +'<br>';
+info.innerHTML += '0 || 5: ' + (0 || 5) +'<br>';
+
+(a=5) || (b=7);
+info.innerHTML += 'a = ' + a +'<br>';
+info.innerHTML += 'b = ' + b +'<br>';
+
+info.innerHTML += '--------<br>';
+
+(a=0) || (b=7);
+info.innerHTML += 'a = ' + a +'<br>';
+info.innerHTML += 'b = ' + b +'<br>';
+</script>
+</body>
+</html>
