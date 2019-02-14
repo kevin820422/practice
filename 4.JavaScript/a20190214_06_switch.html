@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="score" onkeyup="result.innerHTML='';"><br>
+    <button onclick="func()">Transfer</button>
+    <div id="result"></div>
+
+    <script>
+        var score = document.querySelector('#score');
+        var result = document.querySelector('#result');
+
+        function func() {
+            console.log("1")
+            var s = parseInt(score.value);
+            var ss = parseInt(s / 10);
+
+            if (s >= 0 && s <= 100) {
+                switch (ss) {
+                    case 10:
+                    case 9:
+                        result.innerHTML = 'A';
+                        break;
+                    case 8:
+                        result.innerHTML = "B";
+                        break;
+                    case 7:
+                        result.innerHTML = "C";
+                        break;
+                    case 6:
+                        result.innerHTML = "D";
+                        break;
+                    default:
+                        result.innerHTML = "F";
+                }
+            } else {
+                result.innerHTML = '分數超出範圍'
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="myinput" onkeyup="func()">
+    <div id="info">真相大白！長榮為何不罷工？ 長榮機長首度曝驚人原因真相大白！長榮為何不罷工？ 長榮機長首度曝驚人原因</div>
+    <div id="output"></div>
+
+    <script>
+        const info = document.getElementById('info').innerText;
+        const output = document.querySelector('#output');
+        const myinput = document.querySelector('#myinput');
+
+        function func(){
+            let str=info.split(myinput.value).join('<span class="red">'+ myinput.value +'</span>' );
+            output.innerHTML= str;
+        }
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="score" onkeyup="result.innerHTML='';"><br>
+    <button onclick="func()">Transfer</button>
+    <div id="result"></div>
+
+    <script>
+        var score = document.querySelector('#score');
+        var result = document.querySelector('#result');
+
+        function func(){
+            var s =parseInt(score.value);
+
+            if (100>=s>=90){
+                result.innerHTML='A';
+            } 
+            else if(s>=80){
+                result.innerHTML="B"
+            }
+            else if(s>=70){
+                result.innerHTML="C"
+            }
+            else if(s>=60){
+                result.innerHTML="D"
+            }
+            else{
+                result.innerHTML="F"}
+
+        }
+
+
+    </script>
+
+</body>
+</html>

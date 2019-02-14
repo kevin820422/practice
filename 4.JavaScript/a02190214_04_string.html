@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+        const info = document.querySelector('#info');
+
+        const str = `真相大白！長榮為何不罷工？
+         長榮機長首度曝驚人原因真相大白！
+         長榮為何不罷工？
+          長榮機長首度曝驚人原因`;
+
+    info.innerHTML+=str;
+    
+    let name = 'Bill';
+
+    info.innerHTML += str + '<br>';
+    info.innerHTML += `Hello, ${name} !` + '<br>';
+
+    name = 'Peter';
+    info.innerHTML += `Hello, ${name} !` + '<br>';
+
+
+
+    </script>
+</body>
+
+</html>

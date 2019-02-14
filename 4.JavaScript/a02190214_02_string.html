@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        let info = document.getElementById('info');
+        
+        var str1 ='真相大白！長榮為何不罷工？ 長榮機長首度曝驚人原因真相大白！長榮為何不罷工？ 長榮機長首度曝驚人原因';
+
+        info.innerHTML += 'indexOf 長榮:' + str1.indexOf('長榮')+ '<br>';
+        info.innerHTML += 'lastIndexOf 長榮:' + str1.lastIndexOf('長榮')+ '<br>';
+        info.innerHTML += str1.split('長榮').join('華航');
+        
+    </script>
+</body>
+
+</html>
