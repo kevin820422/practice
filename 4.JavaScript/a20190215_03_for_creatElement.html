@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: wheat;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: darkkhaki;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+        
+        let b,i;
+
+        var coulorlist = ['red','orange','yellow','green','blue','purple','white','black','gray','darkred'];
+
+        for (i=0;i<10;i++){
+            b = document.createElement('div');
+            b.innerHTML=i+1;
+            b.className= 'ball';  
+            b.style.background = coulorlist[i]          
+            b.style.left= 50*i +'px';
+            b.style.top= 50*i +'px';
+            rect.appendChild(b) ;
+            //創建完物件之後(creatElement)之後，要把他加進其中一個容器才能顯示。
+        }
+        
+        
+
+        
+
+
+
+
+    </script>
+</body>
+
+</html>

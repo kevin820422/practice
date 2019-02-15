@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: wheat;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            /* background: darkkhaki; */
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: .1s ease-in;
+        }
+        .ball:hover{
+            transform: scale(2);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+
+        let b, j, i;
+
+
+
+
+        for (i = 0; i < 16; i++) {
+            for (j = 0; j < 16; j++) {
+                let k = i * 17
+                let l = j *17
+                b = document.createElement('div');
+                b.className = 'ball';
+                b.style.left = 50 * j + 'px';
+                b.style.top = 50 *i + 'px';
+                b.style.backgroundColor = `rgb(${l},0,${k})`;
+                rect.appendChild(b);
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
