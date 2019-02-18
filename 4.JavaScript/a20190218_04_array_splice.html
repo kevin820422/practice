@@ -20,13 +20,22 @@
     <script>
         const info=document.querySelector('#info');
         const ar=[1,2,5,4,6,7,'a','b','c','d']; 
-        info.innerHTML+=ar+'<br>';
-
         let br=ar.slice();
-
         
+        info.innerHTML+='----------移除----------<br>';
+        info.innerHTML+=br.splice(6,4)+'<br>';
         info.innerHTML+=br+'<br>';
-        info.innerHTML+=br.splice(6,4,80)
+
+        br=ar.slice();
+
+        info.innerHTML+='--------新增,插入元素--------<br>';
+        
+        info.innerHTML+=br.splice(8,2 ,'May','June')+'<br>';
+        info.innerHTML+=br+'<br>';
+       
+    
+        // info.innerHTML+=br.splice(0,0,'one','two')+'<br>';
+        
 
 
 
