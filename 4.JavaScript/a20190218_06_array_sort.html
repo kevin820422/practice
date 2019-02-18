@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+
+<div id="rect"></div>
+
+
+
+<script>
+    const rect = document.querySelector('#rect');
+    
+    const people = [
+        { name: 'david', age: 25, id: 'A006' },
+        { name: 'bill', age: 27, id: 'A009' },
+        { name: 'peter', age: 23, id: 'A011' },
+    ];
+    let ppl= JSON.parse(JSON.stringify)
+    rect.innerHTML+='排序前:'+  JSON.stringify(people)+'<br>'
+
+    people.sort(
+        function(a, b){
+            return a.name > b.name ? -1 : 1;
+        }
+    );
+
+    rect.innerHTML+='排序後:'+ JSON.stringify(people)
+
+</script>
+</body>
+</html>
+

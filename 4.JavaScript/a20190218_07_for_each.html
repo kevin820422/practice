@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+
+<div id="rect"></div>
+
+
+
+<script>
+
+    const rect = document.querySelector('#rect');
+    let i;
+    const people = [
+        { name: 'david', age: 25, id: 'A006' },
+        { name: 'bill', age: 27, id: 'A009' },
+        { name: 'peter', age: 23, id: 'A011' },
+    ];
+    //forEach(function(目前的值,該值的index,該值所屬的object))
+    people.forEach(function(val,ind,p){
+    rect.innerHTML+= ind +': ' + val.name +'<br>';
+    });
+</script>
+</body>
+</html>
+

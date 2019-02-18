@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect=document.querySelector('#rect');
+        let p=[12,84,42,1,5,7];
+
+        var func=function(ar){
+            let ar2=JSON.parse(JSON.stringify(ar));
+            ar2.pop()
+            return ar2
+        } 
+        let k=func(p)
+        rect.innerHTML+= p.toString()+'<br>';
+        rect.innerHTML+= p.toString()+'<br>';rect.innerHTML+= p.toString()+'<br>';
+
+    </script>
+</body>
+</html>

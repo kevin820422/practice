@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #info {
+            background: lightblue;
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+        const info=document.querySelector('#info');
+        const ar=[1,2,5,4,6,7,'a','b','c','d']; 
+        info.innerHTML+=ar+'<br>';
+
+        let br=ar.slice();
+
+        
+        info.innerHTML+=br+'<br>';
+        info.innerHTML+=br.splice(6,4,80)
+
+
+
+    </script>
+</body>
+
+</html>

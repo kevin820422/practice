@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #info{
+            background: lightblue;
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info"></div>
+    <script>
+        const info=document.querySelector('#info');
+        const ar=[1,'two','3',{four:4}];
+        ar[2.5]=10;
+        ar[10]=9
+
+        let i;
+
+        for (i in ar){
+            info.innerHTML+=`${i}:${ar[i]} <br>`;
+        }
+        info.innerHTML+='Length of array:'+ ar.length +'<br>';
+        var c=ar.join('')
+        info.innerHTML+=c;
+    </script>
+</body>
+</html>

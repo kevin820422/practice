@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #info {
+            background: lightblue;
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+        const info = document.querySelector('#info');
+        var lottery = [];
+        var txt = '天氣預報中發布的紫外線指數是指那一天中當太陽處於天空中最高點時實際,國際紫外線指數不但具體定義了統一的計算方法而且規範了媒體中使用的顏色和圖表。';
+
+        for (let n = 1; n < 50; n++) {
+            lottery.push(n);
+        };
+        info.innerHTML += lottery.join(" ") + '<br><br>';
+        
+        info.innerHTML += lottery.reverse() + '<br><br>';
+        info.innerHTML += lottery.sort().join(" ") + '<br><br>';
+        info.innerHTML += txt.split("").sort();
+
+        // 亂數排序
+        lottery.sort(
+            function (a, b) {
+                return Math.random() - .5;
+            }
+        );
+        info.innerHTML += lottery + '<br>';
+
+
+    </script>
+</body>
+
+</html>

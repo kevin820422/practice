@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+ 
+    </style>
+
+</head>
+
+<body>
+
+<div id="rect"></div>
+
+
+
+<script>
+    const rect=document.querySelector('#rect')
+    const p=[
+        {name:'Kate',age:22,gender:'female'},
+        {name:'May',age:32,gender:'male'},
+        {name:'Kevin',age:18,gender:'male'},
+    ];
+    rect.innerHTML+=JSON.stringify(p)+'<br>';
+    let pp=JSON.parse(JSON.stringify(p));
+    let ppp=p.slice();
+    p[0].name='Bill';
+</script>
+</body>
+</html>
+

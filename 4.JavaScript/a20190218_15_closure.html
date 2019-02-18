@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    span.red {
+        color: red;
+    }
+</style>
+<body>
+
+<div id="rect"></div>
+
+
+
+<script>
+
+    const rect = document.querySelector('#rect');
+
+
+    var func = (function(){
+        var n = 1;
+        var m = n;
+        
+        console.log(m);
+
+        return function(){
+            n++;
+            return n;
+            console.log(n);
+        };
+
+    })();
+
+
+    rect.innerHTML += func() + '<br>';
+    rect.innerHTML += func() + '<br>';
+    rect.innerHTML += func() + '<br>';
+
+</script>
+</body>
+</html>
+

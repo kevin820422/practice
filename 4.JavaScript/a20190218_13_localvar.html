@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+        var a = 10;
+
+        let func1 = function () {
+            a = 100;
+        };
+        let func2 = function () {
+            var a = 100;
+        };
+        let func3 = function (b) {
+            rect.innerHTML +='由外傳入b的初始值:'+b+ '<br>';
+            b = 100;    // 重新賦值給b            
+            rect.innerHTML +='已被賦值的b:'+b+ '<br>';
+        };
+
+        func1()
+        rect.innerHTML += a + '<br>';
+
+        a=10;
+        func2();
+        rect.innerHTML += a+ '<br>--------------<br>';
+
+        a=10;
+        func3(a)
+        rect.innerHTML += a+ '<br>';
+
+    </script>
+</body>
+
+</html>
