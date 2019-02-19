@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+        let a = 20;
+
+        if (a > 18) {
+            let b = 18;
+        } else {
+            let c = 15;
+        };
+        rect.innerHTML+=`b:${b},c:${c}`;
+
+        for(let i=0; i<10; i++){}
+
+
+        //let為區域變數，有效範圍只在{}和function(){}，出了{}就是未定義，因此結果會跑錯。
+        //此範例如將let改為var，編譯器在初始時會將所有宣告掃過一遍，結果會是b=18,c=未定義 
+
+
+
+    </script>
+</body>
+
+</html>

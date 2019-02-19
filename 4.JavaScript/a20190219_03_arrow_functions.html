@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+        const f2 = function(){
+    
+        };
+        
+        const double = n => n * 2;
+        //等同於:
+        // const double = function (n){
+        //     return n*2;
+        // }
+        //當參數只有一個，且{}內只有一個回傳值時，可改寫為箭頭函數。
+
+        rect.innerHTML += double(8) + '<br>';
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

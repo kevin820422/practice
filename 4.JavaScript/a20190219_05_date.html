@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <div id="rect2"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+        const rect2 = document.querySelector('#rect2');
+
+        // var run = () => {
+        //     var now = new Date;
+
+        //     rect.innerHTML = now.toString();
+        //     setTimeout(run, 1000);
+        // };
+        // run()
+        var run = () => {
+            let now = new Date;
+            let h = '0' + now.getHours();
+            let m = '0' + now.getMinutes();
+            let s = '0' + now.getSeconds();
+
+            rect.innerHTML ='現在時間 '+ h.slice(h.length - 2, h.length) + ':' + m.slice(m.length - 2, m.length) + ':' + s.slice(s.length - 2, s.length);
+
+            setTimeout(run, 1000);
+        };
+        run();
+
+        var countDown = () => {
+            let now = new Date;
+            let h = now.getHours(),
+                m = now.getMinutes(),
+                s = now.getSeconds();
+
+            let total = 86400 - (h * 3600 + m * 60 + s);
+
+            let ch = '0' + parseInt(total / 3600),
+                cm = '0' + parseInt((total % 3600) / 60),
+                cs = '0' + parseInt((total % 3600) - 60 * cm);
+
+
+            rect2.innerHTML = `距離午夜還有 ${ch.slice(ch.length - 2, ch.length)}:${cm.slice(cm.length - 2, cm.length)}:${cs.slice(cs.length - 2, cs.length)}`
+
+            setTimeout(countDown, 1000);
+        };
+        countDown();
+    </script>
+</body>
+
+</html>

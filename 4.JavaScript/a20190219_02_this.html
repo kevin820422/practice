@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+        function Person(name, age) {
+            this.name = name || 'bill'; //如果沒有傳入name的值，undefined=false，name='bill'
+            this.age = age || 20;
+            this.toMyString = function () {
+                return this.name + " " + this.age;
+            }
+        }
+        Object.prototype.toString = function () {
+            return `{ name: ${this.name}, age: ${this.age} }`;
+        };
+
+        var p = new Person();
+        var p3 = new Person('peter', 25);
+        rect.innerHTML += p.toMyString() + '<br>';
+        rect.innerHTML += p.toString() + '<br>';
+        rect.innerHTML += p3.toMyString() + '<br>';
+        rect.innerHTML += p3.toString() + '<br>';
+
+
+
+
+
+    </script>
+</body>
+
+</html>
