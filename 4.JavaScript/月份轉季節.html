@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Click the button to call the new mySeason() method, and display this season's name, using the new myProp
+        property.
+    </p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <p id="demo"></p>
+
+    <script>
+        //改寫Date()的prototype
+        const p = document.querySelector('p');
+        Date.prototype.mySeason = function () {
+            if (this.getMonth() < 3) {
+                this.myProp = "Spring";
+                p.style.color = 'pink';
+            }
+            else if (3 <= this.getMonth() < 6) {
+                this.myProp = "Summer";
+                p.style.color = 'orange';
+            }
+            else if (6 <= this.getMonth() < 9) {
+                this.myProp = "Fall";
+                p.style.color = 'brown';
+            }
+            else if (9 <= this.getMonth() <= 11) {
+                this.myProp = "Winter";
+                p.style.color = 'darkblue';
+            };
+
+        };
+
+        function myFunction() {
+            var d = new Date();
+            // d.setMonth(7);
+            d.mySeason();
+            document.getElementById("demo").innerHTML = d.myProp;
+        };
+    </script>
+
+</body>
+
+</html>
+</script>
+</body>
+
+</html>
