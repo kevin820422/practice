@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: wheat;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: darkkhaki;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: 1 ease-in ;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+
+        let b, i;
+
+        var coulorlist = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'white', 'black', 'gray', 'darkred'];
+
+        for (i = 0; i < 100; i++) {
+            let x, y, size, bgc;
+            b = document.createElement('div');
+            b.className = 'ball';
+            
+            size = 10 + Math.floor(Math.random() * 31);
+            b.style.width = size + 'px';
+            b.style.height = size + 'px';
+
+
+            bgc = Math.floor(Math.random() * 360);
+            b.style.background = `hsl(${bgc},100%,50%)`;
+            
+            b.style.left = Math.random()*800 + 'px';
+            b.style.top = Math.random()*600 + 'px';
+            rect.appendChild(b);
+            
+            function fall(){
+                
+        };
+            //創建完物件之後(creatElement)之後，要把他加進其中一個容器才能顯示。
+        };
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

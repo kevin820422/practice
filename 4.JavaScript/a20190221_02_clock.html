@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">    <style>
+        .clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+            border: 10px solid rgb(255, 255, 255);
+        }
+
+        .hand {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+        .hr-hand {
+            position: absolute;
+            width: 20px;
+            height: 160px;
+            background: #fff;
+            border-left: 2px solid #ccc;
+            left: -10px;
+            top: -150px;
+            border-radius: 10px;
+        }
+
+        .min-hand {
+            position: absolute;
+            width: 16px;
+            height: 220px;
+            background: #fff;
+            border-left: 2px solid #ccc;
+            left: -8px;
+            top: -212px;
+            border-radius: 8px;
+        }
+
+        .sec-hand {
+            position: absolute;
+            width: 6px;
+            height: 280px;
+            background: #fff;
+            border-left: 2px solid #ccc;
+            left: -3px;
+            top: -277px;
+            border-radius: 3px;
+        }
+
+        .box {
+            position: absolute;
+            top: 300px;
+            left: 300px;
+        }
+
+
+        .line {
+            position: absolute;
+            width: 1px;
+            height: 30px;
+            background: rgb(233, 233, 233);
+            top: -300px;
+            left: -1px;
+            transform-origin: 50% 300px;
+
+
+
+        }
+
+        .b {
+
+            width: 2px;
+            height: 40px;
+        }
+
+        .timebox {
+            box-shadow: 1px -1px 5px inset;
+            background: white;
+            position: absolute;
+            border-radius: 3px;
+            /* border: 2px solid black; */
+            width: 180px;
+            height: 50px;
+            transform: translate(-50%, 200px);
+            left: 50%;
+            text-align:center;
+            font-size: 25px;
+            line-height: 55px;
+            color: rgb(114, 114, 114);
+            font-weight: 900;
+            font-family: 'Major Mono Display', monospace;        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="box"></div>
+        <div class="timebox"></div>
+        <div class="hand">
+            <div class="hr-hand"></div>
+        </div>
+        <div class="hand">
+            <div class="min-hand"></div>
+        </div>
+        <div class="hand">
+            <div class="sec-hand"></div>
+        </div>
+    </div>
+
+    <script>
+        var clock = document.querySelector('.clock');
+        const hands = document.querySelectorAll('.clock>.hand');
+        const hr_h = hands[0];
+        const min_h = hands[1];
+        const sec_h = hands[2];
+        const box = document.querySelector('.box');
+        const timebox = document.querySelector('.timebox');
+        let s, i;
+
+        for (i = 0; i < 360; i += 6) {
+            if (i % 5 == 0) {
+                s = document.createElement('div');
+                s.className = 'line b';
+                s.style.transform = `rotate(${i}deg)`;
+                box.appendChild(s)
+            } else {
+                s = document.createElement('div');
+                s.className = 'line';
+                s.style.transform = `rotate(${i}deg)`;
+                box.appendChild(s)
+
+            }
+
+        };
+        const run = () => {
+            var now = new Date();
+            var hr = now.getHours();
+            var min = now.getMinutes();
+            var sec = now.getSeconds();
+            var msec = now.getMilliseconds();
+            let h = '0' + hr, m = '0' + min, s = '0' + sec;
+
+            timebox.innerHTML = h.slice(h.length - 2, h.length) + ':' + m.slice(m.length - 2, m.length) + ':' + s.slice(s.length - 2, s.length);
+
+            hr_h.style.transform = `rotate(${hr * 30 + min * 0.5}deg)`;
+            min_h.style.transform = `rotate(${min * 6 + sec * 0.1}deg)`;
+            sec_h.style.transform = `rotate(${sec * 6 + msec * 0.006}deg)`;
+            clock.style.backgroundColor = `hsl(${sec * 6 + msec * 0.006},100%,50%)`;
+
+            setTimeout(run, 40);
+        }
+        run();
+    </script>
+</body>
+
+</html>

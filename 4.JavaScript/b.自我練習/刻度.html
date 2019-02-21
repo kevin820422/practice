@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clock{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background: pink;
+            border-radius: 50%;
+        }
+        .box{
+            position: absolute;
+            top :250px;
+            left:250px;
+        }
+        .line{
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background: black;
+            top: -250px;
+            left: -1px;
+             
+             
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="box">
+            <!-- <div class="line"></div> -->
+        </div>
+    </div>
+    <script>
+    const clock =document.querySelector('.clock');
+    const box = document.querySelector('.box');
+    let s;
+    for (let i=0;i<360;i+=6){
+        s = document.createElement('div');
+        s.className='line'
+        s.style.transformOrigin='50% 250px'
+        s.style.transform=`rotate(${i}deg)`
+        box.appendChild(s);
+    }
+    </script>
+</body>
+</html>
