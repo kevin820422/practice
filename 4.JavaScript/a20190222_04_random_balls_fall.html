@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: wheat;
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: darkkhaki;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: 1 ease-in;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        const rect = document.querySelector('#rect');
+
+        let b, i;
+        let balls = [];
+
+
+        //箭頭涵式 隨機色彩
+        const randomColor = () => {
+            const zero = '000000';
+            let c = Math.floor(Math.random() * 255 * 255 * 255).toString(16); //隨機取數值16進位
+            return '#' + zero.slice(0, 6 - c.length) + c; //避免前面缺數
+        };
+
+
+
+        for (i = 0; i < 100; i++) {
+            let x, y, size, bgc;
+            b = document.createElement('div');
+            b.className = 'ball';
+            balls.push(b);
+
+            size = 10 + Math.floor(Math.random() * 31);
+            b.style.width = size + 'px';
+            b.style.height = size + 'px';
+
+
+            bgc = Math.floor(Math.random() * 360);
+            b.style.background = randomColor();
+            //  `hsl(${bgc},100%,50%)`;
+
+            b.style.left = Math.random() * 800 + 'px';
+            b.style.top = Math.random() * 600 + 'px';
+            rect.appendChild(b);
+        };
+
+        const run = () => {
+            for (let i = 0; i < balls.length; i++) {
+                let el = balls[i];
+                let y = parseInt(el.style.top);
+                let x = parseInt(el.style.left);
+                el.style.top = (y - 1 - Math.floor(Math.random() * 5)) + 'px';
+                el.style.left = (x + Math.floor(Math.random() * 5) - 2) + 'px'; //左右晃動 正負2px之內  
+            }
+            setTimeout(run, 30);
+        }
+        run();
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

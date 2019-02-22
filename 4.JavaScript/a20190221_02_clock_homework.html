@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">    <style>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <style>
         .clock {
             position: relative;
             width: 600px;
@@ -91,12 +92,13 @@
             height: 50px;
             transform: translate(-50%, 200px);
             left: 50%;
-            text-align:center;
+            text-align: center;
             font-size: 25px;
             line-height: 55px;
             color: rgb(114, 114, 114);
             font-weight: 900;
-            font-family: 'Major Mono Display', monospace;        }
+            font-family: 'Major Mono Display', monospace;
+        }
     </style>
 </head>
 
@@ -126,20 +128,36 @@
         let s, i;
 
         for (i = 0; i < 360; i += 6) {
+            s = document.createElement('div');
+            s.style.transform = `rotate(${i}deg)`;
+            box.appendChild(s);
+            s.className = 'line';
             if (i % 5 == 0) {
-                s = document.createElement('div');
-                s.className = 'line b';
-                s.style.transform = `rotate(${i}deg)`;
-                box.appendChild(s)
-            } else {
-                s = document.createElement('div');
-                s.className = 'line';
-                s.style.transform = `rotate(${i}deg)`;
-                box.appendChild(s)
-
+                s.className += 'b';
             }
-
         };
+        //另一種做法:
+        // const ticks = document.querySelector('.ticks');
+        //     let str, el, ticks_hands;
+
+        // str = '';---------直接寫好60個element的字串
+        // for(let i=0; i<60; i++){
+        //     str += '<div class="hand"><div class="tick"></div></div>';
+        // }
+        // ticks.innerHTML = str;---------innerHTML加入    
+        // ticks_hands = document.querySelectorAll('.ticks>.hand'); 利用querySelectorAll選取.ticks底下的.hand
+        // for(let i=0; i<60; i++){
+        //     el = ticks_hands[i]; 
+        //     el.style.transform = `rotate(${i*6}deg)`;
+        //     if(i%5===0){
+        //         el.children[0].style.width = '6px';
+        //         el.children[0].style.height = '30px';
+        //         el.children[0].style.left = '-3px';
+        //     }
+        // }
+
+
+
         const run = () => {
             var now = new Date();
             var hr = now.getHours();

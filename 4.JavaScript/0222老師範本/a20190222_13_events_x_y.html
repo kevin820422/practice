@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+        top: 1100px;
+    }
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #ff2f27;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        border: 1px solid black;
+        transition: .2s;
+        left: 50px;
+        top: 50px;
+    }
+    .big-ball {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        background-color: #2c47ff;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 80px;
+        color: white;
+        border: 1px solid black;
+        left: 360px;
+        top: 260px;
+    }
+    #info {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+<div id="info"></div>
+<div id="rect">
+    <div class="big-ball">
+        <div class="ball"></div>
+    </div>
+</div>
+
+
+
+
+<script>
+
+    const info = document.querySelector('#info');
+    const rect = document.querySelector('#rect');
+    const bigBall = document.querySelector('.big-ball');
+    const ball = document.querySelector('.ball');
+
+
+    rect.addEventListener('mousemove', function(event){
+        console.log(event);
+        let str = '';
+
+        str += 'offset: ' + event.offsetX + ', ' + event.offsetY + '<br>';
+        str += 'client: ' + event.clientX + ', ' + event.clientY + '<br>';
+        str += 'page: ' + event.pageX + ', ' + event.pageY + '<br>';
+
+
+        info.innerHTML = str;
+    });
+
+
+</script>
+</body>
+</html>
+

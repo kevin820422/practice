@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+    }
+    .ball {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #ff2f27;
+        border-radius: 50%;
+        border: 1px solid black;
+        pointer-events: none; /* 不要感應到滑鼠 */
+    }
+
+    #info {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+<div id="info"></div>
+<div id="rect">
+
+</div>
+
+
+
+
+<script>
+    const info = document.querySelector('#info');
+    const rect = document.querySelector('#rect');
+
+    rect.addEventListener('mousemove', function(event){
+        const b = document.createElement('div');
+        b.className = 'ball';
+        b.style.left = event.offsetX + 'px';
+        b.style.top = event.offsetY + 'px';
+
+        rect.appendChild(b);
+    });
+
+
+</script>
+</body>
+</html>
+
