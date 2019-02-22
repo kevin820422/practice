@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: wheat;
+            top: 100px;
+            /* overflow: hidden; */
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: darkkhaki;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        const rect = document.querySelector('#rect');
+        const ballNum=12;
+
+        const angUnit = Math.PI *2/ballNum;
+        let b,i,x,y;
+
+        for (i=0 ;i<ballNum;i++){
+            b=document.createElement('div');
+            b.className='ball';
+            b.innerHTML=i+1;
+            x=400-20+Math.cos(angUnit*i-2*angUnit)*200;
+            y=300-20+Math.sin(angUnit*i-2*angUnit)*200;
+            b.style.top=y+'px';
+            b.style.left=x+'px';
+
+            rect.appendChild(b);
+        }
+
+
+        
+       
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

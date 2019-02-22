@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: wheat;
+            top: 100px;
+            /* overflow: hidden; */
+        }
+
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: darkkhaki;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        const rect = document.querySelector('#rect');
+        const ballNum=12;
+
+        const angUnit = Math.PI *2/ballNum;
+        let b,i,x,y;
+        const balls=[];
+
+        for (i=0 ;i<ballNum;i++){
+            b=document.createElement('div');
+            b.className='ball';
+            b.innerHTML=i;
+            b.myEndLeft=x;
+            b.myEndLeft=y;
+            x=400-20+Math.cos(angUnit*i)*200;
+            y=300-20+Math.sin(angUnit*i)*200;
+            b.style.top='280px';
+            b.style.left='380px';
+
+            // balls.push(b);
+            rect.appendChild(b);
+        }
+
+        // balls.forEach(function(el,ind){
+        //     setTimeout(function(){
+        //         el.style.left=el.myEndLeft+'px';
+        //         el.style.top=el.myEndTop+'px';
+        //     },ind*200)
+        // })
+
+    
+
+        
+       
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

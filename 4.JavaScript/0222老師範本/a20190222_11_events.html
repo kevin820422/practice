@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+        top: 100px;
+        /*overflow: hidden;*/
+    }
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #ff2f27;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        border: 1px solid black;
+        transition: .2s;
+    }
+    .big-ball {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background-color: #2c47ff;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 80px;
+        color: white;
+        border: 1px solid black;
+        left: 360px;
+        top: 260px;
+    }
+</style>
+<body>
+<button>Hello</button>
+<div id="rect">
+    <div class="big-ball" onclick="dosomething(event)"></div>
+</div>
+
+
+
+
+<script>
+
+    const rect = document.querySelector('#rect');
+    const bigBall = document.querySelector('.big-ball');
+    const btn = document.querySelector('button');
+
+    function dosomething(evt){
+        console.log('1');
+    }
+
+    bigBall.onclick = function(){
+        console.log('2');
+    };
+
+    bigBall.addEventListener('click', function(){
+        console.log('3');
+    });
+    bigBall.addEventListener('click', function(){
+        console.log('5');
+    });
+
+    const listener = (event)=>{
+        console.log(event);
+    };
+    bigBall.addEventListener('click', listener);
+    btn.addEventListener('click', listener);
+
+
+</script>
+</body>
+</html>
+
