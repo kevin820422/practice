@@ -14,8 +14,8 @@
 <script>
 
     const rect = document.querySelector('#rect');
-
-    for(let i=0; i<10; i++){
+    let i;
+    for( i=0; i<10; i++){
         setTimeout(function(){
             rect.innerHTML += i +'<br>';
         }, 200*i)
