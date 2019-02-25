@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    #rect {
+
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+    }
+
+    .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #ff2f27;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        border: 1px solid black;
+        transition: .2s;
+        left: 50px;
+        top: 50px;
+        pointer-events: none;
+    }
+
+    .big-ball {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        background-color: #2c47ff;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 80px;
+        color: white;
+        border: 1px solid black;
+        left: 360px;
+        top: 260px;
+    }
+</style>
+
+<body>
+    <div id="rect">
+
+
+    </div>
+
+
+
+
+    <script>
+        const info = document.querySelector('#info')
+        const rect = document.querySelector('#rect');
+        const bigBall = document.querySelector('.big-ball');
+        const ball = document.querySelector('.ball');
+
+        function randomColor() {
+            // const randomColor = () => {
+            const zero = '000000';
+            let c = Math.floor(Math.random() * 255 * 255 * 255).toString(16); //隨機取數值16進位
+            return '#' + zero.slice(0, 6 - c.length) + c; //避免前面缺數
+        };
+
+        //mousedown時,註冊mousemove和mouseup事件
+        const mDown = (event) => {
+            rect.addEventListener('mousemove', mMove)
+            window.addEventListener('mouseup', mUp)
+            //把註冊物件從rect改為window,避免在rect外面放開滑鼠時
+            //偵聽不到事件
+
+        }
+        //mouseup時移除mousemove和mouseup事件
+        const mUp = (event) => {
+            rect.removeEventListener('mousemove', mMove)
+            window.removeEventListener('mouseup', mUp)
+        }
+
+        const mMove = (event) => {
+            const b = document.createElement('div');
+            b.className = 'ball'
+            rect.appendChild(b);
+            size = 10 + Math.floor(Math.random() * 31);
+            b.style.width = size + 'px';
+            b.style.height = size + 'px';
+            bgc = Math.floor(Math.random() * 360);
+            b.style.background = randomColor();
+            b.style.left = event.offsetX - size / 2 + 'px';
+            b.style.top = event.offsetY - size / 2 + 'px';
+            //- (size / 2)把圓校正到滑鼠中心
+            rect.appendChild(b);
+        };
+
+        rect.addEventListener('mousedown', mDown);
+
+
+
+    </script>
+</body>
+
+</html>

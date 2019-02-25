@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style>
+    #rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+    }
+</style>
+<body>
+
+<div id="rect">
+</div>
+
+
+<script>
+
+    const rect = document.querySelector('#rect');
+
+    const func = event=>{
+        console.log('aaa');
+
+    };
+
+    // rect.addEventListener('click', func);
+
+
+    // rect.addEventListener('click', event=>{
+    //     console.log('bbb');
+    // });
+    // rect.addEventListener('click', event=>{
+    //     console.log('ccc');
+    // });
+
+    for(let i=0; i<10; i++) {
+        rect.addEventListener('click', func);//此處func為參照，雖然在for迴圈中執行十次，但參照同一個，只會增加一個接收器。
+        rect.addEventListener('click', event => {//此處為每執行一次addEventListener，就會重新定義一個function，因此點擊時會console出十次。
+            console.log('ddd');
+        });
+    }
+
+
+
+
+</script>
+</body>
+</html>
+
