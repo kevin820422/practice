@@ -39,14 +39,14 @@
 
 
         //箭頭涵式 隨機色彩
-        function randomColor(){ 
-        // const randomColor = () => {
+        function randomColor() {
+            // const randomColor = () => {
             const zero = '000000';
             let c = Math.floor(Math.random() * 255 * 255 * 255).toString(16); //隨機取數值16進位
             return '#' + zero.slice(0, 6 - c.length) + c; //避免前面缺數
         };
 
-
+        // const ball =document.querySelectorAll('.ball'); 
 
         for (i = 0; i < 100; i++) {
             let x, y, size, bgc;
@@ -64,17 +64,21 @@
             //  `hsl(${bgc},100%,50%)`;
 
             b.style.left = Math.random() * 800 + 'px';
-            b.style.top = Math.floor(Math.random() * 700)-50 + 'px';
+            b.style.top = Math.floor(Math.random() * 700) - 50 + 'px';
             rect.appendChild(b);
         };
+
+
 
         const run = () => {
             for (let i = 0; i < balls.length; i++) {
                 let el = balls[i];
+                // for (let j=0;j<100;j++){
+                // ball[j].style.background = '#ffffff'}
                 let y = parseInt(el.style.top);
                 let x = parseInt(el.style.left);
-                if(y<-50){
-                    y+=700;
+                if (y < -50) {
+                    y += 700;
                 }//50px為頂部預留的安全範圍，當超過時+700把球再推回底部。
                 el.style.top = (y - 1 - Math.floor(Math.random() * 5)) + 'px';
                 el.style.left = (x + Math.floor(Math.random() * 5) - 2) + 'px'; //左右晃動 正負2px之內  
