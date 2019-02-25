@@ -75,7 +75,7 @@
                 let x = parseInt(el.style.left);
                 if(y<-50){
                     y+=700;
-                }
+                }//50px為頂部預留的安全範圍，當超過時+700把球再推回底部。
                 el.style.top = (y - 1 - Math.floor(Math.random() * 5)) + 'px';
                 el.style.left = (x + Math.floor(Math.random() * 5) - 2) + 'px'; //左右晃動 正負2px之內  
             }
