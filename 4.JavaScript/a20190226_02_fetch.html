@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+    <div id="info"></div>
+    <button onclick="doAjax()">Click me</button>
+    <br>
+    <input type="text">
+    <script>
+
+        function doAjax() {
+            fetch('./data/hello.txt')
+                .then(response => {
+                    return response.txt() //回傳類型，也可以是JSON
+                })
+                .then(txt => {
+                    document.getElementById('info').innerHTML = txt;
+                });
+        }   
+    </script>
+</body>
+
+</html>

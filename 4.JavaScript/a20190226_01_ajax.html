@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+    <div id="info"></div>
+    <button onclick="doAjax()">Click me</button>
+    <br>
+    <input type="text">
+    <script>
+        function doAjax() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                console.log(this.readyState, this.status);  //this指向xhr
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById('info').innerHTML = this.responseText;
+                }
+            }
+        
+        xhr.open('GET', './data/hello.txt', true); // 第三個參數為 async
+
+        xhr.send();//執行
+        }
+    </script>
+</body>
+
+</html>
