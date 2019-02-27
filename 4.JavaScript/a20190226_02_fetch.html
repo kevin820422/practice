@@ -17,7 +17,7 @@
         function doAjax() {
             fetch('./data/hello.txt')
                 .then(response => {
-                    return response.txt() //回傳類型，也可以是JSON
+                    return response.text() //回傳類型，也可以是JSON
                 })
                 .then(txt => {
                     document.getElementById('info').innerHTML = txt;
