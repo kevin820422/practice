@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的放大鏡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 100px;
+            position: relative;
+        }
+
+        .small {
+            width: 350px;
+            height: 350px;
+            border: 1px solid #999;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .select {
+            display: none;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            left: 360px;
+            top: 0;
+            width: 450px;
+            height: 450px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .big img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .small>img {
+            height: 100%;
+            object-fit: cover;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="small" id="smallbox">
+            <img src="../images/sauvage.jpg" alt="">
+            <div class="select" id="mask" style="display:none;"></div>
+        </div>
+        <div class="big" id="bigbox">
+            <img src="../images/sauvage.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var smallbox = document.getElementById('smallbox');
+        var bigbox = document.getElementById('bigbox');
+        var mask = document.getElementById('mask');
+        var bigImg = bigbox.children[0];
+        smallbox.onmouseover = function () {
+            mask.style.display = "block";
+            bigbox.style.display = "block";
+        }
+        smallbox.onmouseout = function () {
+            mask.style.display = "none";
+            bigbox.style.display = "none";
+        }
+        smallbox.onmousemove = function (event) {
+            var event = event || window.event;
+            var x = event.clientX - this.offsetParent.offsetLeft - mask.offsetWidth / 2;
+            var y = event.clientY - this.offsetParent.offsetTop - mask.offsetHeight / 2;
+            //不讓黃盒子出界
+            if (x < 0) {
+                x = 0;
+            } else if (x > smallbox.offsetWidth - mask.offsetWidth) {
+                x = smallbox.offsetWidth - mask.offsetWidth;
+            }
+            if (y < 0) {
+                y = 0;
+            } else if (y > smallbox.offsetHeight - mask.offsetHeight) {
+                y = smallbox.offsetHeight - mask.offsetHeight;
+            }
+            mask.style.left = x +"px";
+            mask.style.top = y +"px";
+            bigImg.style.left = -x / smallbox.offsetWidth * bigbox.offsetWidth   +"px"; //注意是-x
+            bigImg.style.top = -y / smallbox.offsetHeight * bigbox.offsetHeight   +"px";
+        }
+    </script>
+</body>
+
+</html>
