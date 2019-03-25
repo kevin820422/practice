@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Slider</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        .wrapper {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .slider {
+            height: 400px;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider_img {
+            position: absolute;
+            width: 3200px;
+            left: 0;
+            transition: .5s
+        }
+
+        .slider_img li {
+            width: 800px;
+            height: 400px;
+        }
+
+        .slider_img li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controler {
+            position: absolute;
+            z-index: 15;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, .5);
+            margin: 0 5px;
+        }
+
+        .actived {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        i {
+            font-size: 40px;
+            color: azure;
+
+        }
+
+        .way {
+            position: absolute;
+            z-index: 16;
+            top: 50%;
+            background: rgba(255, 255, 255, .2);
+            padding: 10px;
+            transform: translateY(-50%);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="slider">
+            <div class="way" id="left" style="left:0;">
+                <i class="fas fa-chevron-left"></i></div>
+            <div class="way right-0" id="right" style="right:0;">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="controler d-flex">
+                <div class="dot actived" id="p1"></div>
+                <div class="dot" id="p2"></div>
+                <div class="dot" id="p3"></div>
+                <div class="dot" id="p4"></div>
+            </div>
+            <ul class="list-unstyled slider_img d-flex">
+                <li><img src="images/slide1.jpeg" alt=""></li>
+                <li><img src="images/slide2.jpeg" alt=""></li>
+                <li><img src="images/slide3.jpeg" alt=""></li>
+                <li><img src="images/slide4.jpeg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+    for (let i = 0; i <= 3; i++) {
+        $(`#p${i + 1}`).click(function () {
+            $(".slider_img").css('left', `-${800 * i}px`);
+
+            $(this).css('background-color', 'rgba(255, 255, 255, 1)')
+                .siblings().css('background-color', 'rgba(255, 255, 255, .5)')
+        })
+    }
+
+
+</script>
+
+</html>

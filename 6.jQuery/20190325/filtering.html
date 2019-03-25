@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Form Selector</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        td div {
+            border: 1px solid red;
+            padding: 3px;
+        }
+
+        .box {
+            width: 64px;
+            height: 64px;
+            background: yellowgreen;
+            margin: 5px;
+            transition: .5s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="py-3">
+            <button class="btn btn-info" id="ed">ed</button>
+            <button class="btn btn-info" id="first">first</button>
+            <button class="btn btn-info" id="has">has</button>
+            <button class="btn btn-info" id="not">not</button>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="actived">This square is actived!</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div>
+                        <div>
+
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td class="actived">This square is actived!</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="actived">This square is actived!</td>
+                <td>
+                    <p>I have p element!</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p>I have p element!</p>
+                </td>
+                <td>
+                    <div>
+                        <div></div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <section class="box"></section>
+                    <section class="box"></section>
+                </td>
+                <td>
+                    <section class="box"></section>
+                    <section class="box"></section>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script>
+            $("#ed").click(function () {
+                $('td').eq(2).css('background', 'pink');
+            });
+            $("#first").click(function () {
+                $('td').first().css('background', 'lightblue');
+            });
+            $("#has").click(function () {
+                $("td").has("p").css("background", "yellow");
+
+            });
+            $("#not").click(function () {
+                $('td').not('actived').css('background', 'limegreen');
+            });
+            $("#not").click(function () {
+                $('td').not('actived').css('background', 'limegreen');
+            });
+            $("#not").click(function () {
+                $('td').not('actived').css('background', 'limegreen');
+            });
+            $("td").children("div").css("border", "1px solid red");
+
+            // $("td").click(function(){
+            //     $(this).find(".box").css("border-radius", "50%");
+            // })
+            // $('td').click(function(){
+            //     $(this).next().css('background','green');
+            //     $(this).css('background', 'none').next().css('background', 'green').prev().prev().css('background', 'red');
+
+            // })
+            $('td').click(function () {
+                $(this).nextAll().css('background', 'gray')
+            });
+
+            $('td').click(function () {
+                $(this).nextUntil('p').css('background', 'orange')
+            })
+        </script>
+</body>
+
+</html>

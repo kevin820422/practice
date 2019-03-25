@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Selector</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        /* button{
+        background: red;
+    }
+    .yellow{
+        background: yellow;
+    } */
+    </style>
+</head>
+<div class="container">
+    <button>button</button>
+    <button class="yellow" id="orange">button</button>
+    <button class="yellow" id="orange">button</button>
+    <!-- 用jquery下只有第一個id會執行 -->
+
+    <div>
+        <a href="https://google.com">Google</a>
+        <a href="https://google.com" target="_blank">Google</a>
+
+    </div>
+</div>
+
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $('document').ready(function(){
+            $("button").css("background-color", "red");
+            $(".yellow").css("background-color", "yellow");
+            $("#orange").css("background", "orange");
+            $("a[target='_blank']").css("background", "palegreen");
+        });
+
+
+    </script>
+
+</body>
+
+</html>
