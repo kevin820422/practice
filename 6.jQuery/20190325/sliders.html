@@ -118,7 +118,7 @@
 </body>
 <script>
     for (let i = 0; i <= 3; i++) {
-        $(`#p${i + 1}`).click(function () {
+        $(`#p${i + 1}`).mouseover(function () {
             $(".slider_img").css('left', `-${800 * i}px`);
 
             $(this).css('background-color', 'rgba(255, 255, 255, 1)')
