@@ -100,23 +100,23 @@
 <body>
     <div class="wrapper">
         <div class="slider_wrap">
-            <div class="dir_btn dir_left d-flex transition">
-                <i class="fas fa-chevron-left transition"></i>
+            <div class="position-absolute text-white dir_btn dir_right d-flex transition" id="slideNext">
+                <i class="fas fa-angle-right transition"></i>
             </div>
-            <div class="dir_btn dir_right d-flex transition">
-                <i class="fas fa-chevron-right transition"></i>
+            <div class="position-absolute text-white dir_btn dir_left d-flex transition" id="slidePrev">
+                <i class="fas fa-angle-left transition"></i>
             </div>
-            <ul class="list-unstyled slider_img d-flex">
-                <li><img src="images/slide1.jpeg" alt=""></li>
-                <li><img src="images/slide2.jpeg" alt=""></li>
-                <li><img src="images/slide3.jpeg" alt=""></li>
-                <li><img src="images/slide4.jpeg" alt=""></li>
+            <ul id="slider" class="list-unstyled slider_img d-flex transition" style="width: 3200px; left: 0px;">
+                <li style="width: 800px;"><img src="./images/slide1.jpeg" alt=""></li>
+                <li style="width: 800px;"><img src="./images/slide2.jpeg" alt=""></li>
+                <li style="width: 800px;"><img src="./images/slide3.jpeg" alt=""></li>
+                <li style="width: 800px;"><img src="./images/slide4.jpeg" alt=""></li>
             </ul>
             <ul id="page" class="list-unstyled page_point d-flex justify-content-center">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li style="background: rgb(255, 255, 255);"></li>
+                <li style="background: none;"></li>
+                <li style="background: none;"></li>
+                <li style="background: none;"></li>
             </ul>
         </div>
     </div>
@@ -132,48 +132,49 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script>
-
-        var slideNum = 0; //將初始變數設定在第一頁,如果沒有設定卻在function裡使用,將默認為全域變數
-        var slideWidth = 800
+        var slideNum = 0;
+        var slideWidth = $(".slider_wrap").width();
         var slideCount = $("#slider li").length;
         var slideLastIndex = slideCount - 1;
-        var slideFirstIndex = slideCount - 1;
-
-
-        $("#page li").first().css("background", "#fff");
-        $("#page li").mouseover(function () {
-            slideNum = $(this).index();         //index(),在所有符合條件的元素中,排列第幾個
-            var slideMove = 0 - slideNum * slideWidth;
-            $(".slider_img").css("left", slideMove);
-            $(this).css("background", "#fff").siblings().css("background", "none")
-            // console.log(slideNum, slideMove);
+        $(".slider_img").width(slideWidth * slideCount);
+        console.log(slideWidth)
+        $("#page li").eq(0).css("background", "#fff");
+        $("#page li").mouseenter(function () {
+            slideNum = $(this).index();
+            goSlide()
         });
 
-        $(".dir_right").click(function () {
+        $("#slideNext").click(function () {
             slideNum++;
-            if (slideNum > 3) {
+            if (slideNum > slideLastIndex) {
+                slideNum = 0;
+            }
+            goSlide()
+            console.log(slideNum);
+        });
+        $("#slidePrev").click(function () {
+            slideNum--;
+            if (slideNum < 0) {
                 slideNum = slideLastIndex;
             }
             goSlide()
             console.log(slideNum);
-        })
-        $(".dir_left").click(function () {
-            slideNum--;
-            if (slideNum < 0) {
-                slideNum = 3;
-            }
-            goSlide()
-
-            console.log(slideNum);
-        })
+        });
         function goSlide() {
             var slideMove = 0 - slideNum * slideWidth;
-            $(".slider_img").css("left", slideMove);
-            $("#page li").eq(slideNum).css("background", "#fff").siblings().css("background", "none")
+
+            $("#slider").css("left", slideMove);
+            $("#page li").eq(slideNum).css("background", "#fff").siblings().css("background", "none");
         }
 
-
+        $(window).on("resize", function () {
+            slideWidth = $(".slider_wrap").width();
+            $(".slider_img li").width(slideWidth);
+            $(".slider_img").width(slideWidth * slideCount);
+            goSlide()
+        });
     </script>
+
 </body>
 
 </html>

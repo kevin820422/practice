@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        /* 後排要改變的css要寫在後面,或是把權重加重 */
+        .box.change {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            border-radius: 50%;
+            transform: rotate(360deg);
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            transition: 1s;
+            transform: rotate(0deg);
+        }
+
+        .menu div {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 2px;
+        }
+
+        .menu div.active {
+            background: #333;
+            color: #fff;
+        }
+
+        .upper {
+            width: 280px;
+            height: 100px;
+            background: lightpink;
+            clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+            transition: .5s;
+            transform: rotate(0);
+        }
+
+        .front {
+            width: 280px;
+            background: rosybrown;
+            clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+            transform: rotate(360deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="py-3"><button type="button" class="btn btn-primary" id="add">Add Class</button>
+            <button type="button" class="btn btn-primary" id="remove">Remove Class</button>
+            <button type="button" class="btn btn-primary" id="toggle">Toggle Class</button>
+            <button type="button" class="btn btn-primary" id="move">move</button>
+        </div>
+
+        <div class="box"></div>
+        <div class="py-3 d-flex menu">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+
+        </div>
+        <div class="upper"></div>
+        <div class="front"></div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        $("#add").click(function () {
+            $(".box").addClass("change");
+        });
+        $("#remove").click(function () {
+            $(".box").removeClass("change");
+        });
+        $("#toggle").click(function () {
+            $(".box").toggleClass("change");
+        });
+        $(".menu div").click(function () {
+            $(this).toggleClass("active");
+        })
+        $("#move").click(function () {
+                $(".upper").toggleClass("front");
+            })
+    </script>
+</body>
+
+
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Window Event</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,34 +13,14 @@
     <style>
         body {
             height: 300vh;
-            transition: .5s
-        }.pic{
-            position: absolute;
-            top:600px;
-            right: 30px;
-            transition: .5s;
-            transform: translateX(600px);
-        }
-        .contain{
-            width: 400px;
-            height: 400px;
-            overflow: auto;
-            border: 1px solid #ccc
-        }
-        .box{
-            width: 1000px;
-            height: 200px;
-            background: lightpink;
         }
     </style>
 </head>
 
 <body>
-    <button class="btn btn-primary" id="goto">goto</button>
-    <div class="contain">
-        <div class="box"></div>
+    <div class="progress fixed-top">
+        <div class="progress-bar" role="progressbar" style=""></div>
     </div>
-<img class="pic" src="../example/images/01.png" alt="">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -54,28 +34,14 @@
         crossorigin="anonymous"></script>
     <script>
         $(window).scroll(function () {
-            // console.log("scroll!");
             var scrollTop = $(this).scrollTop();
-            console.log(scrollTop);
-            if (scrollTop > 200) {
-                $(".pic").css("transform", "translateX(0px)");
-            }else{
-                $(".pic").css("transform", "translateX(600px)");
-            }
-            if (scrollTop > 500) {
-                $("body").css("background", "lightblue");
-            } else {
-                $("body").css("background", "none");
-            }
-        });
-        $(".contain").scroll(function(){
-            var scrollLeft=$(this).scrollLeft();
-            console.log(scrollLeft)
-        
-        })
+            var pageHeight = $("body").height();
+            var windowHeight = $(window).height();
+            var progress = Math.round(scrollTop / (pageHeight-windowHeight) * 100 )+ "%"
 
-        $("#goto").click(function(){
-            $(window).scrollTop(300);
+            // var progress = ((scrollTop + windowHeight) / bodyHeight) * 100 + "%"
+            $(".progress-bar").css("width", progress);
+            console.log(progress);
         })
     </script>
 </body>
