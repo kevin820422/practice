@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Show Hide Menu</title>
+
+    <style>
+        body {
+            background: #ccc;
+        }
+
+        .transition {
+            transition: 0.4s;
+        }
+
+        .wrapper {
+            width: 800px;
+            margin: 20px auto
+        }
+
+        .menu {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            padding: 0 0 0 2px;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            padding: 0px;
+            margin: 0;
+
+        }
+
+        ul li:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 36px;
+            height: 6px;
+            background: #666;
+            margin: 6px 0;
+            border-radius: 2px;
+        }
+
+        .active .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 7px);
+            transform: rotate(-45deg) translate(-9px, 7px);
+        }
+
+        .active .bar2 {
+            opacity: 0;
+        }
+
+        .active .bar3 {
+            -webkit-transform: rotate(45deg) translate(-9px, -8px);
+            transform: rotate(45deg) translate(-9px, -8px);
+        }
+
+        /* .menu:hover .submenu {
+            max-height: 300px;
+        } */
+        .menu.active .submenu {
+            max-height: 300px;
+        }
+
+        .submenu {
+            position: absolute;
+            background: #ffffff;
+            width: 200px;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="menu transition">
+            <div class="bar bar1 transition"></div>
+            <div class="bar bar2 transition"></div>
+            <div class="bar bar3 transition"></div>
+            <ul class="submenu transition list-unstyled">
+                <li><a href=""> First</a></li>
+                <li><a href="">Second</a></li>
+                <li><a href="">Third</a></li>
+                <li><a href="">Fourth</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+        $("html").click(function(){
+            $(".menu").removeClass("active")
+        })
+        $(".menu").click(function (){
+            //氣泡事件，阻止事件再繼續往下傳
+            event.stopPropagation();
+            $(this).toggleClass("active")
+        })
+
+    </script>
+</body>
+
+</html>
