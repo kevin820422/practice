@@ -10,18 +10,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+<style>
+input{
+    display:none;
+}
+</style>
+    </head>
 
 <body>
-    <div class="container">
-        <a href="https://www.facebook.com/" id="fb">facebook</a>
-        <a href="https://www.google.com/" id="gg">google</a><br>
-        <button type="button" class="btn btn-primary" id="get">Get</button>
-        <button type="button" class="btn btn-primary" id="set">Set</button>
-        <h1 class="showValue py-3"></h1>
-        <button type="button" class="btn btn-primary" id="change">Change Photo</button>
-        <img src="images/01.png" alt="">
-    </div>
+
+    <input type="checkbox" class="" name="" id="check" value="checkedValue">
+    <img src="images/not.png" alt="">
+    <button type="button" class="btn btn-primary" id="checkme">Check me</button>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -34,19 +35,41 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
     <script>
+        // let check=$("#check").prop("checked")
 
-        $("#get").click(function () {
-            let url = $("#fb").attr("href");
-            console.log(url);
-            $(".showValue").html(url);
+
+
+
+        $("#checkme").click(function () {
+            let checked = $("#check").prop("checked");
+            console.log(checked)
+            checked = !checked
+            $("#check").prop("checked", checked)
+
+            // if (! ($("#check").prop("checked", true))) { 
+            //     $("#check").prop("checked", true) 
+            //     }else{
+            //         $("#check").prop("checked", false)
+            //     }
+
         })
 
-        $("#set").click(function () {
-            $("#gg").attr("href","https://www.instagram.com/").text("Instagram")
+        $("img").click(function () {
+            var checked = $("#check").prop("checked");
+            
+            console.log(checked);
+            checked = !checked;
+            $("#check").prop("checked", checked)
+
+            if (!checked) {
+                $("img").attr("src", "images/not.png")
+            } else {
+                $("img").attr("src", "images/check.png")
+            }
         })
-        $("#change").click(function () {
-            $("#change+img").attr("src","images/02.png")})
+
     </script>
 </body>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Value</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,15 +14,21 @@
 
 <body>
     <div class="container">
-        <a href="https://www.facebook.com/" id="fb">facebook</a>
-        <a href="https://www.google.com/" id="gg">google</a><br>
-        <button type="button" class="btn btn-primary" id="get">Get</button>
-        <button type="button" class="btn btn-primary" id="set">Set</button>
-        <h1 class="showValue py-3"></h1>
-        <button type="button" class="btn btn-primary" id="change">Change Photo</button>
-        <img src="images/01.png" alt="">
-    </div>
+        <h1 id="show_content"></h1>
+        <input type="text" class="form-control" name="" id="input" aria-describedby="helpId" placeholder="">
+        <button type="button" class="btn btn-primary" id="getValue">Get</button>
+        <button type="button" class="btn btn-primary" id="setValue">Set</button>
 
+        <hr>
+        <h1 id="show_value"></h1>
+        <select name="taiwab" class="form-control" id="">
+            <option value="taipei">台北市</option>
+            <option value="newtaipei">新北市</option>
+            <option value="taoyuan">桃園市</option>
+            <option value="xinzhu">新竹市</option>
+        </select>
+        <button type="button" class="btn btn-primary" id="getSelect">Get</button>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -34,19 +40,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
     <script>
-
-        $("#get").click(function () {
-            let url = $("#fb").attr("href");
-            console.log(url);
-            $(".showValue").html(url);
+        $("#getValue").click(function () {
+            let content = $("#input").val();
+            $("#show_content").text(content)
         })
+        $("#setValue").click(function () {
+                $("#input").val("New!");
+                
+            })
+        $("#getSelect").click(function () {
+            let content = $("select :selected").text();
 
-        $("#set").click(function () {
-            $("#gg").attr("href","https://www.instagram.com/").text("Instagram")
+            let value = $("select").val();
+            $("#show_value").text(`content:${content},value:${value}`)
         })
-        $("#change").click(function () {
-            $("#change+img").attr("src","images/02.png")})
     </script>
 </body>
 

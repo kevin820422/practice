@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>List check</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,17 +10,36 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        tr.active {
+            background: pink;
+        }
+    </style>
+
 </head>
 
 <body>
     <div class="container">
-        <a href="https://www.facebook.com/" id="fb">facebook</a>
-        <a href="https://www.google.com/" id="gg">google</a><br>
-        <button type="button" class="btn btn-primary" id="get">Get</button>
-        <button type="button" class="btn btn-primary" id="set">Set</button>
-        <h1 class="showValue py-3"></h1>
-        <button type="button" class="btn btn-primary" id="change">Change Photo</button>
-        <img src="images/01.png" alt="">
+        <table class="table table-border table-colapse">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Judy</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Ben</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Amy</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 
     <!-- Optional JavaScript -->
@@ -36,17 +55,21 @@
         crossorigin="anonymous"></script>
     <script>
 
-        $("#get").click(function () {
-            let url = $("#fb").attr("href");
-            console.log(url);
-            $(".showValue").html(url);
-        })
+        // $(':checkbox').click(function () {
+        //     $('tr').css('background', 'none');
+        //     $(':checked').closest('tr').css('background', '#ccc')
 
-        $("#set").click(function () {
-            $("#gg").attr("href","https://www.instagram.com/").text("Instagram")
+        // })
+
+        $(':checkbox').click(function () {
+            let checked = $(this).prop("checked");
+            if (checked) {
+                $(this).closest('tr').addClass("active");
+            } else {
+                $(this).closest('tr').removeClass("active");
+
+            }
         })
-        $("#change").click(function () {
-            $("#change+img").attr("src","images/02.png")})
     </script>
 </body>
 

@@ -10,19 +10,45 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        ul li {
+            list-style: none;
+            border: 4px solid transparent;
+            margin: 0 10px;
+            width: 72px;
+            height: 100px;
+            transition: .25s;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        ul li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        ul li.active {
+            border: 4px solid orange;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <a href="https://www.facebook.com/" id="fb">facebook</a>
-        <a href="https://www.google.com/" id="gg">google</a><br>
-        <button type="button" class="btn btn-primary" id="get">Get</button>
-        <button type="button" class="btn btn-primary" id="set">Set</button>
-        <h1 class="showValue py-3"></h1>
-        <button type="button" class="btn btn-primary" id="change">Change Photo</button>
-        <img src="images/01.png" alt="">
+    <div class="container ">
+        <figure class="text-center">
+            <img src="../example/images/pic1.jpg" alt="">
+        </figure>
+        <ul class=" d-flex justify-content-center">
+            <li><img src="../example/images/pic1.jpg" alt=""></li>
+            <li><img src="../example/images/pic2.jpg" alt=""></li>
+            <li><img src="../example/images/pic3.jpg" alt=""></li>
+            <li><img src="../example/images/pic4.jpg" alt=""></li>
+            <li><img src="../example/images/pic5.jpg" alt=""></li>
+        </ul>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -35,18 +61,12 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script>
-
-        $("#get").click(function () {
-            let url = $("#fb").attr("href");
-            console.log(url);
-            $(".showValue").html(url);
+        $("ul li").eq(0).addClass("active")
+        $('ul li').click(function () {
+            $(this).toggleClass("active").siblings().removeClass("active");
+            let source=$(this).find("img").attr("src");
+            $("figure img").attr("src", source);
         })
-
-        $("#set").click(function () {
-            $("#gg").attr("href","https://www.instagram.com/").text("Instagram")
-        })
-        $("#change").click(function () {
-            $("#change+img").attr("src","images/02.png")})
     </script>
 </body>
 
