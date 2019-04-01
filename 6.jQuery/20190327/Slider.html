@@ -1,155 +1,210 @@
 <!DOCTYPE html>
 <!-- saved from url=(0048)http://192.168.27.42/jquery/20190325/slider.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Slider</title>
     <!-- Required meta tags -->
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./Slider_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./Slider_files/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Slider_files/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Slider_files/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <style>
-        .wrapper{
+        .wrapper {
             max-width: 800px;
-            margin:0 auto;
+            margin: 0 auto;
         }
-        .transition{
+
+        .transition {
             transition: .5s;
         }
-        .slider_wrap{
+
+        .slider_wrap {
             height: 400px;
             background: #000;
             overflow: hidden;
             position: relative;
         }
-        .slider_img{
+
+        .slider_img {
             position: absolute;
-            width:3200px;
-            left:0;
+            width: 3200px;
+            left: 0;
         }
-        .slider_img li{
+
+        .slider_img li {
             width: 800px;
             height: 400px;
         }
-        .slider_img li img{
+
+        .slider_img li img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .dir_btn{
+
+        .dir_btn {
             z-index: 10;
             font-size: 36px;
-            top:0;
-            bottom:0;
+            top: 0;
+            bottom: 0;
             justify-content: center;
             align-items: center;
-            width:44px;
-            background: rgba(0,0,0,0);
+            width: 44px;
+            background: rgba(0, 0, 0, 0);
             cursor: pointer;
         }
-        .dir_btn:hover{
-            background: rgba(0,0,0,0.5);
+
+        .dir_btn:hover {
+            background: rgba(0, 0, 0, 0.5);
         }
-        .dir_btn .fas{
+
+        .dir_btn .fas {
             opacity: .5;
         }
-        .dir_btn:hover .fas{
+
+        .dir_btn:hover .fas {
             opacity: 1;
-            
+
         }
-        .dir_left{
-            left:0;
+
+        .dir_left {
+            left: 0;
         }
-        .dir_right{
-            right:0;
+
+        .dir_right {
+            right: 0;
         }
-        .page_point{
+
+        .page_point {
             position: absolute;
             bottom: 0px;
-            width:100%;
+            width: 100%;
         }
-        .page_point li{
+
+        .page_point li {
             width: 24px;
             height: 10px;
             border: 1px solid #fff;
             margin: 0 4px;
         }
-        .page_point li:hover{
+
+        .page_point li:hover {
             background: #fff;
         }
     </style>
-<script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/popup.js" async=""></script><script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/tat_popup.js" async=""></script></head>
-  <body>
-      <div class="wrapper">
+    <script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/popup.js" async=""></script>
+    <script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/tat_popup.js"
+        async=""></script>
+</head>
+
+<body>
+    <div class="wrapper">
         <div class="slider_wrap">
             <div class="position-absolute text-white dir_btn dir_right d-flex transition" id="slideNext">
                 <i class="fas fa-angle-right transition"></i>
             </div>
             <div class="position-absolute text-white dir_btn dir_left d-flex transition" id="slidePrev">
-                    <i class="fas fa-angle-left transition"></i>
-                </div>
+                <i class="fas fa-angle-left transition"></i>
+            </div>
             <ul id="slider" class="list-unstyled slider_img d-flex transition" style="width: 3200px; left: 0px;">
-                <li style="width: 800px;"><img src="./Slider_files/slide1.jpeg" alt=""></li>
+                <!-- <li style="width: 800px;"><img src="./Slider_files/slide1.jpeg" alt=""></li>
                 <li style="width: 800px;"><img src="./Slider_files/slide2.jpeg" alt=""></li>
                 <li style="width: 800px;"><img src="./Slider_files/slide3.jpeg" alt=""></li>
-                <li style="width: 800px;"><img src="./Slider_files/slide4.jpeg" alt=""></li>
+                <li style="width: 800px;"><img src="./Slider_files/slide4.jpeg" alt=""></li> -->
             </ul>
             <ul id="page" class="list-unstyled page_point d-flex justify-content-center">
-                <li style="background: rgb(255, 255, 255);"></li>
+                <!-- <li style="background: rgb(255, 255, 255);"></li>
                 <li style="background: none;"></li>
                 <li style="background: none;"></li>
-                <li style="background: none;"></li>
+                <li style="background: none;"></li> -->
             </ul>
         </div>
-      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="./Slider_files/jquery-3.3.1.slim.min.js.下載" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="./Slider_files/popper.min.js.下載" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="./Slider_files/bootstrap.min.js.下載" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./Slider_files/jquery-3.3.1.slim.min.js.下載"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="./Slider_files/popper.min.js.下載"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="./Slider_files/bootstrap.min.js.下載"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script>
-        var slideNum=0;
-        var slideWidth=$(".slider_wrap").width();
-        var slideCount=$("#slider li").length;
-        var slideLastIndex=slideCount-1;
+        //用迴圈產生物件
+        var sliderPictures = ["slide1.jpeg", "slide2.jpeg", "slide3.jpeg", "slide4.jpeg"]
+        let slidePic = "";
+        let slidePage = "";
+
+        //將所有元素加入到空字串,最後只要append一次,提升效能
+        for (i in sliderPictures) {
+            let newSlide = `<li style="width: 800px;"><img src="./Slider_files/${sliderPictures[i]}" alt=""></li>`;
+            let newPage = '<li style="background: none;"></li>';
+            slidePic+= newSlide;
+            slidePage += newPage;
+        }
+        $("#slider").append(slidePic);
+        $("#page").append(slidePage);
+
+
+        // 操作DOM物件會讓效能變差,以下方法在迴圈中執行,每一次都會append一次
+        // for (i in sliderPicture) {
+        //     let newSlide = `<li style="width: 800px;"><img src="./Slider_files/${sliderPicture[i]}" alt=""></li>`;
+        //     let newPage = '<li style="background: none;"></li>'
+        //     $("#slider").append(newSlide);
+        //     $("#page").append(newPage);
+        // }
+
+
+        var slideNum = 0;
+        var slideWidth = $(".slider_wrap").width();
+        var slideCount = $("#slider li").length;
+        var slideLastIndex = slideCount - 1;
         $(".slider_img").width(slideWidth * slideCount);
         console.log(slideWidth)
         $("#page li").eq(0).css("background", "#fff");
-        $("#page li").mouseenter(function(){
-            slideNum=$(this).index();
+        $("#page li").mouseenter(function () {
+            slideNum = $(this).index();
             goSlide()
         });
 
-        $("#slideNext").click(function(){
+        $("#slideNext").click(function () {
             slideNum++;
-            if(slideNum>slideLastIndex){
-                slideNum=0;
+            if (slideNum > slideLastIndex) {
+                slideNum = 0;
             }
             goSlide()
             console.log(slideNum);
         });
-        $("#slidePrev").click(function(){
+        $("#slidePrev").click(function () {
             slideNum--;
-            if(slideNum<0){
-                slideNum=slideLastIndex;
+            if (slideNum < 0) {
+                slideNum = slideLastIndex;
             }
             goSlide()
             console.log(slideNum);
         });
-        function goSlide(){
-            var slideMove=0-slideNum*slideWidth;
-            
+        function goSlide() {
+            var slideMove = 0 - slideNum * slideWidth;
+
             $("#slider").css("left", slideMove);
             $("#page li").eq(slideNum).css("background", "#fff").siblings().css("background", "none");
         }
 
-        $(window).on("resize", function(){
-            slideWidth=$(".slider_wrap").width();
+        $(window).on("resize", function () {
+            slideWidth = $(".slider_wrap").width();
             $(".slider_img li").width(slideWidth);
             $(".slider_img").width(slideWidth * slideCount);
             goSlide()
         });
     </script>
-
-<span style="border-radius: 3px !important; text-indent: 20px !important; width: auto !important; padding: 0px 4px 0px 0px !important; text-align: center !important; font: bold 11px/20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important; color: rgb(255, 255, 255) !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjZTYwMDIzIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(230, 0, 35) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; -webkit-font-smoothing: antialiased !important; top: 10px; left: 163px;">Save</span><span style="border-radius: 12px; width: 24px !important; height: 24px !important; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; top: 8px; left: 921px;"></span></body></html>

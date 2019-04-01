@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS move</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <style>
+        .wrapper {
+            width: 800px;
+            height: 400px;
+            background: #eee;
+        }
+
+        .box {
+            width: 120px;
+            height: 120px;
+            background: palevioletred;
+            transition: .5s;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper position-relative mx-auto">
+        <div class="box position-absolute animated pulse infinite"></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>
+        var color = ["lightcoral", "pink", "lightpink", "palevioletred"];
+        var colorCount = color.length;
+        var colorIndex = 0;
+        
+        $("body").on("keydown", function () {
+            
+            let keycode = event.which;
+            if (keycode == 38 || keycode == 40 || keycode == 37 || keycode == 39) {
+
+                //變色
+                $(".box").css("background", `${color[colorIndex % colorCount]}`);
+                colorIndex++;
+
+                //移動
+                let style = "";
+                
+                console.log(keycode)
+                switch (keycode) {
+                    case 38:
+                        style = { top: "-=20px" }
+                        break;
+                    case 40:
+                        style = { top: "+=20px" }                        
+                        break;
+                    case 39:
+                        style = { left: "+=20px" };
+                        break;
+                    case 37:
+                        style = { left: "-=20px" };
+                        break;        
+                }
+                $(".box").css(style)
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
