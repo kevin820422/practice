@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th>地圖</th>
+                            <th>學校數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><!-- container -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        let list = "";
+        $.post("map.json", function (data) {
+            console.log(data);
+            for (i = 0; i < data.length; i++) {
+                list += ` <tr>
+                            <td>${data[i]["name_tw"]}</td>
+                            <td>${data[i]["count"]}</td>
+                        </tr>`
+            };
+            $("#tableContent").append(list);
+        }, "json");
+
+
+
+
+    </script>
+</body>
+
+</html>
