@@ -4,9 +4,10 @@ const exphbs = require('express-handlebars')
 const url = require('url');
 const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const cors = require('cors');
+const multer = require('multer');
 
 //建立web server物件
-
 const app = express();
 
 //靜態內容資料夾
@@ -27,6 +28,17 @@ app.set('view engine', 'hbs')
 //指定views路徑(選擇性設定)
 app.set('views', './views')
 
+//解決cross origin傳送資料的問題(跨埠號(3000,8080)、協定(http,https))
+app.use(cors());
+
+const upload = multer({ dest: 'tmp_uploads/' });
+
+//設定top-level middleware
+// 查看 HTTP HEADER 的 Content-Type: application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// 查看 HTTP HEADER 的 Content-Type: application/json
+app.use(bodyParser.json());
+
 // routes 路由
 app.get('/sales',  (req, res)=> {
     const sales = require("./../data/sales.json");
@@ -45,27 +57,28 @@ app.get('/', (req, res) => {
     res.render('home', { name: 'Hsu' });
 });
 
-app.get('/try-querystring', (req, res) => {
+app.get('/try-qs', (req, res) => {
     console.log(req.url);
     const urlParts = url.parse(req.url, true);
     //
     urlParts.myQuery = JSON.parse(JSON.stringify(urlParts.query));
     console.log(urlParts);
-    res.render('try_querystring', {
+    res.render('try_qs', {
         urlParts: urlParts
     });
 })
 
 
-app.get('/try-post-form', (req, res) => {
-    res.render('try_post_form');
+app.post('/post-echo', (req, res) => {
+    //res.send( JSON.stringify(req.body));
+    res.json(req.body);
 });
-//把urlencodedParser當middleware
-// app.post('/try-post-form', urlencodedParser, (req, res) => {
-//     res.render('/try_post_form', {
-//         email:
-//     })
-// })
+
+app.post('/post-echo2', (req, res) => {
+    //res.send( JSON.stringify(req.body));
+    res.send(req.body.name);
+});
+
 
 // routes 路由
 app.get('/', (req, res) => {
