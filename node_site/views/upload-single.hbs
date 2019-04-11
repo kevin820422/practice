@@ -1,0 +1,68 @@
+<div class="container">
+    <form name="form1" method="POST" enctype="multipart/form-data" onsubmit="return false;">
+        <div class="form-group">
+            <label for="img1">img1</label>
+            <button type="button" class="btn btn-primary select-file" data-target="img1">請選擇檔案</button>
+            <img id="myimg1" src="" alt="">
+            <input type="hidden" name="myimg1" value="">
+            <input type="file" class="form-control filefield" id="img1" style="display: none">
+        </div>
+        <div class="form-group">
+            <label for="img2">img2</label>
+            <button type="button" class="btn btn-primary select-file" data-target="img2">請選擇檔案</button>
+            <img id="myimg2" src="" alt="">
+            <input type="hidden" name="myimg2" value="">
+            <input type="file" class="form-control filefield" id="img2" style="display: none">
+        </div>
+        <div class="form-group">
+            <label for="img3">img3</label>
+            <button type="button" class="btn btn-primary select-file" data-target="img3">請選擇檔案</button>
+            <img id="myimg3" src="" alt="">
+            <input type="hidden" name="myimg3" value="">
+            <input type="file" class="form-control filefield" id="img3" style="display: none">
+        </div>
+
+        <button type="btn" class="btn btn-primary" onclick="doUpload()">Submit</button>
+    </form>
+
+
+</div>
+<script>
+    $(".select-file").click(function(event){
+        var id = $(this).data('target');
+        $('#'+id).click()
+    })
+
+var fd=new FormData()
+    $('.filefield').change(function(event){
+         fetch('/upload-single', {
+            method: 'POST',
+            body: fd
+        })
+            .then(res => res.json())
+            .then(obj => {
+                console.log(obj)
+                if (obj.file) {
+                    $('#myimg').attr('src', obj.file);
+                }
+            });
+        console.log($(this));
+    })
+
+
+    function doUpload() {
+        var fd = new FormData(document.form1);
+
+        fetch('/try-upload', {
+            method: 'POST',
+            body: fd
+        })
+            .then(res => res.json())
+            .then(obj => {
+                console.log(obj)
+                if (obj.file) {
+                    $('#myimg').attr('src', obj.file);
+                }
+            });
+    }
+</script>

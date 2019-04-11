@@ -6,6 +6,8 @@ const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const cors = require('cors');
 const multer = require('multer');
+const fs = require('fs');
+const uuidv4 = require('uuid/v4')
 
 //建立web server物件
 const app = express();
@@ -18,7 +20,7 @@ app.engine('hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
     helpers: {
-        list:require("../helpers/list.js")
+        list: require("../helpers/list.js")
     }
 
 }));
@@ -40,10 +42,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 // routes 路由
-app.get('/sales',  (req, res)=> {
+app.get('/sales', (req, res) => {
     const sales = require("./../data/sales.json");
     res.render('sales', {
-        sales:sales
+        sales: sales
     })
 })
 app.get('/sales2', (req, res) => {
@@ -53,7 +55,7 @@ app.get('/sales2', (req, res) => {
     })
 })
 app.get('/', (req, res) => {
-    
+
     res.render('home', { name: 'Hsu' });
 });
 
@@ -78,8 +80,62 @@ app.post('/post-echo2', (req, res) => {
     //res.send( JSON.stringify(req.body));
     res.send(req.body.name);
 });
+app.get('/try-upload', (req, res) => {
+    res.render('try-upload')
+
+})
+app.get('/upload-single', (req, res) => {
+    res.render('upload-single')
+
+})
 
 
+app.post('/try-upload', upload.single('avatar'), (req, res) => {
+    console.log(req.file); //查看裡面的屬性
+    let ext = "";
+    let fname = uuidv4();
+
+    if (req.file && req.file.originalname) {
+        switch (req.file.mimetype) {
+            case 'image/png':
+                ext = '.png';
+                fs.createReadStream(req.file.path)
+                    .pipe(fs.createWriteStream(__dirname + '/../public/img/' + fname + ext));
+
+                res.json({
+                    success: true,
+                    file: '/img/' + fname + ext,
+                    name: req.body.name
+                });
+                break;
+            case 'image/jpeg':               
+                    ext = '.jpg';           
+
+                fs.createReadStream(req.file.path)
+                    .pipe(fs.createWriteStream(__dirname + '/../public/img/' + fname + ext));
+
+                res.json({
+                    success: true,
+                    file: '/img/' + fname + ext,
+                    name: req.body.name
+                });
+                break;
+        }
+    }
+    res.json({
+        success: false,
+        file: '',
+        name: req.body.name
+    });
+    // //判斷是否為圖檔
+    //     if (/\.(png|jpg|jpeg)$/i.test(req.file.originalname)) {
+    //         //搬移至public資料夾
+    //         fs.createReadStream(req.file.path)
+    //             .pipe(fs.createWriteStream(__dirname+'/../public/img/' + req.file.originalname)
+    //             ); //上傳後維持原檔名
+    //     } res.send('ok')
+
+})
 // routes 路由
 app.get('/', (req, res) => {
     res.send('Hello Express');
