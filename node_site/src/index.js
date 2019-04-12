@@ -7,7 +7,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const cors = require('cors');
 const multer = require('multer');
 const fs = require('fs');
-const uuidv4 = require('uuid/v4')
+const uuidv4 = require('uuid/v4');
+const session=require('express-session')
 
 //建立web server物件
 const app = express();
@@ -35,13 +36,26 @@ app.use(cors());
 
 const upload = multer({ dest: 'tmp_uploads/' });
 
+app.use(session({
+    saveUninitialized: false,
+    resave: false,
+    secret: 'sdgdsf ;ldkfg;ld',
+    cookie: {
+        maxAge: 180000
+    }
+}));
+
 //設定top-level middleware
 // 查看 HTTP HEADER 的 Content-Type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // 查看 HTTP HEADER 的 Content-Type: application/json
 app.use(bodyParser.json());
 
-// routes 路由
+app.get('/', (req, res) => {
+    console.log(res)
+    res.render('home', { name: 'Hsu' });
+});
+//----------------------------------------------------連接JSON資料
 app.get('/sales', (req, res) => {
     const sales = require("./../data/sales.json");
     res.render('sales', {
@@ -54,11 +68,6 @@ app.get('/sales2', (req, res) => {
         sales: sales
     })
 })
-app.get('/', (req, res) => {
-
-    res.render('home', { name: 'Hsu' });
-});
-
 app.get('/try-qs', (req, res) => {
     console.log(req.url);
     const urlParts = url.parse(req.url, true);
@@ -70,7 +79,7 @@ app.get('/try-qs', (req, res) => {
     });
 })
 
-
+//----------------------------------------------------表單內容
 app.post('/post-echo', (req, res) => {
     //res.send( JSON.stringify(req.body));
     res.json(req.body);
@@ -84,12 +93,12 @@ app.get('/try-upload', (req, res) => {
     res.render('try-upload')
 
 })
-app.get('/upload-single', (req, res) => {
-    res.render('upload-single')
+app.get('/upload-form1', (req, res) => {
+    res.render('upload-form1')
 
 })
 
-
+//----------------------------------------------------上傳單張
 app.post('/try-upload', upload.single('avatar'), (req, res) => {
     console.log(req.file); //查看裡面的屬性
     let ext = "";
@@ -108,8 +117,8 @@ app.post('/try-upload', upload.single('avatar'), (req, res) => {
                     name: req.body.name
                 });
                 break;
-            case 'image/jpeg':               
-                    ext = '.jpg';           
+            case 'image/jpeg':
+                ext = '.jpg';
 
                 fs.createReadStream(req.file.path)
                     .pipe(fs.createWriteStream(__dirname + '/../public/img/' + fname + ext));
@@ -136,8 +145,71 @@ app.post('/try-upload', upload.single('avatar'), (req, res) => {
     //     } res.send('ok')
 
 })
+//----------------------------------------------------上傳單張ajax
+app.post('/upload-single', upload.single('filefield'), (req, res) => {
+    console.log(req.file); //查看裡面的屬性
+    let ext = "";
+    let fname = uuidv4();
+    const result = {
+        success: false,
+        info: '',
+        file: ''
+    };
+
+    if (req.file && req.file.originalname) {
+        switch (req.file.mimetype) {
+            case 'image/png':
+                ext = '.png';
+            case 'image/jpeg':
+                if (!ext) {
+                    ext = '.jpg';
+                }
+
+                fs.createReadStream(req.file.path)
+                    .pipe(fs.createWriteStream(__dirname + '/../public/img/' + fname + ext));
+
+                res.json({
+                    success: true,
+                    file: '/img/' + fname + ext,
+                });
+                return;
+            default:
+                result.info = '檔案格式不符';
+        }
+    } else {
+        result.info = '沒有選擇檔案';
+    }
+    res.json(result);
+});
+
+//----------------------------------------------------路由模組化
+const params1 = require(__dirname + '/params-test/params');
+params1(app);
+
+//類似middleware用法
+const mr = require(__dirname + '/params-test/mobile-router');
+app.use(mr);
+
+
+const mr3 = require(__dirname + '/params-test/mobile-router3');
+app.use('/mobile',mr3)
+
+const admin3 = require(__dirname + '/admin3');
+app.use('/admin3', admin3);
+
+//----------------------------------------------------session
+app.get('/try-session', (req, res) => {
+    req.session.views = req.session.views || 0;
+    req.session.views++;
+
+    res.json({
+        views: req.session.views
+    })
+
+});
 // routes 路由
 app.get('/', (req, res) => {
+    console.log(res)
     res.send('Hello Express');
 });
 
@@ -151,7 +223,7 @@ app.get('/abc', (req, res) => {
 app.use((req, res) => {
     res.type('text/plain');
     res.status(404);
-    res.send('404-找不到網頁')
+    res.send('找不到網頁')
 })
 
 // Server偵聽

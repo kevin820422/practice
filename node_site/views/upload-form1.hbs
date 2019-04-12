@@ -28,41 +28,32 @@
 
 </div>
 <script>
-    $(".select-file").click(function(event){
+    $(".select-file").click(function (event) {
         var id = $(this).data('target');
-        $('#'+id).click()
+        $('#' + id).click()
     })
 
-var fd=new FormData()
-    $('.filefield').change(function(event){
-         fetch('/upload-single', {
+
+    $('.filefield').change(function (event) {
+        console.log(this.files);
+        var me = $(this);
+        var fd = new FormData()
+
+        //https://developer.mozilla.org/zh-TW/docs/Web/API/Fetch_API/Using_Fetch
+        fd.append('filefield', this.files[0]);
+
+        fetch('/upload-single', {
             method: 'POST',
             body: fd
         })
             .then(res => res.json())
             .then(obj => {
                 console.log(obj)
-                if (obj.file) {
-                    $('#myimg').attr('src', obj.file);
+                if (obj.success) {
+                    me.closest('.form-group').find('img').attr('src', obj.file);
+                    me.closest('.form-group').find('input').eq(0).val(obj.file);
                 }
             });
-        console.log($(this));
-    })
+    });
 
-
-    function doUpload() {
-        var fd = new FormData(document.form1);
-
-        fetch('/try-upload', {
-            method: 'POST',
-            body: fd
-        })
-            .then(res => res.json())
-            .then(obj => {
-                console.log(obj)
-                if (obj.file) {
-                    $('#myimg').attr('src', obj.file);
-                }
-            });
-    }
 </script>
