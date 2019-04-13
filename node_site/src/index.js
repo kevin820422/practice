@@ -1,21 +1,33 @@
-//引入express
-const express = require('express');
-const exphbs = require('express-handlebars')
+
+const express = require('express');//有關伺服器運作
+const exphbs = require('express-handlebars') //版面渲染
 const url = require('url');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser') //轉換POST表單的中介軟體
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-const cors = require('cors');
-const multer = require('multer');
+const cors = require('cors'); //解決cross origin傳送資料的問題(跨埠號(3000,8080)、協定(http,https))
+const multer = require('multer'); //檔案上傳
 const fs = require('fs');
-const uuidv4 = require('uuid/v4');
-const session=require('express-session')
+const uuidv4 = require('uuid/v4'); //上傳檔案名隨機編碼
+const session = require('express-session'); //Session
+const moment = require('moment-timezone'); //時間日期處理
+const mysql = require('mysql'); //SQL
+const bluebird = require('bluebird') //處理Promise物件
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'benjamin',
+    password: '12345678',
+    database: 'proj54'
+});
+db.connect();
+
+bluebird.promisifyAll(db);
 
 //建立web server物件
 const app = express();
 
 //靜態內容資料夾
 app.use(express.static('public'))
-
 
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
@@ -31,8 +43,22 @@ app.set('view engine', 'hbs')
 //指定views路徑(選擇性設定)
 app.set('views', './views')
 
-//解決cross origin傳送資料的問題(跨埠號(3000,8080)、協定(http,https))
-app.use(cors());
+
+var whitelist = ['http://localhost:8080', 'http://192.168.27.166:8080', undefined, 'http://localhost:3000']
+var corsOptions = {
+    credentials: true, //解決別台主機連線問題:多設定credentials
+    origin: function (origin, callback) {
+        console.log('origin: ' + origin);
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}
+
+// app.use(cors());
+app.use(cors(corsOptions));
 
 const upload = multer({ dest: 'tmp_uploads/' });
 
@@ -46,7 +72,7 @@ app.use(session({
 }));
 
 //設定top-level middleware
-// 查看 HTTP HEADER 的 Content-Type: application/x-www-form-urlencoded
+// 查看 HTTP HEADER 的 Content-Type: application/x-www-form-urlencoded,
 app.use(bodyParser.urlencoded({ extended: false }))
 // 查看 HTTP HEADER 的 Content-Type: application/json
 app.use(bodyParser.json());
@@ -192,7 +218,7 @@ app.use(mr);
 
 
 const mr3 = require(__dirname + '/params-test/mobile-router3');
-app.use('/mobile',mr3)
+app.use('/mobile', mr3)
 
 const admin3 = require(__dirname + '/admin3');
 app.use('/admin3', admin3);
@@ -205,8 +231,110 @@ app.get('/try-session', (req, res) => {
     res.json({
         views: req.session.views
     })
+});
+
+app.post('/try-session', (req, res) => {
+    req.session.views = req.session.views || 0;
+    req.session.views++;
+
+    res.json({
+        views: req.session.views,
+        body: req.body
+    })
 
 });
+
+app.get('/try-moment', (req, res) => {
+    const fm = 'YYYY-MM-DD HH:mm:ss'
+    const exp = req.session.cookie.expires;
+    const mo1 = moment(exp);
+    const mo2 = moment();
+
+    let out = '';
+
+    res.contentType('text/plain');
+
+    out += mo1.format(fm) + "\n";
+    out += mo2.format(fm) + "\n";
+    out += mo1.tz('Europe/London').format(fm) + "\n";
+    out += mo2.tz('Europe/London').format(fm) + "\n";
+    res.send(out);
+
+});
+
+app.get('/try-db', (req, res) => {
+    let sql = "SELECT * FROM `sales`";
+    db.query(sql, (error, results, fields) => {
+        console.log(results);
+
+        for (let i in results) {
+            results[i].birthday2 = moment(results[i].birthday).format('YYYY-MM-DD');
+        };
+        res.render('try-db', {
+            sales: results
+        });
+    });
+});
+app.get('/sales3/add', (req, res) => {
+    res.render('sales3-add')
+});
+app.post('/sales3/add', (req, res) => {
+    const data = {
+        success: false,
+        message: {
+            type: 'danger',
+            text: '',
+        }
+    }
+    const body = req.body;
+    data.body = body;
+    if (!body.sales_id || !body.name || !body.birthday) {
+        data.message.text = '資料不足';
+        res.render('sales3-add', data);
+        return;
+    }
+
+    let query = db.queryAsync("INSERT INTO `sales` SET ?", body)//query改為queryasync，return出Promise物件
+        .then(results => {
+            // console.log(results);
+            // if(results.affectedRows===1){
+            //     data.success = true;
+            //     data.message.type = 'success';
+            //     data.message.text = '新增成功';
+            // } else {
+            //     data.message.text = '資料沒有新增';
+            // }
+            //
+            // res.render('sales3-add', data);
+            
+            if (results.affectedRows === 1) {
+                console.log(results);
+                return db.queryAsync("INSERT INTO `sales` SET ?", {
+                    name: 'test',
+                    sales_id: 'Hello-' + results.insertId,
+                    birthday: '2000-02-02'
+                })
+            }
+        })
+        .then(results => {
+            if (results.affectedRows === 1) {
+                data.success = true;
+                data.message.type = 'success';
+                data.message.text = '新增成功';
+            } else {
+                data.message.text = '資料沒有新增';
+            }
+            res.render('sales3-add', data);
+        })
+        .catch(error => {
+
+
+        });
+    console.log(body)
+    console.log(query.sql);
+});
+
+
 // routes 路由
 app.get('/', (req, res) => {
     console.log(res)
