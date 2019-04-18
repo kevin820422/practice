@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File Object</title>
+    <style>
+        #dropZone {
+            width: 500px;
+            height: 500px;
+            border: 1px solid gray;
+        }
+
+        .active {
+            background: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="file" id="file1" />
+    <hr>
+    <div id="dropZone">
+        <span id="hidetext"></span>
+    </div>
+    <script>
+        const dropZone = document.querySelector('#dropZone')
+        //產生File Object的方法一
+        document.querySelector('#file1').addEventListener('change', function () {
+            fileInfo(this.files[0]);  //this.files[0]就是File Object
+        })
+        function fileInfo(theFile) {
+            console.log(theFile.name); //檔案名稱
+            console.log(theFile.type); //檔案類型
+            console.log(theFile.size); //檔案大小
+            console.log(theFile.lastModifiedDate); //最後校正日期
+        }
+dropZone.addEventListener('dragover',function(){
+    
+})
+
+        document.querySelector('#dropZone').addEventListener('drop', function (evt) {
+            evt.preventDefault();
+            evt.stopPropagation();
+            var theFile = evt.dataTransfer.files[0];
+
+            console.log(theFile.name); //檔案名稱
+            console.log(theFile.type); //檔案類型
+            console.log(theFile.size); //檔案大小
+            console.log(theFile.lastModifiedDate); //最後校正日期
+
+        })
+    </script>
+</body>
+
+</html>

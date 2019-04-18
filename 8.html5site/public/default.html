@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Default</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h2>
+        Hello
+    </h2>
+
+    <audio src="musics/兄妹.mp3" controls></audio>
+    <video width="50%" poster="images/bbb.jpg" controls id="video1">
+        <source src="videos/big_buck_bunny.mp4" type="video/mp4">
+        <source src="videos/big_buck_bunny.ogv" type="video/ogv">
+        <source src="videos/big_buck_bunny.webm" type="video/webm">
+        <track src="videos/bunny_en.vtt" srclang="en" label="英文" />
+        <track src="videos/bunny_zhtw.vtt" srclang="zh-tw" label="繁體中文" />
+    </video>
+    <input type="button" value="擷取" id="button1">
+    <div id="videobox"></div>
+
+    <script>
+        const button1 = document.querySelector('#button1');
+        const videobox = document.querySelector('#videobox');
+        const myVideo = document.querySelector('#video1')
+        button1.addEventListener('click', function () {
+
+            var canvas = document.createElement('canvas');
+            var  context = canvas.getContext('2d');
+            context.drawImage(myVideo, 0, 0, canvas.width, canvas.height);
+
+            videobox.appendChild(canvas)
+        })
+
+
+       
+    </script>
+</body>
+
+</html>

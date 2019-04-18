@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script>
+        if (!window.indexedDB) {
+            window.indexedDB = window.mozIndexedDB || window.webkitIndexedDB;
+        }
+        var db;
+        window.addEventListener("load", init, false);
+        function init() {
+            var btnCreateDB = document.getElementById("buttonCreateDB");
+            btnCreateDB.addEventListener("click", createDatabase, false);
+
+            var btnDeleteDB = document.getElementById("buttonDeleteDB");
+            btnDeleteDB.addEventListener("click", deleteDatabase, false);
+
+            var btnCreateOS = document.getElementById("buttonCreateOS");
+            btnCreateOS.addEventListener("click", createObjectStore, false);
+
+            var btnDeleteOS = document.getElementById("buttonDeleteOS");
+            btnDeleteOS.addEventListener("click", deleteObjectStore, false);
+
+
+            var btnAdd = document.getElementById("buttonAdd");
+            btnAdd.addEventListener("click", addData, false);
+
+
+            var btnUpdate = document.getElementById("buttonUpdate");
+            btnUpdate.addEventListener("click", updateData, false);
+
+            var btnDelete = document.getElementById("buttonDelete");
+            btnDelete.addEventListener("click", deleteData, false);
+
+
+            var btnRead = document.getElementById("buttonReadByCursor");
+            btnRead.addEventListener("click", readDataByCursor, false);
+
+
+            var btnRead1 = document.getElementById("buttonReadByIndex");
+            btnRead1.addEventListener("click", readDataByIndex, false);
+        }
+
+        //建立資料庫
+        function createDatabase() {
+            var indexDB = window.indexedDB.open("aDB", 1);
+            //建立或開啟資料庫失敗會觸發error事件
+            indexDB.addEventListener("error", function (event) { })
+
+            //建立或開啟資料庫成功會觸發success事件
+            indexDB.addEventListener("success", function (event) {
+                db = event.target.result;
+                console.log("success")
+                console.log(db);
+            })
+
+            //建立資料庫或版本改變時會觸發upgradeneeded事件
+            indexDB.addEventListener("upgradeneeded", function (event) {
+                console.log("upgradeneeded");
+            })
+
+
+        }
+
+        //刪除資料庫
+        function deleteDatabase() {
+            var indexDB = window.indexedDB.deleteDatabase("aDB", 1);
+            //建立或開啟資料庫失敗會觸發error事件
+            indexDB.addEventListener("error", errorHandler)
+            function errorHandler(event) {
+                console.log(event.target.error.message);
+            }
+            //建立或開啟資料庫成功會觸發success事件
+            indexDB.addEventListener("success", function (event) {
+                alert("刪...")
+            })
+            //建立資料庫或版本改變時會觸發upgradeneeded事件
+            indexDB.addEventListener("upgradeneeded", function (event) {
+                console.log("upgradeneeded");
+            })
+        }
+
+        //將錯誤訊息獨立出來
+        function errorHandler(event) {
+            console.log(event.target.error.message);
+        }
+
+        //建立 Object Store
+        function createObjectStore() {
+            var indexDB = window.indexedDB.open("aDB", 1);
+            //建立或開啟資料庫失敗會觸發error事件
+            indexDB.addEventListener("error", errorHandler)
+
+            //建立或開啟資料庫成功會觸發success事件
+            indexDB.addEventListener("success", function (event) {
+                db = event.target.result;
+                console.log("success")
+                console.log(db);
+            })
+
+            //建立資料庫或版本改變時會觸發upgradeneeded事件
+            indexDB.addEventListener("upgradeneeded", function (event) {
+                console.log("upgradeneeded");
+                var db = event.target.result;
+            })
+
+            //建立 Object Store
+            var store = db.createObjectStore("employees", {
+                "keyPath": "empId",
+                "autoIncrement": true
+            })
+            store.createIndex("nameIndex", "name", { unique: true })
+            store.createIndex("ageIndex", "age", { unique: false })
+            store.createIndex("emailIndex", "email", { unique: true })
+
+
+
+        }
+
+        //刪除 Object Store
+        function deleteObjectStore() {
+
+        }
+
+        //新增資料
+        function addData() {
+            if (db == null) {
+                alert("請先開啟資料庫")
+            } else {
+                //console.log(db);
+                //add
+                //db方法中產生transaction 在裡面修改
+                var trans = db.transaction(["employees"], "readwrite"); //readwrite 讀寫
+                var store = trans.objectStore("employees");
+                var addRequest = store.add({ "name": "Jack", "age": 30, "email": "Jack@gmail.com" });
+                addRequest.addEventListener("success", function () {
+                    alert("新增成功!!");
+                })
+                addRequest.addEventListener("error", errorHandler)
+
+            }
+        
+        }
+        //修改資料
+        function updateData() {
+
+        }
+
+        //刪除資料
+        function deleteData() {
+
+        }
+
+        //透過Cursor讀取資料
+        function readDataByCursor() {
+
+        }
+
+        //透過Index讀取資料
+        function readDataByIndex() {
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="建立資料庫" id="buttonCreateDB" disabled />
+    <input type="button" value="刪除資料庫" id="buttonDeleteDB" />
+    <input type="button" value="建立ObjectStore" id="buttonCreateOS" />
+    <input type="button" value="刪除ObjectStore" id="buttonDeleteOS" />
+    <input type="button" value="新增資料" id="buttonAdd" />
+    <input type="button" value="更新資料" id="buttonUpdate" />
+    <input type="button" value="刪除資料" id="buttonDelete" />
+    <input type="button" value="讀取資料(Cursor)" id="buttonReadByCursor" />
+    <input type="button" value="讀取資料(Index)" id="buttonReadByIndex" />
+    <hr />
+    <p>按下新增資料,更新資料,刪除資料,讀取資料以前,請先點選建立ObjectStore</p>
+</body>
+
+</html>

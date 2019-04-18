@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drag And Drop</title>
+    <style>
+        .zone {
+            border: 1px solid green;
+            width: 600px;
+            height: 150px;
+            margin: 10px;
+
+        }
+
+        .item {
+            width: 80px;
+            height: 40px;
+            background-color: beige;
+            float: left;
+            margin: 5px;
+            box-shadow: 3px 2px 5px silver;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="zone">
+        <div class="item" id="item1" draggable="true">Item1</div>
+        <div class="item" id="item2" draggable="true">Item2</div>
+        <div class="item" id="item3" draggable="true">Item3</div>
+    </div>
+    <div class="zone"></div>
+    <script>
+        //拖曳開始，將該物件id存入dataTransfer屬性
+        var items = document.querySelectorAll('.item');
+        for (let i = 0; i < items.length; i++) {
+            items[i].addEventListener("dragstart", dragHandler);
+        }
+        function dragHandler(evt) {
+            evt.dataTransfer.setData("text/plain", evt.target.id);
+            console.log(evt.dataTransfer)
+        }
+
+        var zones = document.querySelectorAll('.zone');
+        for (let i = 0; i < zones.length; i++) {
+            zones[i].addEventListener('dragover', (evt) => {
+                evt.preventDefault();
+            });
+            zones[i].addEventListener('drop', dropHandler);
+        }
+        function dropHandler(evt) {
+            evt.preventDefault();
+            evt.stopPropagation();
+
+            var sid=evt.dataTransfer.getData("text/plain"); //item2
+            console.log(sid)
+            var sobj=document.querySelector("#"+sid);
+            evt.target.appendChild(sobj);
+        }
+    </script>
+</body>
+
+</html>

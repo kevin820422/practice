@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File Object</title>
+    <style>
+        #dropZone {
+            width: 500px;
+            height: 500px;
+            border: 1px solid gray;
+            overflow: auto;
+        }
+
+        .active {
+            background: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="file" id="file1" />
+    <hr>
+    <div id="dropZone">
+        <span id="hidetext"></span>
+    </div>
+    <script>
+        const myFile = document.querySelector('#file1')
+        const dropZone = document.querySelector('#dropZone')
+        //產生File Object的方法一
+        myFile.addEventListener('change', function () {
+            fileInfo(this.files[0]);
+        })
+        function fileInfo(theFile) {
+            var reader = new FileReader();
+            reader.readAsText(theFile, "UTF-8");
+            reader.addEventListener("load", function (event) {
+                dropZone.textContent = event.target.result;
+            })
+
+        }
+         //產生File Object的方法二
+        dropZone.addEventListener('dragover', function (event) {
+            event.preventDefault();
+        });
+        dropZone.addEventListener('drop', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            //event.dataTransfer.files[0] 就是File Object
+            fileInfo(event.dataTransfer.files[0]);
+
+        })
+
+    </script>
+</body>
+
+</html>

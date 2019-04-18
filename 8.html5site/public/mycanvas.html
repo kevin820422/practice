@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myCanvas</title>
+    <style>
+        #myCanvas {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="file1"><br>
+    <canvas id="myCanvas" width="500" height="300"></canvas>
+    <script>
+        const file1 = document.querySelector('#file1')
+        const canvas = document.querySelector('#myCanvas');
+        const contex = canvas.getContext('2d')
+
+
+
+        file1.addEventListener('change', function () {
+            let imgObj = new Image;
+            imgObj.src = this.files[0].name;
+            fetch()
+
+            imgObj.addEventListener('load', function (event) {
+                contex.drawImage(imgObj, 0, 0)
+                // contex.drawImage(imgObj, 0, 0, 150, 84)
+                // contex.drawImage(imgObj, 102, 0, 135, 168, 365, 132, 135, 168)//先裁切，後置入
+            })
+
+            // imgObj.src = 'images/strawberry.jpg'
+        })
+
+    </script>
+</body>
+
+</html>

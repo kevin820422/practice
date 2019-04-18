@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Local Storage" id="inp_local">
+    <input type="text" placeholder="Session Storage" id="inp_session">
+    <button type="button" id="set">Set</button>
+    <button type="button" id="get">Get</button>
+    <button type="button" id="del">Delete</button>
+    <button type="button" id="getall">GetAll</button>
+    <hr>
+    <div id="show_local"></div>
+    <div id="show_session"></div>
+    <div id="mydiv"></div>
+    <script>
+
+        const inp_local = document.querySelector('#inp_local'),
+            inp_session = document.querySelector('#inp_session'),
+            set = document.querySelector('#set'),
+            get = document.querySelector('#get'),
+            del = document.querySelector('#del'), getall = document.querySelector('#getall'),
+            show_local = document.querySelector('#show_local'),
+            show_session = document.querySelector('#show_session'),
+            mydiv=document.querySelector('#mydiv');
+
+        set.addEventListener('click', function () {
+            localStorage.setItem("local", inp_local.value);
+            sessionStorage.setItem("session", inp_session.value);
+        })
+        get.addEventListener('click', function () {
+            let person = localStorage.getItem("local")
+            show_local.textContent = localStorage.getItem("local");
+            if (person == "mary") {
+                alert("welcome Mary")
+            }
+            show_session.textContent = sessionStorage.getItem("session");
+        })
+        del.addEventListener('click', function () {
+            localStorage.clear();
+        });
+        getall.addEventListener('click',function(){
+            let str=""
+            for(let i= 0;i<localStorage.length;i++){
+                let keyname=localStorage.key(i); //不能用localStorage[i]，因為這是物件不是陣列
+                str+= localStorage.getItem(keyname)+"<br>";
+            }
+            mydiv.innerHTML=str;
+        })
+
+
+    </script>
+</body>
+
+</html>
