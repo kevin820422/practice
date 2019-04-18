@@ -141,17 +141,45 @@
                 addRequest.addEventListener("error", errorHandler)
 
             }
-        
+
         }
         //修改資料
         function updateData() {
+            if (db == null) {
+                alert("請先開啟資料庫")
+            } else {
+                //console.log(db);
+                //add
+                var trans = db.transaction(["employees"], "readwrite");
+                var store = trans.objectStore("employees");
+                var putRequest = store.put({ "empId": 2, "name": "Jack2", "age": 32, "email": "Jack2@gmail.com" });
+                putRequest.addEventListener("success", function () {
+                    alert("修改成功!!");
+                })
+                putRequest.addEventListener("error", errorHandler)
+
+            }
 
         }
 
         //刪除資料
         function deleteData() {
+            if (db == null) {
+                alert("請先開啟資料庫")
+            } else {
+                //console.log(db);
+                //add
+                var trans = db.transaction(["employees"], "readwrite");
+                var store = trans.objectStore("employees");
+                var delRequest = store.delete(1);
+                delRequest.addEventListener("success", function () {
+                    alert("刪除成功!!");
+                })
+                delRequest.addEventListener("error", errorHandler)
 
+            }
         }
+
 
         //透過Cursor讀取資料
         function readDataByCursor() {
