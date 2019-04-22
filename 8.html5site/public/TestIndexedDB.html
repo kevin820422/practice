@@ -104,18 +104,15 @@
             indexDB.addEventListener("upgradeneeded", function (event) {
                 console.log("upgradeneeded");
                 var db = event.target.result;
+                //建立 Object Store
+                var store = db.createObjectStore("employees", {
+                    "keyPath": "empId",
+                    "autoIncrement": true
+                })
+                store.createIndex("nameIndex", "name", { unique: true })  //第一個參數keypath用於搜尋
+                store.createIndex("ageIndex", "age", { unique: false })
+                store.createIndex("emailIndex", "email", { unique: true })
             })
-
-            //建立 Object Store
-            var store = db.createObjectStore("employees", {
-                "keyPath": "empId",
-                "autoIncrement": true
-            })
-            store.createIndex("nameIndex", "name", { unique: true })
-            store.createIndex("ageIndex", "age", { unique: false })
-            store.createIndex("emailIndex", "email", { unique: true })
-
-
 
         }
 
@@ -134,11 +131,20 @@
                 //db方法中產生transaction 在裡面修改
                 var trans = db.transaction(["employees"], "readwrite"); //readwrite 讀寫
                 var store = trans.objectStore("employees");
-                var addRequest = store.add({ "name": "Jack", "age": 30, "email": "Jack@gmail.com" });
-                addRequest.addEventListener("success", function () {
-                    alert("新增成功!!");
-                })
-                addRequest.addEventListener("error", errorHandler)
+                var datas = [
+                    { "name": "Rose", "age": 30, "email": "Rose@gmail.com" },
+                    { "name": "Tim", "age": 30, "email": "Tim@gmail.com" },
+                    { "name": "Jude", "age": 30, "email": "Jude@gmail.com" },
+                    { "name": "Nina", "age": 30, "email": "Nina@gmail.com" }
+                ]
+                for (var i = 0; i < datas.length; i++) {
+                    store.add(datas[i]);
+                }
+                // var addRequest = store.add({ "name": "Jack", "age": 30, "email": "Jack@gmail.com" });
+                // addRequest.addEventListener("success", function () {
+                //     alert("新增成功!!");
+                // })
+                // addRequest.addEventListener("error", errorHandler)
 
             }
 
@@ -152,11 +158,21 @@
                 //add
                 var trans = db.transaction(["employees"], "readwrite");
                 var store = trans.objectStore("employees");
-                var putRequest = store.put({ "empId": 2, "name": "Jack2", "age": 32, "email": "Jack2@gmail.com" });
-                putRequest.addEventListener("success", function () {
-                    alert("修改成功!!");
-                })
-                putRequest.addEventListener("error", errorHandler)
+                var newdatas = [
+                    { "name": "Rose", "age": 32, "email": "Rose@gmail.com", "empId": 2 },
+                    { "name": "Tim", "age": 35, "email": "Tim@gmail.com", "empId": 3 },
+                    { "name": "Jude", "age": 31, "email": "Jude@gmail.com", "empId": 4 },
+                    { "name": "Nina", "age": 28, "email": "Nina@gmail.com", "empId": 5 }
+                ]
+
+                for (var i = 0; i < newdatas.length; i++) {
+                    store.put(newdatas[i]);
+                }
+                // var putRequest = store.put({ "empId": 2, "name": "Rose", "age": 32, "email": "Rose@gmail.com" });
+                // putRequest.addEventListener("success", function () {
+                //     alert("修改成功!!");
+                // })
+                // putRequest.addEventListener("error", errorHandler)
 
             }
 
@@ -183,15 +199,61 @@
 
         //透過Cursor讀取資料
         function readDataByCursor() {
+            if (db == null) {
+                alert("請先開啟資料庫")
+            } else {
+                var trans = db.transaction(["employees"], "readonly");
+                var store = trans.objectStore("employees");
 
+                //讀出所有資料
+                // var cursorRequest = store.openCursor();
+
+                //讀出員工編號5的資料
+                // var cursorRequest=store.openCursor(IDBKeyRange.only(5))
+
+                //切換到nameIndex
+                // var nameIndex = store.index("nameIndex");
+                // var cursorRequest = nameIndex.openCursor(IDBKeyRange.only("Jude"))
+
+                //切換到ageIndex
+                var ageIndex = store.index("ageIndex");
+                // var cursorRequest=ageIndex.openCursor(IDBKeyRange.only(31))
+                // var cursorRequest = ageIndex.openCursor(IDBKeyRange.upperBound(31,false))
+                // var cursorRequest = ageIndex.openCursor(IDBKeyRange.lowerBound(31, true))
+                var cursorRequest = ageIndex.openCursor(IDBKeyRange.bound(26, 31, false, false))
+
+                cursorRequest.addEventListener("error", errorHandler);
+                cursorRequest.addEventListener("success", function (event) {
+                    var result = event.target.result;
+                    if (!result) {
+                        return; //如果沒有返回，讀到最後一條時，下一條的result.name會是null，會出錯。
+                    }
+                    console.log(result.value);
+                    console.log(result.value.name);
+                    console.log(result.value.email);
+                    result.continue();
+
+                })
+
+            }
         }
-
         //透過Index讀取資料
         function readDataByIndex() {
+            if (db == null) {
+                alert("請先開啟資料庫")
+            } else {
+                var trans = db.transaction(["employees"], "readonly");
+                var store = trans.objectStore("employees");
+
+                var nameIndex = store.index("nameIndex");
+                var request=nameIndex.get('Jack');
+                request.addEventListener("success",function(event){
+                    console.log(event.target.result.email)
+                })
+
+            }
 
         }
-
-
     </script>
 </head>
 

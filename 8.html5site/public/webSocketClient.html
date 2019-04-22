@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <script>
+    var mydiv=document.querySelector('#div1');
+
+    var socket = new WebSocket("ws://echo.websocket.org"); // "wb://"為WEBSOCKET協定
+    socket.addEventListener('open',function(){
+        mydiv.innerHTML+="連線成功 <br>";
+        socket.send("Hello from localhost!")
+    })
+    socket.addEventListener("message",function(event){
+        mydiv.innerHTML+=event.data+"<br>";
+        socket.close(); //取得資料後關閉連線
+    })
+    socket.addEventListener("close",function(){
+        mydiv.innerHTML+="連線關閉<br>";
+    })
+    </script>
+</body>
+</html>

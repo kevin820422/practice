@@ -7,6 +7,7 @@ var directory = require('serve-index');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -22,6 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);
+//http://localhost:3000/api
+app.use('/api',apiRouter);
 app.use('/',directory(path.join(__dirname,'public')));
 
 
