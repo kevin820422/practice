@@ -45,7 +45,7 @@
         var reader = new FileReader();
         reader.readAsDataURL(theFile);
         reader.addEventListener('load',function(event){
-           console.log(event.target.result);
+           //console.log(event.target.result);
            //<img src="" class="" />
            var eleImg = document.createElement("img");
            eleImg.setAttribute("src",event.target.result);  
@@ -54,6 +54,17 @@
            dropZone.appendChild(eleImg);
 
         })
+
+        //檔案上傳
+        var formData = new FormData();
+        formData.append("myFile",theFile);
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("load",function(){
+           console.log(xhr.responseText);
+        })
+        //xhr.open('POST','接收檔案的Server端程式');api/upload
+        xhr.open('POST','api/upload');
+        xhr.send(formData);
 
       }
        //產生File Object的方法二

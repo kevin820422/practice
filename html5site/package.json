@@ -12,7 +12,9 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
-    "request": "^2.88.0"
+    "multer": "^1.4.1",
+    "request": "^2.88.0",
+    "websocket": "^1.0.28"
   },
   "devDependencies": {
     "serve-index": "^1.9.1"

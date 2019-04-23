@@ -2,6 +2,19 @@ var express = require('express');
 var request = require('request'); //發送要求的套件
 var zlib = require("zlib"); //解壓縮gz
 var router = express.Router();
+var multer = require('multer');
+// var upload = multer({ dest: 'uploads/' });
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+
+var upload = multer({ storage: storage })
 
 /* GET users listing. */
 //http://localhost:3000/api
@@ -40,5 +53,12 @@ router.get('/youbike', function (req, res) {
             res.write('data:' + datas.toString() + '\n\n');
         })
     })
+})
+
+//http://localhost:3000/api/upload
+router.post('/upload', upload.single('myFile'), function (req, res, next) {
+    // req.file is the `avatar` file
+    // req.body will hold the text fields, if there were any
+    res.send(req.file);
 })
 module.exports = router;

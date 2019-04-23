@@ -16,7 +16,7 @@ wsServer = new WebSocketServer({
 
 
 wsServer.on('request', function (request) {
-    var connection = request.accept(null, request.origin); 
+    var connection = request.accept(null, request.origin);
     console.log((new Date()) + ' Connection accepted.');
 
 

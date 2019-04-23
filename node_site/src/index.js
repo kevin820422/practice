@@ -77,6 +77,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // 查看 HTTP HEADER 的 Content-Type: application/json
 app.use(bodyParser.json());
 
+app.get('/headers', (req, res) => {
+    var s = "";
+    for (var name in req.headers) {
+        s += name + ":" + req.headers[name] + '\n';
+    }
+    res.send(s)
+});
 app.get('/', (req, res) => {
     console.log(res)
     res.render('home', { name: 'Hsu' });
@@ -306,7 +313,7 @@ app.post('/sales3/add', (req, res) => {
             // }
             //
             // res.render('sales3-add', data);
-            
+
             if (results.affectedRows === 1) {
                 console.log(results);
                 return db.queryAsync("INSERT INTO `sales` SET ?", {
