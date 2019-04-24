@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        navigator.geolocation.getCurrentPosition(successHandler, errorHandler)
+        function successHandler(postion){
+            let x=postion.coords.latitude,
+            y = postion.coords.longitude;
+            console.log(`經度:${x};緯度:${y}`)
+        }
+        function errorHandler(error){
+            console.log(error.code)
+        }
+        </script>
+</body>
+</html>

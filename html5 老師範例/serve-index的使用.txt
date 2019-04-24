@@ -1,0 +1,22 @@
+﻿安裝(在專案的資料夾中執行下面這段)
+npm install serve-index --save-dev
+
+會將serve-index安裝到node_modules中
+會將安裝的套件記錄在package.json中
+ "devDependencies": {
+    "serve-index": "^1.9.1"
+  }
+
+
+
+引用(在app.js中)
+var directory = require('serve-index');
+
+
+使用(在app.js中)
+// app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+//當使用者輸入http://localhost:3000時
+//能夠將public資料夾裡面的檔案全部顯示出來
+app.use('/',directory(path.join(__dirname,'public')));

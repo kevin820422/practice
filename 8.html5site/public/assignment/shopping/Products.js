@@ -48,9 +48,11 @@ for (var i = 0, max = products.length; i < max; i++) {
 
 	//to do 對於eleA的div元素設定dragstart事件
 	eleA.addEventListener("dragstart", function(event){
-		event.dataTransfer.setData("text/plain", this.id);
+		event.dataTransfer.setData("text/plain", event.currentTarget.id);
 		console.log(this.id)
-		console.log(event)
+		console.log(event.target)
+		// console.log(event.target.id)
+		console.log(event.currentTarget)
 	})
 	//在dragstart的事件中，透過this.id，將eleA的id存到(setData)dataTransfer物件中
 
