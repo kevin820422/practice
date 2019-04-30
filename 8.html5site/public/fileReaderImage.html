@@ -45,6 +45,7 @@
 
       //讀取圖檔的內容
       var reader = new FileReader();
+      console.log(reader)
       reader.readAsDataURL(theFile);
       reader.addEventListener('load', function (event) {
         console.log(event.target.result);
