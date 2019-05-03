@@ -1,11 +1,8 @@
-App.js
-Today
-4:36 PM
-a
-anna su uploaded an item
-Javascript
-App.js
 import React from 'react'
+import TodoItem from './component/TodoItem'
+import TodoInput from './component/TodoInput'
+import TodoInputTwo from './component/TodoInputTwo'
+import TodoInputThree from './component/TodoInputThree'
 
 class App extends React.Component {
   constructor() {
@@ -18,6 +15,8 @@ class App extends React.Component {
   }
 
   handleChange = event => this.setState({ inputText: event.target.value })
+
+  handleChangeTwo = text => this.setState({ inputText: text })
 
   handleKeyPress = event => {
     if (event.target.value && event.key === 'Enter') {
@@ -36,46 +35,40 @@ class App extends React.Component {
 
     const index = this.state.items.findIndex(element => {
       if (element.id === id) return true
-      else return false
+
+      return false
     })
 
-    if (index > -1) {
-      newItems[index].isCompleted = !newItems[index].isCompleted
-      this.setState({ items: newItems })
-    }
+    newItems[index].isCompleted = !newItems[index].isCompleted
+    this.setState({ items: newItems })
+  }
+
+  handleDeleteClick = id => () => {
+    const newItems = this.state.items.filter(element => {
+      return element.id !== id
+    })
+
+    this.setState({ items: newItems })
   }
 
   render() {
     return (
       <>
-        <input
-          type="text"
+        <TodoInput
           value={this.state.inputText}
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
         />
         <ul>
-          {this.state.items.map((element, index) => {
-            if (element.isCompleted) {
-              return (
-                <li
-                  key={element.id}
-                  onClick={this.handleCompletedClick(element.id)}
-                >
-                  <del>{element.text}</del>
-                </li>
-              )
-            } else {
-              return (
-                <li
-                  key={element.id}
-                  onClick={this.handleCompletedClick(element.id)}
-                >
-                  {element.text}
-                </li>
-              )
-            }
-          })}
+          {this.state.items.map((element, index) => (
+            <TodoItem
+              key={element.id}
+              clickMethod={this.handleCompletedClick(element.id)}
+              deleteMethod={this.handleDeleteClick(element.id)}
+              text={element.text}
+              isDel={element.isCompleted}
+            />
+          ))}
         </ul>
       </>
     )
