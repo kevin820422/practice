@@ -17,7 +17,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'benjamin',
     password: '12345678',
-    database: 'proj54'
+    database: 'chef'
 });
 db.connect();
 
@@ -282,6 +282,7 @@ app.get('/try-db', (req, res) => {
         });
     });
 });
+
 app.get('/sales3/add', (req, res) => {
     res.render('sales3-add')
 });
