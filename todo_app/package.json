@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "eslint-config-react-app": "^4.0.0",
     "eslint-plugin-flowtype": "^3.6.1",
     "eslint-plugin-import": "^2.17.2",
@@ -12,7 +13,11 @@
     "flow-bin": "^0.98.0",
     "prettier": "^1.17.0",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.6.1",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0"
   },
   "scripts": {
