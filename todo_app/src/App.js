@@ -1,28 +1,34 @@
 import React from 'react'
-import TodoApp from './component/TodoApp'
-import ClockApp from './component2/ClockApp'
-import CounterApp from './component3/CounterApp'
-import BootstraTest from './component4/BootstrapTest'
-import StudentManager from './component5/manager(usingFetch)'
-import RouterTest from './component6/RouterTest'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  NavLink,
+} from 'react-router-dom'
+import Home from './page/Home'
+import Student from './page/Student'
+import Header from './component/Header'
+import Footer from './component/Footer'
+import PathNow from './component/PathNow'
 
 class App extends React.Component {
-  //類別建構
-  constructor() {
-    super()
-    this.state = {}
-  }
-
   render() {
     return (
-      <>
-        <RouterTest />
-        {/* <StudentManager /> */}
-        {/* <BootstraTest />
-        <CounterApp />
-        <hr />
-        <TodoApp /> */}
-      </>
+      <Router>
+        <>
+          <div className="container bg-light" style={{}}>
+            <Header />
+            <PathNow />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/student/:sid" component={Student} />
+              <Route path="/student/" component={Student} />
+            </Switch>
+            <Footer />
+          </div>
+        </>
+      </Router>
     )
   }
 }
