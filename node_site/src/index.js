@@ -13,6 +13,9 @@ const moment = require('moment-timezone'); //時間日期處理
 const mysql = require('mysql'); //SQL
 const bluebird = require('bluebird') //處理Promise物件
 
+const corsPrefetch = require('cors-prefetch-middleware');
+const imagesUpload =require("images-upload-middleware") ;
+
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'benjamin',
@@ -44,7 +47,7 @@ app.set('view engine', 'hbs')
 app.set('views', './views')
 
 
-var whitelist = ['http://localhost:8080', 'http://192.168.27.166:8080', undefined, 'http://localhost:3000']
+var whitelist = ['http://localhost:8080', 'http://192.168.27.166:8080', undefined, 'http://localhost:3000','http://192.168.27.166:3000']
 var corsOptions = {
     credentials: true, //解決別台主機連線問題:多設定credentials
     origin: function (origin, callback) {
@@ -56,6 +59,7 @@ var corsOptions = {
         }
     }
 }
+
 
 // app.use(cors());
 app.use(cors(corsOptions));
@@ -352,6 +356,7 @@ app.get('/', (req, res) => {
 app.get('/abc', (req, res) => {
     res.send('ABC');
 });
+
 
 
 
